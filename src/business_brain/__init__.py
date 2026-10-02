@@ -1,0 +1,2 @@
+"""Business Brain application package."""
+

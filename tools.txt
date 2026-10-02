@@ -1,0 +1,91 @@
+Tools & Techniques Extracted
+
+Generative AI & Agents
+
+Anthropic Claude
+Claude Code
+LangGraph
+Agentic AI / Agentic Applications
+MCP
+LLM Fine-tuning
+LoRA
+QLoRA
+Structured Outputs
+Human-in-the-Loop Workflows
+
+Retrieval & RAG
+
+Hybrid Retrieval
+Reranking
+Qdrant
+
+Evaluation, Observability & MLOps
+
+Ragas
+Langfuse
+MLflow
+Experiment Tracking
+
+ML & Data
+
+Scikit-learn
+XGBoost
+Hugging Face
+Pandas
+NumPy
+spaCy
+NLTK
+
+Databases & Cloud
+
+PostgreSQL
+AWS SageMaker
+Azure AI
+
+Security & Access Control
+
+Role-Based Access Control (RBAC)
+AWS Cognito
+Additional Techniques / Tools Mentioned
+
+Agent Integration
+
+MCP Python SDK
+Tool Calling
+Pydantic
+
+Agent Reliability
+
+Checkpointing
+Persistent State
+Retry & Recovery Workflows
+
+Advanced Retrieval
+
+Metadata Filtering
+
+Evaluation
+
+LangSmith
+Evaluation Datasets
+Groundedness Evaluation
+Token-Cost Monitoring
+Latency Monitoring
+
+MLOps & Automation
+
+Model Registry
+Git
+GitHub Actions
+CI/CD
+Clean Resume Skills List
+
+If you want this as a compact Skills & Tools section:
+
+Generative AI: Anthropic Claude, Claude Code, LangGraph, Agentic AI, MCP, LLM Fine-tuning, LoRA, QLoRA, Structured Outputs, Human-in-the-Loop
+RAG & Retrieval: Hybrid Retrieval, Reranking, Qdrant, Metadata Filtering
+Evaluation & Observability: Ragas, Langfuse, MLflow, LangSmith, Evaluation Datasets, Groundedness Evaluation, Token-Cost & Latency Monitoring
+ML & NLP: Scikit-learn, XGBoost, Hugging Face, Pandas, NumPy, spaCy, NLTK
+Agent Engineering: MCP Python SDK, Tool Calling, Pydantic, Checkpointing, Persistent State, Retry & Recovery Workflows
+Cloud, Data & MLOps: AWS SageMaker, Azure AI, PostgreSQL, Git, GitHub Actions, CI/CD, Model Registry
+Security: AWS Cognito, RBAC
