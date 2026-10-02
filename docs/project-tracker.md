@@ -24,7 +24,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 2.3 | Validated Ask API | DONE | `POST /api/v1/ask`, request/thread IDs, mock tenant/user/role headers, and safe errors | Replace mock identity with Auth0 in Phase 4 |
 | 2.4 | Langfuse tracing | DONE | Live authentication and trace verified; model, tenant, role, tokens, fallback, attempts, and request metadata captured | Add retrieval, tool, workflow, and evaluation spans as those features are built |
 | 3.1 | Canonical data blueprint | DONE | 21-entity commerce, inventory, logistics, finance, document, and approval contract committed in `docs/data-blueprint.md` | None |
-| 3.2 | Machine-readable schemas and reference entities | TODO | — | Implement validated schemas plus two tenants, regions, 50 Aura SKUs, warehouses, suppliers, and carriers |
+| 3.2 | Machine-readable schemas and reference entities | DONE | Strict Pydantic catalog, generated JSON Schema, fixed seed, 2 tenants, 58 total SKUs including 50 Aura SKUs, 5 warehouses, 7 suppliers, 5 carriers, and isolation tests | None |
 | 3.3 | Commerce and inventory generator | TODO | — | Deterministically generate customers, orders, order lines, balances, and inventory movements |
 | 3.4 | Logistics generator | TODO | — | Generate shipments, tracking events, delays, inbound replenishment, and carrier SLA facts |
 | 3.5 | Finance and procurement generator | TODO | — | Generate purchase orders, vendor invoices, invoice lines, payments, freight charges, and margin inputs |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.1 Canonical data blueprint**
-- Next step: **3.2 Machine-readable schemas and reference entities**
+- Current completed step: **3.2 Machine-readable schemas and reference entities**
+- Next step: **3.3 Commerce and inventory generator**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: Ruff passed and 32 tests passed
+- Latest verification at this checkpoint: generated artifacts current, Ruff passed, and 40 tests passed
 
 ## Update rule
 

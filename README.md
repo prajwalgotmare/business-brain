@@ -57,6 +57,8 @@ Phase 3A data foundation (in progress):
 - Tenant-scoped identifiers, sensitivity classes, and cross-entity integrity rules
 - Standards-informed CSV, JSON, PostgreSQL, and Qdrant data flow contract
 - Deterministic demonstration scenarios with planned evaluation ground truth
+- Strict machine-readable reference catalog and generated JSON Schema
+- Fixed Aura/Apex tenants, regions, products, warehouses, suppliers, and carriers
 
 ## Local development
 

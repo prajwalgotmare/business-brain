@@ -1,0 +1,429 @@
+{
+  "$defs": {
+    "Carrier": {
+      "additionalProperties": false,
+      "properties": {
+        "carrier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Carrier Id",
+          "type": "string"
+        },
+        "carrier_name": {
+          "maxLength": 120,
+          "minLength": 3,
+          "title": "Carrier Name",
+          "type": "string"
+        },
+        "record_status": {
+          "$ref": "#/$defs/RecordStatus",
+          "default": "active"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "service_level": {
+          "$ref": "#/$defs/ServiceLevel"
+        },
+        "sla_delivery_days": {
+          "exclusiveMinimum": 0,
+          "maximum": 30,
+          "title": "Sla Delivery Days",
+          "type": "integer"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "carrier_id",
+        "carrier_name",
+        "service_level",
+        "sla_delivery_days"
+      ],
+      "title": "Carrier",
+      "type": "object"
+    },
+    "Product": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Category",
+          "type": "string"
+        },
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "list_price": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "List Price"
+        },
+        "product_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "product_name": {
+          "maxLength": 120,
+          "minLength": 3,
+          "title": "Product Name",
+          "type": "string"
+        },
+        "record_status": {
+          "$ref": "#/$defs/RecordStatus",
+          "default": "active"
+        },
+        "reorder_point": {
+          "minimum": 0,
+          "title": "Reorder Point",
+          "type": "integer"
+        },
+        "safety_stock": {
+          "minimum": 0,
+          "title": "Safety Stock",
+          "type": "integer"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "sku": {
+          "pattern": "^[A-Z0-9-]+$",
+          "title": "Sku",
+          "type": "string"
+        },
+        "standard_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Standard Cost"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "unit_of_measure": {
+          "pattern": "^[A-Z0-9]{2,3}$",
+          "title": "Unit Of Measure",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "product_id",
+        "sku",
+        "product_name",
+        "category",
+        "unit_of_measure",
+        "list_price",
+        "standard_cost",
+        "currency_code",
+        "reorder_point",
+        "safety_stock"
+      ],
+      "title": "Product",
+      "type": "object"
+    },
+    "RecordStatus": {
+      "enum": [
+        "active",
+        "inactive",
+        "cancelled"
+      ],
+      "title": "RecordStatus",
+      "type": "string"
+    },
+    "Region": {
+      "additionalProperties": false,
+      "properties": {
+        "country_code": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Country Code",
+          "type": "string"
+        },
+        "region_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Region Id",
+          "type": "string"
+        },
+        "region_name": {
+          "maxLength": 80,
+          "minLength": 2,
+          "title": "Region Name",
+          "type": "string"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "region_id",
+        "region_name",
+        "country_code"
+      ],
+      "title": "Region",
+      "type": "object"
+    },
+    "ServiceLevel": {
+      "enum": [
+        "standard",
+        "expedited",
+        "same_day"
+      ],
+      "title": "ServiceLevel",
+      "type": "string"
+    },
+    "Supplier": {
+      "additionalProperties": false,
+      "properties": {
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "lead_time_days": {
+          "exclusiveMinimum": 0,
+          "maximum": 180,
+          "title": "Lead Time Days",
+          "type": "integer"
+        },
+        "payment_terms_days": {
+          "enum": [
+            30,
+            45,
+            60
+          ],
+          "title": "Payment Terms Days",
+          "type": "integer"
+        },
+        "record_status": {
+          "$ref": "#/$defs/RecordStatus",
+          "default": "active"
+        },
+        "sensitivity": {
+          "const": "accounting",
+          "default": "accounting",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "supplier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Supplier Id",
+          "type": "string"
+        },
+        "supplier_name": {
+          "maxLength": 120,
+          "minLength": 3,
+          "title": "Supplier Name",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "supplier_id",
+        "supplier_name",
+        "payment_terms_days",
+        "lead_time_days",
+        "currency_code"
+      ],
+      "title": "Supplier",
+      "type": "object"
+    },
+    "Tenant": {
+      "additionalProperties": false,
+      "properties": {
+        "default_currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Default Currency Code",
+          "type": "string"
+        },
+        "record_status": {
+          "$ref": "#/$defs/RecordStatus",
+          "default": "active"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "tenant_name": {
+          "maxLength": 100,
+          "minLength": 2,
+          "title": "Tenant Name",
+          "type": "string"
+        },
+        "timezone": {
+          "title": "Timezone",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "tenant_name",
+        "default_currency_code",
+        "timezone"
+      ],
+      "title": "Tenant",
+      "type": "object"
+    },
+    "Warehouse": {
+      "additionalProperties": false,
+      "properties": {
+        "country_code": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Country Code",
+          "type": "string"
+        },
+        "region_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Region Id",
+          "type": "string"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "timezone": {
+          "title": "Timezone",
+          "type": "string"
+        },
+        "warehouse_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Warehouse Id",
+          "type": "string"
+        },
+        "warehouse_name": {
+          "maxLength": 100,
+          "minLength": 3,
+          "title": "Warehouse Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "warehouse_id",
+        "region_id",
+        "warehouse_name",
+        "country_code",
+        "timezone"
+      ],
+      "title": "Warehouse",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "carriers": {
+      "items": {
+        "$ref": "#/$defs/Carrier"
+      },
+      "title": "Carriers",
+      "type": "array"
+    },
+    "generation_seed": {
+      "minimum": 0,
+      "title": "Generation Seed",
+      "type": "integer"
+    },
+    "products": {
+      "items": {
+        "$ref": "#/$defs/Product"
+      },
+      "title": "Products",
+      "type": "array"
+    },
+    "regions": {
+      "items": {
+        "$ref": "#/$defs/Region"
+      },
+      "title": "Regions",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "suppliers": {
+      "items": {
+        "$ref": "#/$defs/Supplier"
+      },
+      "title": "Suppliers",
+      "type": "array"
+    },
+    "tenants": {
+      "items": {
+        "$ref": "#/$defs/Tenant"
+      },
+      "title": "Tenants",
+      "type": "array"
+    },
+    "warehouses": {
+      "items": {
+        "$ref": "#/$defs/Warehouse"
+      },
+      "title": "Warehouses",
+      "type": "array"
+    }
+  },
+  "required": [
+    "generation_seed",
+    "tenants",
+    "regions",
+    "products",
+    "warehouses",
+    "suppliers",
+    "carriers"
+  ],
+  "title": "ReferenceCatalog",
+  "type": "object"
+}
