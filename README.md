@@ -51,6 +51,13 @@ Phase 2D observability:
 - Configurable prompt/response content capture for synthetic demonstration data
 - Fail-open tracing: initialization, update, export, or flush failures cannot break generation
 
+Phase 3A data foundation (in progress):
+
+- Canonical e-commerce, logistics, procurement, finance, document, and approval model
+- Tenant-scoped identifiers, sensitivity classes, and cross-entity integrity rules
+- Standards-informed CSV, JSON, PostgreSQL, and Qdrant data flow contract
+- Deterministic demonstration scenarios with planned evaluation ground truth
+
 ## Local development
 
 Prerequisites: Python 3.11+, `uv`, Docker Desktop, and Docker Compose.
@@ -89,4 +96,5 @@ docker compose up -d
 5. Evaluation gates, forecasting, and experiment tracking
 6. React demonstration UI, deployment, documentation, and measured portfolio evidence
 
-See [`docs/product-contract.md`](docs/product-contract.md) for the locked MVP scope.
+See [`docs/product-contract.md`](docs/product-contract.md) for the locked MVP scope and
+[`docs/data-blueprint.md`](docs/data-blueprint.md) for the canonical Phase 3 data contract.
