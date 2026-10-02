@@ -18,5 +18,6 @@ tenant_apex,dex_apx_000016,shp_apx_000049,tev_apx_0000161,address_issue,2026-09-
 tenant_apex,dex_apx_000017,shp_apx_000066,tev_apx_0000213,sortation_error,2026-09-12T12:01:00Z,2026-09-14T16:01:00Z,resolved,True,operations
 tenant_apex,dex_apx_000018,shp_apx_000067,tev_apx_0000217,sortation_error,2026-09-07T07:59:59Z,,open,False,operations
 tenant_apex,dex_apx_000019,shp_apx_000068,tev_apx_0000220,address_issue,2026-09-13T07:59:59Z,,open,False,operations
-tenant_apex,dex_apx_000020,shp_apx_000069,tev_apx_0000223,sortation_error,2026-09-16T07:59:59Z,,open,False,operations
-tenant_apex,dex_apx_000021,shp_apx_000071,tev_apx_0000229,carrier_capacity,2026-09-10T07:59:59Z,,open,False,operations
+tenant_apex,dex_apx_000020,shp_apx_000070,tev_apx_0000226,address_issue,2026-09-17T07:59:59Z,2026-09-18T15:59:59Z,resolved,False,operations
+tenant_apex,dex_apx_000021,shp_apx_000071,tev_apx_0000230,sortation_error,2026-09-05T07:59:59Z,2026-09-06T18:59:59Z,resolved,False,operations
+tenant_apex,dex_apx_000022,shp_apx_000072,tev_apx_0000234,sortation_error,2026-09-18T07:59:59Z,2026-09-18T22:59:59Z,resolved,False,operations

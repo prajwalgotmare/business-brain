@@ -12,10 +12,13 @@ permit real customer, employee, supplier, or payment data.
 
 The model is standards-informed rather than a claim of complete certification:
 
-- DataCo SMART Supply Chain supplies realistic commerce and delivery terminology and
-  statistical reference distributions.
+- DataCo SMART Supply Chain supplies realistic commerce and delivery terminology.
+- UCI Online Retail II supplies profiled transaction-size, quantity, and cancellation
+  reference distributions; only aggregate statistics are retained.
 - GS1 EPCIS 2.0 informs shipment and tracking-event semantics.
 - OASIS UBL 2.3 informs purchase-order and invoice concepts.
+- The U.S. Bureau of Labor Statistics Producer Price Index supplies public freight-cost
+  terminology and a future index-calibration source.
 - JSON payloads are validated against JSON Schema Draft 2020-12 through generated
   Pydantic schemas.
 

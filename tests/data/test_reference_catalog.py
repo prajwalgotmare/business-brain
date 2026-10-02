@@ -17,6 +17,8 @@ def test_reference_catalog_has_locked_tenant_and_entity_counts() -> None:
     assert sum(product.tenant_id == "tenant_apex" for product in catalog.products) == 8
     assert sum(warehouse.tenant_id == "tenant_aura" for warehouse in catalog.warehouses) == 3
     assert sum(carrier.tenant_id == "tenant_aura" for carrier in catalog.carriers) == 3
+    assert len(catalog.suppliers) == 12
+    assert sum("Billing" in supplier.supplier_name for supplier in catalog.suppliers) == 5
 
 
 def test_reference_catalog_round_trips_through_json_contract() -> None:

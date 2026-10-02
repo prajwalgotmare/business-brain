@@ -24,10 +24,10 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 2.3 | Validated Ask API | DONE | `POST /api/v1/ask`, request/thread IDs, mock tenant/user/role headers, and safe errors | Replace mock identity with Auth0 in Phase 4 |
 | 2.4 | Langfuse tracing | DONE | Live authentication and trace verified; model, tenant, role, tokens, fallback, attempts, and request metadata captured | Add retrieval, tool, workflow, and evaluation spans as those features are built |
 | 3.1 | Canonical data blueprint | DONE | 21-entity commerce, inventory, logistics, finance, document, and approval contract committed in `docs/data-blueprint.md` | None |
-| 3.2 | Machine-readable schemas and reference entities | DONE | Strict Pydantic catalog, generated JSON Schema, fixed seed, 2 tenants, 58 total SKUs including 50 Aura SKUs, 5 warehouses, 7 suppliers, 5 carriers, and isolation tests | None |
+| 3.2 | Machine-readable schemas and reference entities | DONE | Strict Pydantic catalog, generated JSON Schema, fixed seed, 2 tenants, 58 total SKUs including 50 Aura SKUs, 5 warehouses, 7 product suppliers, 5 freight-billing suppliers, 5 carriers, and isolation tests | None |
 | 3.3 | Commerce and inventory generator | DONE | Deterministic six-week generator, 10 tenant-separated CSV files, 3,447 connected rows, generated JSON Schema, reconciled totals/inventory, and spreadsheet-runtime verification | None |
 | 3.4 | Logistics generator | DONE | Deterministic generator produced 531 shipments, 1,096 shipment items, 1,696 tracking events, 531 SLA facts, 129 exceptions, and 531 manifests across isolated Aura/Apex datasets; schema, reconciliation tests, reproducibility checks, and spreadsheet-runtime inspection passed | None |
-| 3.5 | Finance and procurement generator | TODO | — | Generate purchase orders, vendor invoices, invoice lines, payments, freight charges, and margin inputs |
+| 3.5 | Finance and procurement generator | DONE | Public-source calibration manifest plus deterministic purchase orders, supplier/carrier invoices, invoice lines, completed payments, and weekly regional margin snapshots; UBL-aligned structures and end-to-end financial reconciliations verified | None |
 | 3.6 | Ground-truth business scenarios | TODO | — | Plant stockout, overbilling, commercial-terms, overdue-invoice, West-margin, and PO-approval scenarios |
 | 3.7 | Data-quality suite and manifest | TODO | — | Validate keys, totals, dates, inventory, tenant isolation, scenario evidence, row counts, and file hashes |
 | 3.8 | Synthetic PDF corpus | TODO | — | Create and verify 8–12 supplier agreements, carrier agreements, invoices, policies, and compliance documents |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.4 Logistics generator**
-- Next step: **3.5 Finance and procurement generator**
+- Current completed step: **3.5 Finance and procurement generator**
+- Next step: **3.6 Ground-truth business scenarios**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: all generated artifacts current, Ruff passed, 58 tests passed, and all 12 logistics CSV files independently inspected with the spreadsheet runtime
+- Latest verification at this checkpoint: all generated artifacts current, Ruff passed, 65 tests passed, and all 12 finance CSV files independently inspected with the spreadsheet runtime
 
 ## Update rule
 

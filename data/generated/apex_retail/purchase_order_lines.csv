@@ -1,0 +1,13 @@
+tenant_id,purchase_order_line_id,purchase_order_id,product_id,quantity,unit_cost,line_amount,sensitivity
+tenant_apex,pol_apx_00001_01,po_apx_00001,prd_apx_002,149,11.96,1782.04,executive
+tenant_apex,pol_apx_00001_02,po_apx_00001,prd_apx_003,128,13.46,1722.88,executive
+tenant_apex,pol_apx_00002_01,po_apx_00002,prd_apx_001,149,10.47,1560.03,executive
+tenant_apex,pol_apx_00002_02,po_apx_00002,prd_apx_005,80,16.45,1316.00,executive
+tenant_apex,pol_apx_00003_01,po_apx_00003,prd_apx_003,90,13.46,1211.40,executive
+tenant_apex,pol_apx_00003_02,po_apx_00003,prd_apx_004,120,14.95,1794.00,executive
+tenant_apex,pol_apx_00003_03,po_apx_00003,prd_apx_008,176,20.93,3683.68,executive
+tenant_apex,pol_apx_00004_01,po_apx_00004,prd_apx_008,150,20.93,3139.50,executive
+tenant_apex,pol_apx_00004_02,po_apx_00004,prd_apx_007,158,19.44,3071.52,executive
+tenant_apex,pol_apx_00004_03,po_apx_00004,prd_apx_002,70,11.96,837.20,executive
+tenant_apex,pol_apx_00005_01,po_apx_00005,prd_apx_003,145,13.46,1951.70,executive
+tenant_apex,pol_apx_00006_01,po_apx_00006,prd_apx_002,108,11.96,1291.68,executive

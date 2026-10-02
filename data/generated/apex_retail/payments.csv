@@ -1,0 +1,5 @@
+tenant_id,payment_id,vendor_invoice_id,payment_date,payment_amount,currency_code,payment_status,sensitivity
+tenant_apex,pay_apx_00026,vin_apx_00026,2026-09-10,2989.25,USD,completed,accounting
+tenant_apex,pay_apx_00027,vin_apx_00027,2026-09-03,3415.28,USD,completed,accounting
+tenant_apex,pay_apx_00028,vin_apx_00028,2026-09-12,7188.26,USD,completed,accounting
+tenant_apex,pay_apx_00029,vin_apx_00029,2026-09-02,2049.80,USD,completed,accounting

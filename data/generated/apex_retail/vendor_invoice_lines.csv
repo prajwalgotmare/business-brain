@@ -1,0 +1,163 @@
+tenant_id,vendor_invoice_line_id,vendor_invoice_id,line_type,description,shipment_id,quantity,unit_price,line_amount,sensitivity
+tenant_apex,vil_apx_00025_01,vin_apx_00025,product,Inventory goods for prd_apx_002,,149,11.96,1782.04,accounting
+tenant_apex,vil_apx_00025_02,vin_apx_00025,product,Inventory goods for prd_apx_003,,128,13.46,1722.88,accounting
+tenant_apex,vil_apx_00025_99,vin_apx_00025,other,Inbound freight charge,,1.000,121.86,121.86,accounting
+tenant_apex,vil_apx_00026_01,vin_apx_00026,product,Inventory goods for prd_apx_001,,149,10.47,1560.03,accounting
+tenant_apex,vil_apx_00026_02,vin_apx_00026,product,Inventory goods for prd_apx_005,,80,16.45,1316.00,accounting
+tenant_apex,vil_apx_00026_99,vin_apx_00026,other,Inbound freight charge,,1.000,113.22,113.22,accounting
+tenant_apex,vil_apx_00027_01,vin_apx_00027,product,Inventory goods for prd_apx_003,,90,13.46,1211.40,accounting
+tenant_apex,vil_apx_00027_02,vin_apx_00027,product,Inventory goods for prd_apx_004,,120,14.95,1794.00,accounting
+tenant_apex,vil_apx_00027_03,vin_apx_00027,product,Inventory goods for prd_apx_008,,176,20.93,3683.68,accounting
+tenant_apex,vil_apx_00027_99,vin_apx_00027,other,Inbound freight charge,,1.000,141.48,141.48,accounting
+tenant_apex,vil_apx_00028_01,vin_apx_00028,product,Inventory goods for prd_apx_008,,150,20.93,3139.50,accounting
+tenant_apex,vil_apx_00028_02,vin_apx_00028,product,Inventory goods for prd_apx_007,,158,19.44,3071.52,accounting
+tenant_apex,vil_apx_00028_03,vin_apx_00028,product,Inventory goods for prd_apx_002,,70,11.96,837.20,accounting
+tenant_apex,vil_apx_00028_99,vin_apx_00028,other,Inbound freight charge,,1.000,140.04,140.04,accounting
+tenant_apex,vil_apx_00029_01,vin_apx_00029,product,Inventory goods for prd_apx_003,,145,13.46,1951.70,accounting
+tenant_apex,vil_apx_00029_99,vin_apx_00029,other,Inbound freight charge,,1.000,98.10,98.10,accounting
+tenant_apex,vil_apx_00030_01,vin_apx_00030,product,Inventory goods for prd_apx_002,,108,11.96,1291.68,accounting
+tenant_apex,vil_apx_00030_99,vin_apx_00030,other,Inbound freight charge,,1.000,91.44,91.44,accounting
+tenant_apex,vil_apx_00031_0001,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000001,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00031_0002,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000001,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00031_0003,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000006,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00031_0004,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000006,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00031_0005,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000010,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0006,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000010,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0007,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000011,1.000,15.13,15.13,accounting
+tenant_apex,vil_apx_00031_0008,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000011,1.000,1.82,1.82,accounting
+tenant_apex,vil_apx_00031_0009,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000012,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0010,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000012,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0011,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000017,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00031_0012,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000017,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00031_0013,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000020,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0014,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000020,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0015,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000021,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0016,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000021,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0017,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000026,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0018,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000026,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0019,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000027,1.000,13.93,13.93,accounting
+tenant_apex,vil_apx_00031_0020,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000027,1.000,1.67,1.67,accounting
+tenant_apex,vil_apx_00031_0021,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000029,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0022,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000029,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0023,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000035,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00031_0024,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000035,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00031_0025,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000037,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00031_0026,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000037,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00031_0027,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000039,1.000,15.13,15.13,accounting
+tenant_apex,vil_apx_00031_0028,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000039,1.000,1.82,1.82,accounting
+tenant_apex,vil_apx_00031_0029,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000040,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00031_0030,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000040,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00031_0031,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000041,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00031_0032,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000041,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00031_0033,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000044,1.000,13.93,13.93,accounting
+tenant_apex,vil_apx_00031_0034,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000044,1.000,1.67,1.67,accounting
+tenant_apex,vil_apx_00031_0035,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000045,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00031_0036,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000045,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00031_0037,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000046,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0038,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000046,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0039,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000047,1.000,16.34,16.34,accounting
+tenant_apex,vil_apx_00031_0040,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000047,1.000,1.96,1.96,accounting
+tenant_apex,vil_apx_00031_0041,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000048,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00031_0042,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000048,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00031_0043,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000049,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00031_0044,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000049,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00031_0045,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000050,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0046,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000050,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0047,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000053,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00031_0048,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000053,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00031_0049,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000054,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00031_0050,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000054,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00031_0051,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000055,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00031_0052,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000055,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00031_0053,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000056,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00031_0054,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000056,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00031_0055,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000062,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00031_0056,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000062,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00031_0057,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000063,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00031_0058,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000063,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00031_0059,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000064,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00031_0060,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000064,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00031_0061,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000066,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00031_0062,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000066,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00031_0063,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000067,1.000,108.80,108.80,accounting
+tenant_apex,vil_apx_00031_0064,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000067,1.000,13.06,13.06,accounting
+tenant_apex,vil_apx_00031_0065,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000068,1.000,101.09,101.09,accounting
+tenant_apex,vil_apx_00031_0066,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000068,1.000,12.13,12.13,accounting
+tenant_apex,vil_apx_00031_0067,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000069,1.000,126.32,126.32,accounting
+tenant_apex,vil_apx_00031_0068,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000069,1.000,15.16,15.16,accounting
+tenant_apex,vil_apx_00031_0069,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000071,1.000,87.59,87.59,accounting
+tenant_apex,vil_apx_00031_0070,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000071,1.000,10.51,10.51,accounting
+tenant_apex,vil_apx_00031_0071,vin_apx_00031,freight,Parcel or freight base charge,shp_apx_000072,1.000,81.64,81.64,accounting
+tenant_apex,vil_apx_00031_0072,vin_apx_00031,fuel_surcharge,Carrier fuel surcharge,shp_apx_000072,1.000,9.80,9.80,accounting
+tenant_apex,vil_apx_00032_0001,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000002,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0002,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000002,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0003,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000003,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0004,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000003,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0005,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000004,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0006,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000004,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0007,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000005,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0008,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000005,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0009,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000007,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0010,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000007,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0011,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000008,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0012,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000008,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0013,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000009,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0014,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000009,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0015,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000013,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0016,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000013,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0017,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000014,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0018,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000014,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0019,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000015,1.000,15.13,15.13,accounting
+tenant_apex,vil_apx_00032_0020,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000015,1.000,1.82,1.82,accounting
+tenant_apex,vil_apx_00032_0021,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000016,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0022,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000016,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0023,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000018,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0024,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000018,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0025,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000019,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00032_0026,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000019,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00032_0027,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000022,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0028,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000022,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0029,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000023,1.000,13.93,13.93,accounting
+tenant_apex,vil_apx_00032_0030,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000023,1.000,1.67,1.67,accounting
+tenant_apex,vil_apx_00032_0031,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000024,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0032,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000024,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0033,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000025,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0034,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000025,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0035,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000028,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0036,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000028,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0037,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000030,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0038,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000030,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0039,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000031,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0040,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000031,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0041,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000032,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0042,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000032,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0043,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000033,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0044,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000033,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0045,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000034,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0046,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000034,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0047,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000036,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0048,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000036,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0049,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000038,1.000,7.90,7.90,accounting
+tenant_apex,vil_apx_00032_0050,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000038,1.000,0.95,0.95,accounting
+tenant_apex,vil_apx_00032_0051,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000042,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0052,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000042,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0053,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000043,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0054,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000043,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0055,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000051,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0056,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000051,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0057,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000052,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0058,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000052,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0059,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000057,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0060,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000057,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0061,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000058,1.000,11.52,11.52,accounting
+tenant_apex,vil_apx_00032_0062,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000058,1.000,1.38,1.38,accounting
+tenant_apex,vil_apx_00032_0063,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000059,1.000,12.72,12.72,accounting
+tenant_apex,vil_apx_00032_0064,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000059,1.000,1.53,1.53,accounting
+tenant_apex,vil_apx_00032_0065,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000060,1.000,9.11,9.11,accounting
+tenant_apex,vil_apx_00032_0066,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000060,1.000,1.09,1.09,accounting
+tenant_apex,vil_apx_00032_0067,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000061,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0068,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000061,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0069,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000065,1.000,10.31,10.31,accounting
+tenant_apex,vil_apx_00032_0070,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000065,1.000,1.24,1.24,accounting
+tenant_apex,vil_apx_00032_0071,vin_apx_00032,freight,Parcel or freight base charge,shp_apx_000070,1.000,125.04,125.04,accounting
+tenant_apex,vil_apx_00032_0072,vin_apx_00032,fuel_surcharge,Carrier fuel surcharge,shp_apx_000070,1.000,15.00,15.00,accounting

@@ -65,9 +65,9 @@ tenant_apex,mft_apx_000063,shp_apx_000063,car_apx_rapid,TRK-APX-00000063,expedit
 tenant_apex,mft_apx_000064,shp_apx_000064,car_apx_rapid,TRK-APX-00000064,expedited,3.250,12.72,1.53,14.25,USD,2026-09-15T12:55:00Z,delivered,operations
 tenant_apex,mft_apx_000065,shp_apx_000065,car_apx_summit,TRK-APX-00000065,standard,1.950,10.31,1.24,11.55,USD,2026-08-20T15:04:00Z,delivered,operations
 tenant_apex,mft_apx_000066,shp_apx_000066,car_apx_rapid,TRK-APX-00000066,expedited,2.600,11.52,1.38,12.90,USD,2026-09-10T16:01:00Z,delivered,operations
-tenant_apex,mft_apx_000067,shp_apx_000067,car_apx_rapid,TRK-APX-00000067,expedited,435.600,103.18,12.38,115.56,USD,2026-09-05T11:59:59Z,delayed,operations
-tenant_apex,mft_apx_000068,shp_apx_000068,car_apx_rapid,TRK-APX-00000068,expedited,495.000,108.48,13.02,121.50,USD,2026-09-11T11:59:59Z,delayed,operations
-tenant_apex,mft_apx_000069,shp_apx_000069,car_apx_summit,TRK-APX-00000069,standard,662.400,123.43,14.81,138.24,USD,2026-09-12T11:59:59Z,delayed,operations
-tenant_apex,mft_apx_000070,shp_apx_000070,car_apx_rapid,TRK-APX-00000070,expedited,457.200,105.11,12.61,117.72,USD,2026-09-13T11:59:59Z,delivered,operations
-tenant_apex,mft_apx_000071,shp_apx_000071,car_apx_summit,TRK-APX-00000071,standard,225.000,84.38,10.12,94.50,USD,2026-09-06T11:59:59Z,delayed,operations
-tenant_apex,mft_apx_000072,shp_apx_000072,car_apx_summit,TRK-APX-00000072,standard,261.000,87.59,10.51,98.10,USD,2026-09-13T11:59:59Z,in_transit,operations
+tenant_apex,mft_apx_000067,shp_apx_000067,car_apx_rapid,TRK-APX-00000067,expedited,498.600,108.80,13.06,121.86,USD,2026-09-05T11:59:59Z,delayed,operations
+tenant_apex,mft_apx_000068,shp_apx_000068,car_apx_rapid,TRK-APX-00000068,expedited,412.200,101.09,12.13,113.22,USD,2026-09-11T11:59:59Z,delayed,operations
+tenant_apex,mft_apx_000069,shp_apx_000069,car_apx_rapid,TRK-APX-00000069,expedited,694.800,126.32,15.16,141.48,USD,2026-09-04T11:59:59Z,delivered,operations
+tenant_apex,mft_apx_000070,shp_apx_000070,car_apx_summit,TRK-APX-00000070,standard,680.400,125.04,15.00,140.04,USD,2026-09-13T11:59:59Z,delivered,operations
+tenant_apex,mft_apx_000071,shp_apx_000071,car_apx_rapid,TRK-APX-00000071,expedited,261.000,87.59,10.51,98.10,USD,2026-09-03T11:59:59Z,delivered,operations
+tenant_apex,mft_apx_000072,shp_apx_000072,car_apx_rapid,TRK-APX-00000072,expedited,194.400,81.64,9.80,91.44,USD,2026-09-16T11:59:59Z,delivered,operations

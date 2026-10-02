@@ -65,9 +65,9 @@ tenant_apex,shp_apx_000063,outbound,ord_apx_00076,,car_apx_rapid,wh_apx_west,,re
 tenant_apex,shp_apx_000064,outbound,ord_apx_00077,,car_apx_rapid,wh_apx_east,,reg_apx_east,TRK-APX-00000064,2026-09-15T12:55:00Z,2026-09-17T12:55:00Z,2026-09-17T00:55:00Z,delivered,14.25,USD,operations
 tenant_apex,shp_apx_000065,outbound,ord_apx_00079,,car_apx_summit,wh_apx_east,,reg_apx_east,TRK-APX-00000065,2026-08-20T15:04:00Z,2026-08-24T15:04:00Z,2026-08-23T15:04:00Z,delivered,11.55,USD,operations
 tenant_apex,shp_apx_000066,outbound,ord_apx_00080,,car_apx_rapid,wh_apx_east,,reg_apx_east,TRK-APX-00000066,2026-09-10T16:01:00Z,2026-09-12T16:01:00Z,2026-09-14T16:01:00Z,delivered,12.90,USD,operations
-tenant_apex,shp_apx_000067,inbound,,po_apx_00001,car_apx_rapid,,wh_apx_east,reg_apx_east,TRK-APX-00000067,2026-09-05T11:59:59Z,2026-09-07T11:59:59Z,,delayed,115.56,USD,operations
-tenant_apex,shp_apx_000068,inbound,,po_apx_00002,car_apx_rapid,,wh_apx_west,reg_apx_west,TRK-APX-00000068,2026-09-11T11:59:59Z,2026-09-13T11:59:59Z,,delayed,121.50,USD,operations
-tenant_apex,shp_apx_000069,inbound,,po_apx_00003,car_apx_summit,,wh_apx_east,reg_apx_east,TRK-APX-00000069,2026-09-12T11:59:59Z,2026-09-16T11:59:59Z,,delayed,138.24,USD,operations
-tenant_apex,shp_apx_000070,inbound,,po_apx_00004,car_apx_rapid,,wh_apx_west,reg_apx_west,TRK-APX-00000070,2026-09-13T11:59:59Z,2026-09-15T11:59:59Z,2026-09-14T23:59:59Z,delivered,117.72,USD,operations
-tenant_apex,shp_apx_000071,inbound,,po_apx_00005,car_apx_summit,,wh_apx_east,reg_apx_east,TRK-APX-00000071,2026-09-06T11:59:59Z,2026-09-10T11:59:59Z,,delayed,94.50,USD,operations
-tenant_apex,shp_apx_000072,inbound,,po_apx_00006,car_apx_summit,,wh_apx_west,reg_apx_west,TRK-APX-00000072,2026-09-13T11:59:59Z,2026-09-17T11:59:59Z,,in_transit,98.10,USD,operations
+tenant_apex,shp_apx_000067,inbound,,po_apx_00001,car_apx_rapid,,wh_apx_east,reg_apx_east,TRK-APX-00000067,2026-09-05T11:59:59Z,2026-09-07T11:59:59Z,,delayed,121.86,USD,operations
+tenant_apex,shp_apx_000068,inbound,,po_apx_00002,car_apx_rapid,,wh_apx_west,reg_apx_west,TRK-APX-00000068,2026-09-11T11:59:59Z,2026-09-13T11:59:59Z,,delayed,113.22,USD,operations
+tenant_apex,shp_apx_000069,inbound,,po_apx_00003,car_apx_rapid,,wh_apx_east,reg_apx_east,TRK-APX-00000069,2026-09-04T11:59:59Z,2026-09-06T11:59:59Z,2026-09-05T23:59:59Z,delivered,141.48,USD,operations
+tenant_apex,shp_apx_000070,inbound,,po_apx_00004,car_apx_summit,,wh_apx_west,reg_apx_west,TRK-APX-00000070,2026-09-13T11:59:59Z,2026-09-17T11:59:59Z,2026-09-18T15:59:59Z,delivered,140.04,USD,operations
+tenant_apex,shp_apx_000071,inbound,,po_apx_00005,car_apx_rapid,,wh_apx_east,reg_apx_east,TRK-APX-00000071,2026-09-03T11:59:59Z,2026-09-05T11:59:59Z,2026-09-06T18:59:59Z,delivered,98.10,USD,operations
+tenant_apex,shp_apx_000072,inbound,,po_apx_00006,car_apx_rapid,,wh_apx_west,reg_apx_west,TRK-APX-00000072,2026-09-16T11:59:59Z,2026-09-18T11:59:59Z,2026-09-18T22:59:59Z,delivered,91.44,USD,operations

@@ -1,0 +1,9 @@
+tenant_id,vendor_invoice_id,supplier_id,purchase_order_id,invoice_number,invoice_date,due_date,invoice_status,currency_code,subtotal_amount,tax_amount,total_amount,outstanding_amount,sensitivity
+tenant_apex,vin_apx_00025,sup_apx_general,po_apx_00001,INV-APX-00025,2026-08-21,2026-09-20,overdue,USD,3626.78,0.00,3626.78,3626.78,accounting
+tenant_apex,vin_apx_00026,sup_apx_general,po_apx_00002,INV-APX-00026,2026-08-27,2026-09-26,paid,USD,2989.25,0.00,2989.25,0.00,accounting
+tenant_apex,vin_apx_00027,sup_apx_general,po_apx_00003,INV-APX-00027,2026-08-20,2026-09-19,partially_paid,USD,6830.56,0.00,6830.56,3415.28,accounting
+tenant_apex,vin_apx_00028,sup_apx_general,po_apx_00004,INV-APX-00028,2026-08-29,2026-09-28,paid,USD,7188.26,0.00,7188.26,0.00,accounting
+tenant_apex,vin_apx_00029,sup_apx_general,po_apx_00005,INV-APX-00029,2026-08-19,2026-09-18,paid,USD,2049.80,0.00,2049.80,0.00,accounting
+tenant_apex,vin_apx_00030,sup_apx_general,po_apx_00006,INV-APX-00030,2026-09-01,2026-10-01,open,USD,1383.12,0.00,1383.12,1383.12,accounting
+tenant_apex,vin_apx_00031,sup_apx_rapid,,FRT-APX-00031,2026-09-21,2026-10-21,open,USD,960.60,0.00,960.60,960.60,accounting
+tenant_apex,vin_apx_00032,sup_apx_summit,,FRT-APX-00032,2026-09-21,2026-10-21,open,USD,569.94,0.00,569.94,569.94,accounting

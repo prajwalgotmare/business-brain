@@ -373,8 +373,11 @@ def _inbound_shipments(
             status == ShipmentStatus.DELIVERED and builder.rng.random() < 0.22
         )
         reason = builder.rng.choice(DELAY_REASONS) if is_delayed else None
+        category = builder.rng.choice(sorted({product.category for product in products}))
+        supplier_products = [product for product in products if product.category == category]
         selected_products = builder.rng.sample(
-            products, k=min(builder.rng.randint(1, 3), len(products))
+            supplier_products,
+            k=min(builder.rng.randint(1, 3), len(supplier_products)),
         )
         builder.add_shipment(
             direction=ShipmentDirection.INBOUND,

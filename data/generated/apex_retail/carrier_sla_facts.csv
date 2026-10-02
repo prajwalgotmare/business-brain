@@ -65,9 +65,9 @@ tenant_apex,sla_apx_000063,shp_apx_000063,car_apx_rapid,2026-08-18T11:00:00Z,202
 tenant_apex,sla_apx_000064,shp_apx_000064,car_apx_rapid,2026-09-17T12:55:00Z,2026-09-17T00:55:00Z,2026-09-21T23:59:59Z,delivered,on_time,0,False,0.00,USD,operations
 tenant_apex,sla_apx_000065,shp_apx_000065,car_apx_summit,2026-08-24T15:04:00Z,2026-08-23T15:04:00Z,2026-09-21T23:59:59Z,delivered,on_time,0,False,0.00,USD,operations
 tenant_apex,sla_apx_000066,shp_apx_000066,car_apx_rapid,2026-09-12T16:01:00Z,2026-09-14T16:01:00Z,2026-09-21T23:59:59Z,delivered,breached,2880,True,1.29,USD,operations
-tenant_apex,sla_apx_000067,shp_apx_000067,car_apx_rapid,2026-09-07T11:59:59Z,,2026-09-21T23:59:59Z,as_of_snapshot,breached,20880,True,11.56,USD,operations
+tenant_apex,sla_apx_000067,shp_apx_000067,car_apx_rapid,2026-09-07T11:59:59Z,,2026-09-21T23:59:59Z,as_of_snapshot,breached,20880,True,12.19,USD,operations
 tenant_apex,sla_apx_000068,shp_apx_000068,car_apx_rapid,2026-09-13T11:59:59Z,,2026-09-21T23:59:59Z,as_of_snapshot,breached,12240,False,0.00,USD,operations
-tenant_apex,sla_apx_000069,shp_apx_000069,car_apx_summit,2026-09-16T11:59:59Z,,2026-09-21T23:59:59Z,as_of_snapshot,breached,7920,True,13.82,USD,operations
-tenant_apex,sla_apx_000070,shp_apx_000070,car_apx_rapid,2026-09-15T11:59:59Z,2026-09-14T23:59:59Z,2026-09-21T23:59:59Z,delivered,on_time,0,False,0.00,USD,operations
-tenant_apex,sla_apx_000071,shp_apx_000071,car_apx_summit,2026-09-10T11:59:59Z,,2026-09-21T23:59:59Z,as_of_snapshot,breached,16560,True,9.45,USD,operations
-tenant_apex,sla_apx_000072,shp_apx_000072,car_apx_summit,2026-09-17T11:59:59Z,,2026-09-21T23:59:59Z,as_of_snapshot,breached,6480,False,0.00,USD,operations
+tenant_apex,sla_apx_000069,shp_apx_000069,car_apx_rapid,2026-09-06T11:59:59Z,2026-09-05T23:59:59Z,2026-09-21T23:59:59Z,delivered,on_time,0,False,0.00,USD,operations
+tenant_apex,sla_apx_000070,shp_apx_000070,car_apx_summit,2026-09-17T11:59:59Z,2026-09-18T15:59:59Z,2026-09-21T23:59:59Z,delivered,breached,1680,False,0.00,USD,operations
+tenant_apex,sla_apx_000071,shp_apx_000071,car_apx_rapid,2026-09-05T11:59:59Z,2026-09-06T18:59:59Z,2026-09-21T23:59:59Z,delivered,breached,1860,True,9.81,USD,operations
+tenant_apex,sla_apx_000072,shp_apx_000072,car_apx_rapid,2026-09-18T11:59:59Z,2026-09-18T22:59:59Z,2026-09-21T23:59:59Z,delivered,breached,660,True,9.14,USD,operations

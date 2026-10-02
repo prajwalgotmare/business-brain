@@ -1,0 +1,741 @@
+{
+  "$defs": {
+    "InvoiceLineType": {
+      "enum": [
+        "product",
+        "freight",
+        "fuel_surcharge",
+        "tax",
+        "credit",
+        "other"
+      ],
+      "title": "InvoiceLineType",
+      "type": "string"
+    },
+    "InvoiceStatus": {
+      "enum": [
+        "open",
+        "partially_paid",
+        "paid",
+        "overdue",
+        "disputed",
+        "void"
+      ],
+      "title": "InvoiceStatus",
+      "type": "string"
+    },
+    "Payment": {
+      "additionalProperties": false,
+      "properties": {
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "payment_amount": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Payment Amount"
+        },
+        "payment_date": {
+          "format": "date",
+          "title": "Payment Date",
+          "type": "string"
+        },
+        "payment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Payment Id",
+          "type": "string"
+        },
+        "payment_status": {
+          "$ref": "#/$defs/PaymentStatus"
+        },
+        "sensitivity": {
+          "const": "accounting",
+          "default": "accounting",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "vendor_invoice_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Vendor Invoice Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "payment_id",
+        "vendor_invoice_id",
+        "payment_date",
+        "payment_amount",
+        "currency_code",
+        "payment_status"
+      ],
+      "title": "Payment",
+      "type": "object"
+    },
+    "PaymentStatus": {
+      "enum": [
+        "scheduled",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "title": "PaymentStatus",
+      "type": "string"
+    },
+    "PurchaseOrder": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_required": {
+          "title": "Approval Required",
+          "type": "boolean"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "expected_at": {
+          "format": "date-time",
+          "title": "Expected At",
+          "type": "string"
+        },
+        "freight_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Freight Amount"
+        },
+        "purchase_order_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Purchase Order Id",
+          "type": "string"
+        },
+        "purchase_order_status": {
+          "$ref": "#/$defs/PurchaseOrderStatus"
+        },
+        "sensitivity": {
+          "const": "executive",
+          "default": "executive",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "subtotal_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Subtotal Amount"
+        },
+        "supplier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Supplier Id",
+          "type": "string"
+        },
+        "tax_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Tax Amount"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "total_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Total Amount"
+        },
+        "warehouse_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Warehouse Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "purchase_order_id",
+        "supplier_id",
+        "warehouse_id",
+        "created_at",
+        "expected_at",
+        "purchase_order_status",
+        "currency_code",
+        "subtotal_amount",
+        "tax_amount",
+        "freight_amount",
+        "total_amount",
+        "approval_required"
+      ],
+      "title": "PurchaseOrder",
+      "type": "object"
+    },
+    "PurchaseOrderLine": {
+      "additionalProperties": false,
+      "properties": {
+        "line_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Line Amount"
+        },
+        "product_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "purchase_order_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Purchase Order Id",
+          "type": "string"
+        },
+        "purchase_order_line_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Purchase Order Line Id",
+          "type": "string"
+        },
+        "quantity": {
+          "exclusiveMinimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "sensitivity": {
+          "const": "executive",
+          "default": "executive",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "unit_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Unit Cost"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "purchase_order_line_id",
+        "purchase_order_id",
+        "product_id",
+        "quantity",
+        "unit_cost",
+        "line_amount"
+      ],
+      "title": "PurchaseOrderLine",
+      "type": "object"
+    },
+    "PurchaseOrderStatus": {
+      "enum": [
+        "draft",
+        "pending_approval",
+        "approved",
+        "sent",
+        "partially_received",
+        "received",
+        "cancelled"
+      ],
+      "title": "PurchaseOrderStatus",
+      "type": "string"
+    },
+    "RegionalMarginSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "calculated_at": {
+          "format": "date-time",
+          "title": "Calculated At",
+          "type": "string"
+        },
+        "cost_of_goods_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Cost Of Goods Amount"
+        },
+        "freight_expense_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Freight Expense Amount"
+        },
+        "margin_snapshot_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Margin Snapshot Id",
+          "type": "string"
+        },
+        "net_margin_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,3}|(?=[\\d.]{1,8}0*$)\\d{0,3}\\.\\d{0,4}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Net Margin Pct"
+        },
+        "net_profit_amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Net Profit Amount"
+        },
+        "refund_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Refund Amount"
+        },
+        "region_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Region Id",
+          "type": "string"
+        },
+        "revenue_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Revenue Amount"
+        },
+        "sensitivity": {
+          "const": "executive",
+          "default": "executive",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "week_start_date": {
+          "format": "date",
+          "title": "Week Start Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "margin_snapshot_id",
+        "region_id",
+        "week_start_date",
+        "revenue_amount",
+        "cost_of_goods_amount",
+        "freight_expense_amount",
+        "refund_amount",
+        "net_profit_amount",
+        "net_margin_pct",
+        "calculated_at"
+      ],
+      "title": "RegionalMarginSnapshot",
+      "type": "object"
+    },
+    "VendorInvoice": {
+      "additionalProperties": false,
+      "properties": {
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "due_date": {
+          "format": "date",
+          "title": "Due Date",
+          "type": "string"
+        },
+        "invoice_date": {
+          "format": "date",
+          "title": "Invoice Date",
+          "type": "string"
+        },
+        "invoice_number": {
+          "pattern": "^[A-Z0-9-]{6,40}$",
+          "title": "Invoice Number",
+          "type": "string"
+        },
+        "invoice_status": {
+          "$ref": "#/$defs/InvoiceStatus"
+        },
+        "outstanding_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Outstanding Amount"
+        },
+        "purchase_order_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Purchase Order Id"
+        },
+        "sensitivity": {
+          "const": "accounting",
+          "default": "accounting",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "subtotal_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Subtotal Amount"
+        },
+        "supplier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Supplier Id",
+          "type": "string"
+        },
+        "tax_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Tax Amount"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "total_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Total Amount"
+        },
+        "vendor_invoice_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Vendor Invoice Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "vendor_invoice_id",
+        "supplier_id",
+        "invoice_number",
+        "invoice_date",
+        "due_date",
+        "invoice_status",
+        "currency_code",
+        "subtotal_amount",
+        "tax_amount",
+        "total_amount",
+        "outstanding_amount"
+      ],
+      "title": "VendorInvoice",
+      "type": "object"
+    },
+    "VendorInvoiceLine": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "maxLength": 160,
+          "minLength": 3,
+          "title": "Description",
+          "type": "string"
+        },
+        "line_amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Line Amount"
+        },
+        "line_type": {
+          "$ref": "#/$defs/InvoiceLineType"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,9}|(?=[\\d.]{1,13}0*$)\\d{0,9}\\.\\d{0,3}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "sensitivity": {
+          "const": "accounting",
+          "default": "accounting",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipment_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shipment Id"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "unit_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Unit Price"
+        },
+        "vendor_invoice_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Vendor Invoice Id",
+          "type": "string"
+        },
+        "vendor_invoice_line_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Vendor Invoice Line Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "vendor_invoice_line_id",
+        "vendor_invoice_id",
+        "line_type",
+        "description",
+        "quantity",
+        "unit_price",
+        "line_amount"
+      ],
+      "title": "VendorInvoiceLine",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "generation_seed": {
+      "minimum": 0,
+      "title": "Generation Seed",
+      "type": "integer"
+    },
+    "payments": {
+      "items": {
+        "$ref": "#/$defs/Payment"
+      },
+      "title": "Payments",
+      "type": "array"
+    },
+    "purchase_order_lines": {
+      "items": {
+        "$ref": "#/$defs/PurchaseOrderLine"
+      },
+      "title": "Purchase Order Lines",
+      "type": "array"
+    },
+    "purchase_orders": {
+      "items": {
+        "$ref": "#/$defs/PurchaseOrder"
+      },
+      "title": "Purchase Orders",
+      "type": "array"
+    },
+    "regional_margin_snapshots": {
+      "items": {
+        "$ref": "#/$defs/RegionalMarginSnapshot"
+      },
+      "title": "Regional Margin Snapshots",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    },
+    "vendor_invoice_lines": {
+      "items": {
+        "$ref": "#/$defs/VendorInvoiceLine"
+      },
+      "title": "Vendor Invoice Lines",
+      "type": "array"
+    },
+    "vendor_invoices": {
+      "items": {
+        "$ref": "#/$defs/VendorInvoice"
+      },
+      "title": "Vendor Invoices",
+      "type": "array"
+    }
+  },
+  "required": [
+    "generation_seed",
+    "generated_at",
+    "snapshot_at",
+    "purchase_orders",
+    "purchase_order_lines",
+    "vendor_invoices",
+    "vendor_invoice_lines",
+    "payments",
+    "regional_margin_snapshots"
+  ],
+  "title": "FinanceDataset",
+  "type": "object"
+}

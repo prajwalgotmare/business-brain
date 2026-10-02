@@ -1027,6 +1027,56 @@
       "supplier_id": "sup_apx_packaging",
       "supplier_name": "Summit Box and Paper",
       "tenant_id": "tenant_apex"
+    },
+    {
+      "currency_code": "USD",
+      "lead_time_days": 2,
+      "payment_terms_days": 30,
+      "record_status": "active",
+      "sensitivity": "accounting",
+      "supplier_id": "sup_aur_fedex_demo",
+      "supplier_name": "FedEx Demo Carrier Billing",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "currency_code": "USD",
+      "lead_time_days": 4,
+      "payment_terms_days": 30,
+      "record_status": "active",
+      "sensitivity": "accounting",
+      "supplier_id": "sup_aur_northstar",
+      "supplier_name": "NorthStar Parcel Billing",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "currency_code": "USD",
+      "lead_time_days": 5,
+      "payment_terms_days": 30,
+      "record_status": "active",
+      "sensitivity": "accounting",
+      "supplier_id": "sup_aur_blueline",
+      "supplier_name": "BlueLine Regional Freight Billing",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "currency_code": "USD",
+      "lead_time_days": 4,
+      "payment_terms_days": 30,
+      "record_status": "active",
+      "sensitivity": "accounting",
+      "supplier_id": "sup_apx_summit",
+      "supplier_name": "Summit Parcel Network Billing",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "currency_code": "USD",
+      "lead_time_days": 2,
+      "payment_terms_days": 30,
+      "record_status": "active",
+      "sensitivity": "accounting",
+      "supplier_id": "sup_apx_rapid",
+      "supplier_name": "Apex Rapid Delivery Billing",
+      "tenant_id": "tenant_apex"
     }
   ],
   "tenants": [

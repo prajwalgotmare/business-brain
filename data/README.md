@@ -17,6 +17,11 @@ supplier, payment, credential, or address information.
 - Logistics generation adds shipments, shipment items, tracking events, SLA facts,
   delivery exceptions, and carrier manifest entries to each tenant directory.
 - `schemas/logistics.schema.json` describes the combined logistics contract.
+- Procurement and finance generation adds purchase orders, purchase-order lines,
+  vendor invoices, invoice lines, payments, and weekly regional margin snapshots.
+- `schemas/finance.schema.json` describes the combined procurement/finance contract.
+- `sources/public_calibration.json` records source URLs, licenses, aggregate profile
+  statistics, intended uses, and transformations. Raw public records are not committed.
 
 Regenerate the catalog and schema:
 
@@ -57,3 +62,15 @@ uv run python scripts/generate_logistics_data.py --check
 
 The logistics generator uses seed `20261005`. Inbound shipments contain deterministic
 purchase-order references that the procurement generator must materialize in Step 3.5.
+
+Generate and verify the procurement and finance CSV files:
+
+```powershell
+uv run python scripts/generate_finance_data.py
+uv run python scripts/generate_finance_data.py --check
+```
+
+The finance generator uses seed `20261006`. It materializes every inbound shipment as
+an approved purchase order, reconciles supplier and carrier invoices to source lines,
+applies completed payments, and derives weekly regional margins from commerce and
+outbound freight data.

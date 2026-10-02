@@ -1,0 +1,7 @@
+tenant_id,purchase_order_id,supplier_id,warehouse_id,created_at,expected_at,purchase_order_status,currency_code,subtotal_amount,tax_amount,freight_amount,total_amount,approval_required,sensitivity
+tenant_apex,po_apx_00001,sup_apx_general,wh_apx_east,2026-08-19T11:59:59Z,2026-09-07T11:59:59Z,sent,USD,3504.92,0.00,121.86,3626.78,True,executive
+tenant_apex,po_apx_00002,sup_apx_general,wh_apx_west,2026-08-25T11:59:59Z,2026-09-13T11:59:59Z,sent,USD,2876.03,0.00,113.22,2989.25,True,executive
+tenant_apex,po_apx_00003,sup_apx_general,wh_apx_east,2026-08-18T11:59:59Z,2026-09-06T11:59:59Z,received,USD,6689.08,0.00,141.48,6830.56,True,executive
+tenant_apex,po_apx_00004,sup_apx_general,wh_apx_west,2026-08-27T11:59:59Z,2026-09-17T11:59:59Z,received,USD,7048.22,0.00,140.04,7188.26,True,executive
+tenant_apex,po_apx_00005,sup_apx_general,wh_apx_east,2026-08-17T11:59:59Z,2026-09-05T11:59:59Z,received,USD,1951.70,0.00,98.10,2049.80,True,executive
+tenant_apex,po_apx_00006,sup_apx_general,wh_apx_west,2026-08-30T11:59:59Z,2026-09-18T11:59:59Z,received,USD,1291.68,0.00,91.44,1383.12,True,executive

@@ -1,0 +1,997 @@
+tenant_id,vendor_invoice_line_id,vendor_invoice_id,line_type,description,shipment_id,quantity,unit_price,line_amount,sensitivity
+tenant_aura,vil_aur_00001_01,vin_aur_00001,product,Inventory goods for prd_aur_020,,130,17.87,2323.10,accounting
+tenant_aura,vil_aur_00001_99,vin_aur_00001,other,Inbound freight charge,,1.000,95.40,95.40,accounting
+tenant_aura,vil_aur_00002_01,vin_aur_00002,product,Inventory goods for prd_aur_025,,158,14.23,2248.34,accounting
+tenant_aura,vil_aur_00002_02,vin_aur_00002,product,Inventory goods for prd_aur_027,,61,16.48,1005.28,accounting
+tenant_aura,vil_aur_00002_03,vin_aur_00002,product,Inventory goods for prd_aur_029,,98,18.74,1836.52,accounting
+tenant_aura,vil_aur_00002_99,vin_aur_00002,other,Inbound freight charge,,1.000,129.06,129.06,accounting
+tenant_aura,vil_aur_00003_01,vin_aur_00003,product,Inventory goods for prd_aur_014,,171,11.11,1899.81,accounting
+tenant_aura,vil_aur_00003_99,vin_aur_00003,other,Inbound freight charge,,1.000,102.78,102.78,accounting
+tenant_aura,vil_aur_00004_01,vin_aur_00004,product,Inventory goods for prd_aur_013,,136,9.98,1357.28,accounting
+tenant_aura,vil_aur_00004_99,vin_aur_00004,other,Inbound freight charge,,1.000,96.48,96.48,accounting
+tenant_aura,vil_aur_00005_01,vin_aur_00005,product,Inventory goods for prd_aur_040,,63,21.85,1376.55,accounting
+tenant_aura,vil_aur_00005_02,vin_aur_00005,product,Inventory goods for prd_aur_035,,97,16.22,1573.34,accounting
+tenant_aura,vil_aur_00005_99,vin_aur_00005,other,Inbound freight charge,,1.000,100.80,100.80,accounting
+tenant_aura,vil_aur_00006_01,vin_aur_00006,product,Inventory goods for prd_aur_010,,60,15.88,952.80,accounting
+tenant_aura,vil_aur_00006_02,vin_aur_00006,product,Inventory goods for prd_aur_002,,107,6.86,734.02,accounting
+tenant_aura,vil_aur_00006_03,vin_aur_00006,product,Inventory goods for prd_aur_006,,149,11.37,1694.13,accounting
+tenant_aura,vil_aur_00006_99,vin_aur_00006,other,Inbound freight charge,,1.000,128.88,128.88,accounting
+tenant_aura,vil_aur_00007_01,vin_aur_00007,product,Inventory goods for prd_aur_024,,66,13.10,864.60,accounting
+tenant_aura,vil_aur_00007_02,vin_aur_00007,product,Inventory goods for prd_aur_022,,99,10.84,1073.16,accounting
+tenant_aura,vil_aur_00007_03,vin_aur_00007,product,Inventory goods for prd_aur_027,,124,16.48,2043.52,accounting
+tenant_aura,vil_aur_00007_99,vin_aur_00007,other,Inbound freight charge,,1.000,124.02,124.02,accounting
+tenant_aura,vil_aur_00008_01,vin_aur_00008,product,Inventory goods for prd_aur_029,,139,18.74,2604.86,accounting
+tenant_aura,vil_aur_00008_99,vin_aur_00008,other,Inbound freight charge,,1.000,97.02,97.02,accounting
+tenant_aura,vil_aur_00009_01,vin_aur_00009,product,Inventory goods for prd_aur_009,,177,14.76,2612.52,accounting
+tenant_aura,vil_aur_00009_99,vin_aur_00009,other,Inbound freight charge,,1.000,103.86,103.86,accounting
+tenant_aura,vil_aur_00010_01,vin_aur_00010,product,Inventory goods for prd_aur_038,,96,19.60,1881.60,accounting
+tenant_aura,vil_aur_00010_02,vin_aur_00010,product,Inventory goods for prd_aur_034,,140,15.09,2112.60,accounting
+tenant_aura,vil_aur_00010_99,vin_aur_00010,other,Inbound freight charge,,1.000,114.48,114.48,accounting
+tenant_aura,vil_aur_00011_01,vin_aur_00011,product,Inventory goods for prd_aur_007,,151,12.50,1887.50,accounting
+tenant_aura,vil_aur_00011_02,vin_aur_00011,product,Inventory goods for prd_aur_004,,155,9.12,1413.60,accounting
+tenant_aura,vil_aur_00011_03,vin_aur_00011,product,Inventory goods for prd_aur_005,,77,10.25,789.25,accounting
+tenant_aura,vil_aur_00011_99,vin_aur_00011,other,Inbound freight charge,,1.000,140.94,140.94,accounting
+tenant_aura,vil_aur_00012_01,vin_aur_00012,product,Inventory goods for prd_aur_016,,124,13.36,1656.64,accounting
+tenant_aura,vil_aur_00012_02,vin_aur_00012,product,Inventory goods for prd_aur_015,,86,12.24,1052.64,accounting
+tenant_aura,vil_aur_00012_99,vin_aur_00012,other,Inbound freight charge,,1.000,109.80,109.80,accounting
+tenant_aura,vil_aur_00013_01,vin_aur_00013,product,Inventory goods for prd_aur_015,,113,12.24,1383.12,accounting
+tenant_aura,vil_aur_00013_02,vin_aur_00013,product,Inventory goods for prd_aur_014,,139,11.11,1544.29,accounting
+tenant_aura,vil_aur_00013_03,vin_aur_00013,product,Inventory goods for prd_aur_016,,133,13.36,1776.88,accounting
+tenant_aura,vil_aur_00013_99,vin_aur_00013,other,Inbound freight charge,,1.000,141.30,141.30,accounting
+tenant_aura,vil_aur_00014_01,vin_aur_00014,product,Inventory goods for prd_aur_033,,145,13.96,2024.20,accounting
+tenant_aura,vil_aur_00014_02,vin_aur_00014,product,Inventory goods for prd_aur_038,,128,19.60,2508.80,accounting
+tenant_aura,vil_aur_00014_99,vin_aur_00014,other,Inbound freight charge,,1.000,121.14,121.14,accounting
+tenant_aura,vil_aur_00015_01,vin_aur_00015,product,Inventory goods for prd_aur_016,,165,13.36,2204.40,accounting
+tenant_aura,vil_aur_00015_02,vin_aur_00015,product,Inventory goods for prd_aur_013,,179,9.98,1786.42,accounting
+tenant_aura,vil_aur_00015_03,vin_aur_00015,product,Inventory goods for prd_aur_019,,119,16.75,1993.25,accounting
+tenant_aura,vil_aur_00015_99,vin_aur_00015,other,Inbound freight charge,,1.000,155.34,155.34,accounting
+tenant_aura,vil_aur_00016_01,vin_aur_00016,product,Inventory goods for prd_aur_025,,135,14.23,1921.05,accounting
+tenant_aura,vil_aur_00016_02,vin_aur_00016,product,Inventory goods for prd_aur_030,,176,19.86,3495.36,accounting
+tenant_aura,vil_aur_00016_03,vin_aur_00016,product,Inventory goods for prd_aur_029,,164,18.74,3073.36,accounting
+tenant_aura,vil_aur_00016_99,vin_aur_00016,other,Inbound freight charge,,1.000,157.50,157.50,accounting
+tenant_aura,vil_aur_00017_01,vin_aur_00017,product,Inventory goods for prd_aur_009,,173,14.76,2553.48,accounting
+tenant_aura,vil_aur_00017_02,vin_aur_00017,product,Inventory goods for prd_aur_004,,137,9.12,1249.44,accounting
+tenant_aura,vil_aur_00017_03,vin_aur_00017,product,Inventory goods for prd_aur_003,,108,7.99,862.92,accounting
+tenant_aura,vil_aur_00017_99,vin_aur_00017,other,Inbound freight charge,,1.000,147.24,147.24,accounting
+tenant_aura,vil_aur_00018_01,vin_aur_00018,product,Inventory goods for prd_aur_034,,82,15.09,1237.38,accounting
+tenant_aura,vil_aur_00018_02,vin_aur_00018,product,Inventory goods for prd_aur_040,,168,21.85,3670.80,accounting
+tenant_aura,vil_aur_00018_03,vin_aur_00018,product,Inventory goods for prd_aur_031,,85,11.71,995.35,accounting
+tenant_aura,vil_aur_00018_99,vin_aur_00018,other,Inbound freight charge,,1.000,132.30,132.30,accounting
+tenant_aura,vil_aur_00019_01,vin_aur_00019,product,Inventory goods for prd_aur_006,,77,11.37,875.49,accounting
+tenant_aura,vil_aur_00019_99,vin_aur_00019,other,Inbound freight charge,,1.000,85.86,85.86,accounting
+tenant_aura,vil_aur_00020_01,vin_aur_00020,product,Inventory goods for prd_aur_024,,139,13.10,1820.90,accounting
+tenant_aura,vil_aur_00020_02,vin_aur_00020,product,Inventory goods for prd_aur_030,,69,19.86,1370.34,accounting
+tenant_aura,vil_aur_00020_99,vin_aur_00020,other,Inbound freight charge,,1.000,109.44,109.44,accounting
+tenant_aura,vil_aur_00021_01,vin_aur_00021,product,Inventory goods for prd_aur_006,,64,11.37,727.68,accounting
+tenant_aura,vil_aur_00021_02,vin_aur_00021,product,Inventory goods for prd_aur_005,,151,10.25,1547.75,accounting
+tenant_aura,vil_aur_00021_03,vin_aur_00021,product,Inventory goods for prd_aur_004,,70,9.12,638.40,accounting
+tenant_aura,vil_aur_00021_99,vin_aur_00021,other,Inbound freight charge,,1.000,123.30,123.30,accounting
+tenant_aura,vil_aur_00022_01,vin_aur_00022,product,Inventory goods for prd_aur_006,,122,11.37,1387.14,accounting
+tenant_aura,vil_aur_00022_02,vin_aur_00022,product,Inventory goods for prd_aur_008,,126,13.63,1717.38,accounting
+tenant_aura,vil_aur_00022_99,vin_aur_00022,other,Inbound freight charge,,1.000,116.64,116.64,accounting
+tenant_aura,vil_aur_00023_01,vin_aur_00023,product,Inventory goods for prd_aur_045,,65,18.21,1183.65,accounting
+tenant_aura,vil_aur_00023_02,vin_aur_00023,product,Inventory goods for prd_aur_044,,73,17.08,1246.84,accounting
+tenant_aura,vil_aur_00023_03,vin_aur_00023,product,Inventory goods for prd_aur_041,,122,13.70,1671.40,accounting
+tenant_aura,vil_aur_00023_99,vin_aur_00023,other,Inbound freight charge,,1.000,118.80,118.80,accounting
+tenant_aura,vil_aur_00024_01,vin_aur_00024,product,Inventory goods for prd_aur_024,,114,13.10,1493.40,accounting
+tenant_aura,vil_aur_00024_02,vin_aur_00024,product,Inventory goods for prd_aur_021,,142,9.72,1380.24,accounting
+tenant_aura,vil_aur_00024_03,vin_aur_00024,product,Inventory goods for prd_aur_028,,123,17.61,2166.03,accounting
+tenant_aura,vil_aur_00024_99,vin_aur_00024,other,Inbound freight charge,,1.000,140.22,140.22,accounting
+tenant_aura,vil_aur_00033_0001,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000004,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00033_0002,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000004,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00033_0003,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000006,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0004,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000006,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0005,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000022,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0006,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000022,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0007,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000023,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0008,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000023,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0009,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000025,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0010,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000025,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0011,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000026,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0012,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000026,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0013,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000034,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0014,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000034,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0015,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000036,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00033_0016,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000036,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00033_0017,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000037,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0018,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000037,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0019,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000049,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0020,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000049,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0021,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000053,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0022,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000053,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0023,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000055,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0024,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000055,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0025,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000058,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0026,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000058,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0027,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000065,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0028,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000065,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0029,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000066,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0030,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000066,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0031,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000067,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0032,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000067,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0033,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000072,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0034,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000072,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0035,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000076,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0036,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000076,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0037,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000083,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0038,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000083,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0039,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000086,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0040,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000086,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0041,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000090,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0042,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000090,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0043,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000092,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0044,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000092,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0045,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000093,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0046,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000093,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0047,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000094,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0048,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000094,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0049,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000099,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0050,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000099,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0051,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000109,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0052,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000109,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0053,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000110,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0054,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000110,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0055,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000112,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0056,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000112,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0057,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000113,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0058,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000113,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0059,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000115,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0060,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000115,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0061,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000116,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0062,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000116,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0063,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000118,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0064,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000118,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0065,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000122,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0066,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000122,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0067,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000124,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0068,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000124,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0069,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000133,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0070,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000133,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0071,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000136,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0072,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000136,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0073,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000137,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0074,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000137,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0075,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000139,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0076,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000139,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0077,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000143,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0078,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000143,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0079,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000150,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0080,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000150,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0081,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000152,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0082,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000152,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0083,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000154,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0084,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000154,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0085,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000158,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0086,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000158,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0087,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000159,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0088,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000159,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0089,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000168,1.000,18.75,18.75,accounting
+tenant_aura,vil_aur_00033_0090,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000168,1.000,2.25,2.25,accounting
+tenant_aura,vil_aur_00033_0091,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000169,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0092,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000169,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0093,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000170,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0094,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000170,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0095,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000172,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0096,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000172,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0097,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000173,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0098,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000173,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0099,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000176,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0100,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000176,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0101,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000177,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0102,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000177,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0103,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000181,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0104,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000181,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0105,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000184,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0106,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000184,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0107,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000185,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0108,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000185,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0109,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000188,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0110,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000188,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0111,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000192,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0112,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000192,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0113,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000193,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0114,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000193,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0115,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000197,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0116,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000197,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0117,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000199,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0118,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000199,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0119,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000201,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0120,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000201,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0121,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000205,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0122,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000205,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0123,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000206,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0124,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000206,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0125,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000214,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0126,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000214,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0127,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000215,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0128,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000215,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0129,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000216,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0130,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000216,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0131,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000225,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0132,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000225,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0133,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000226,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0134,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000226,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0135,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000228,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0136,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000228,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0137,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000233,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0138,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000233,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0139,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000237,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0140,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000237,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0141,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000241,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0142,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000241,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0143,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000243,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0144,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000243,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0145,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000248,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0146,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000248,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0147,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000250,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00033_0148,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000250,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00033_0149,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000252,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0150,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000252,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0151,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000256,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0152,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000256,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0153,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000262,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0154,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000262,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0155,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000263,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0156,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000263,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0157,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000275,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0158,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000275,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0159,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000278,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0160,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000278,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0161,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000289,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0162,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000289,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0163,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000292,1.000,17.54,17.54,accounting
+tenant_aura,vil_aur_00033_0164,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000292,1.000,2.11,2.11,accounting
+tenant_aura,vil_aur_00033_0165,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000295,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0166,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000295,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0167,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000297,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0168,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000297,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0169,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000299,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0170,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000299,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0171,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000300,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0172,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000300,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0173,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000301,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0174,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000301,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0175,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000302,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0176,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000302,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0177,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000306,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0178,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000306,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0179,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000309,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0180,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000309,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0181,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000310,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0182,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000310,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0183,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000315,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00033_0184,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000315,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00033_0185,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000318,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0186,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000318,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0187,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000321,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00033_0188,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000321,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00033_0189,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000324,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0190,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000324,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0191,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000328,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0192,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000328,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0193,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000329,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0194,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000329,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0195,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000334,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0196,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000334,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0197,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000335,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0198,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000335,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0199,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000336,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0200,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000336,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0201,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000339,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0202,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000339,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0203,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000341,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0204,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000341,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0205,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000345,1.000,17.54,17.54,accounting
+tenant_aura,vil_aur_00033_0206,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000345,1.000,2.11,2.11,accounting
+tenant_aura,vil_aur_00033_0207,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000346,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0208,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000346,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0209,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000347,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0210,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000347,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0211,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000349,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0212,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000349,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0213,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000354,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0214,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000354,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0215,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000355,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0216,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000355,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0217,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000357,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0218,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000357,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0219,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000358,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0220,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000358,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0221,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000359,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0222,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000359,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0223,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000363,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0224,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000363,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0225,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000366,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0226,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000366,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0227,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000368,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0228,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000368,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0229,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000373,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0230,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000373,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0231,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000374,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0232,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000374,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0233,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000376,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0234,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000376,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0235,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000379,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0236,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000379,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0237,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000385,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0238,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000385,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0239,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000387,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0240,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000387,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0241,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000389,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00033_0242,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000389,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00033_0243,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000390,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0244,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000390,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0245,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000393,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0246,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000393,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0247,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000400,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0248,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000400,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0249,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000408,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00033_0250,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000408,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00033_0251,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000411,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00033_0252,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000411,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00033_0253,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000413,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0254,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000413,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0255,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000414,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0256,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000414,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0257,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000418,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00033_0258,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000418,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00033_0259,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000421,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0260,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000421,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0261,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000423,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00033_0262,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000423,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00033_0263,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000427,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00033_0264,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000427,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00033_0265,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000428,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0266,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000428,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0267,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000429,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0268,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000429,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0269,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000431,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0270,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000431,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0271,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000434,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00033_0272,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000434,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00033_0273,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000436,1.000,85.18,85.18,accounting
+tenant_aura,vil_aur_00033_0274,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000436,1.000,10.22,10.22,accounting
+tenant_aura,vil_aur_00033_0275,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000449,1.000,108.16,108.16,accounting
+tenant_aura,vil_aur_00033_0276,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000449,1.000,12.98,12.98,accounting
+tenant_aura,vil_aur_00033_0277,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000450,1.000,138.70,138.70,accounting
+tenant_aura,vil_aur_00033_0278,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000450,1.000,16.64,16.64,accounting
+tenant_aura,vil_aur_00033_0279,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000453,1.000,118.13,118.13,accounting
+tenant_aura,vil_aur_00033_0280,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000453,1.000,14.17,14.17,accounting
+tenant_aura,vil_aur_00033_0281,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000454,1.000,76.66,76.66,accounting
+tenant_aura,vil_aur_00033_0282,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000454,1.000,9.20,9.20,accounting
+tenant_aura,vil_aur_00033_0283,vin_aur_00033,freight,Parcel or freight base charge,shp_aur_000455,1.000,97.71,97.71,accounting
+tenant_aura,vil_aur_00033_0284,vin_aur_00033,fuel_surcharge,Carrier fuel surcharge,shp_aur_000455,1.000,11.73,11.73,accounting
+tenant_aura,vil_aur_00034_0001,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000003,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0002,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000003,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0003,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000008,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0004,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000008,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0005,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000012,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0006,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000012,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0007,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000014,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0008,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000014,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0009,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000019,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0010,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000019,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0011,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000020,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0012,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000020,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0013,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000021,1.000,19.96,19.96,accounting
+tenant_aura,vil_aur_00034_0014,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000021,1.000,2.39,2.39,accounting
+tenant_aura,vil_aur_00034_0015,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000024,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0016,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000024,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0017,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000030,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00034_0018,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000030,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00034_0019,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000032,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0020,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000032,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0021,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000040,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0022,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000040,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0023,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000042,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0024,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000042,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0025,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000044,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0026,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000044,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0027,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000048,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0028,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000048,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0029,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000050,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0030,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000050,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0031,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000056,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0032,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000056,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0033,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000059,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0034,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000059,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0035,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000062,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0036,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000062,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0037,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000063,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0038,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000063,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0039,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000068,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0040,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000068,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0041,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000070,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0042,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000070,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0043,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000073,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0044,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000073,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0045,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000075,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0046,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000075,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0047,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000077,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0048,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000077,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0049,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000079,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0050,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000079,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0051,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000084,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0052,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000084,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0053,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000087,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0054,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000087,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0055,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000088,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0056,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000088,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0057,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000089,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0058,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000089,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0059,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000095,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0060,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000095,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0061,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000096,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0062,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000096,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0063,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000100,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0064,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000100,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0065,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000105,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0066,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000105,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0067,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000107,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0068,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000107,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0069,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000108,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0070,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000108,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0071,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000114,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0072,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000114,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0073,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000117,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0074,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000117,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0075,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000120,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0076,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000120,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0077,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000123,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0078,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000123,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0079,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000125,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0080,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000125,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0081,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000126,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0082,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000126,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0083,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000128,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0084,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000128,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0085,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000129,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0086,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000129,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0087,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000130,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0088,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000130,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0089,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000131,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0090,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000131,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0091,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000135,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0092,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000135,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0093,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000142,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0094,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000142,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0095,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000146,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0096,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000146,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0097,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000147,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0098,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000147,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0099,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000148,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0100,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000148,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0101,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000151,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0102,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000151,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0103,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000153,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0104,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000153,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0105,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000155,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0106,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000155,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0107,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000160,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0108,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000160,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0109,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000162,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0110,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000162,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0111,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000163,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0112,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000163,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0113,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000165,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00034_0114,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000165,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00034_0115,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000166,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0116,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000166,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0117,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000175,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0118,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000175,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0119,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000179,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0120,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000179,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0121,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000182,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0122,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000182,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0123,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000187,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0124,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000187,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0125,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000190,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0126,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000190,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0127,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000191,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0128,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000191,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0129,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000198,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0130,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000198,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0131,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000200,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0132,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000200,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0133,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000202,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0134,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000202,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0135,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000203,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0136,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000203,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0137,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000204,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0138,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000204,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0139,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000211,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0140,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000211,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0141,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000212,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0142,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000212,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0143,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000213,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0144,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000213,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0145,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000219,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0146,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000219,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0147,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000222,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0148,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000222,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0149,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000227,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0150,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000227,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0151,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000230,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0152,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000230,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0153,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000232,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0154,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000232,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0155,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000234,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0156,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000234,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0157,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000235,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0158,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000235,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0159,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000236,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0160,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000236,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0161,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000240,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0162,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000240,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0163,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000244,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0164,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000244,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0165,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000246,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0166,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000246,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0167,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000247,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0168,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000247,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0169,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000249,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0170,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000249,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0171,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000251,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0172,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000251,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0173,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000253,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0174,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000253,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0175,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000257,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0176,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000257,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0177,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000258,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0178,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000258,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0179,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000259,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0180,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000259,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0181,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000260,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0182,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000260,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0183,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000266,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0184,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000266,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0185,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000268,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0186,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000268,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0187,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000269,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00034_0188,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000269,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00034_0189,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000270,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0190,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000270,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0191,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000271,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0192,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000271,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0193,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000272,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0194,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000272,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0195,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000273,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0196,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000273,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0197,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000274,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0198,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000274,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0199,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000276,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0200,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000276,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0201,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000279,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0202,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000279,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0203,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000282,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0204,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000282,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0205,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000284,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0206,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000284,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0207,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000285,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0208,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000285,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0209,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000286,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0210,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000286,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0211,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000294,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0212,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000294,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0213,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000298,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0214,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000298,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0215,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000305,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0216,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000305,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0217,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000307,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0218,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000307,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0219,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000308,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0220,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000308,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0221,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000311,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0222,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000311,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0223,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000312,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0224,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000312,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0225,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000313,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0226,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000313,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0227,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000314,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0228,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000314,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0229,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000319,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0230,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000319,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0231,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000323,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0232,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000323,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0233,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000326,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0234,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000326,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0235,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000327,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0236,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000327,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0237,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000330,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0238,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000330,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0239,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000331,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0240,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000331,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0241,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000333,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0242,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000333,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0243,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000340,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0244,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000340,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0245,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000342,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0246,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000342,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0247,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000350,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0248,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000350,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0249,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000351,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0250,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000351,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0251,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000356,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0252,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000356,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0253,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000360,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0254,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000360,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0255,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000361,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0256,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000361,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0257,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000364,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00034_0258,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000364,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00034_0259,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000369,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0260,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000369,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0261,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000370,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0262,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000370,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0263,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000371,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0264,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000371,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0265,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000372,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0266,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000372,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0267,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000375,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0268,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000375,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0269,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000380,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0270,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000380,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0271,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000381,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0272,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000381,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0273,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000382,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0274,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000382,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0275,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000388,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0276,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000388,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0277,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000391,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0278,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000391,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0279,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000392,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0280,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000392,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0281,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000394,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0282,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000394,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0283,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000395,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0284,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000395,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0285,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000396,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0286,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000396,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0287,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000402,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00034_0288,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000402,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00034_0289,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000406,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00034_0290,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000406,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00034_0291,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000407,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0292,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000407,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0293,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000410,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0294,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000410,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0295,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000415,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0296,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000415,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0297,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000416,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00034_0298,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000416,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00034_0299,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000417,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00034_0300,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000417,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00034_0301,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000419,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0302,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000419,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0303,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000422,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0304,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000422,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0305,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000424,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00034_0306,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000424,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00034_0307,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000426,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0308,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000426,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0309,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000430,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00034_0310,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000430,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00034_0311,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000432,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0312,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000432,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0313,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000433,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00034_0314,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000433,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00034_0315,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000435,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00034_0316,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000435,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00034_0317,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000437,1.000,115.23,115.23,accounting
+tenant_aura,vil_aur_00034_0318,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000437,1.000,13.83,13.83,accounting
+tenant_aura,vil_aur_00034_0319,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000439,1.000,86.14,86.14,accounting
+tenant_aura,vil_aur_00034_0320,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000439,1.000,10.34,10.34,accounting
+tenant_aura,vil_aur_00034_0321,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000442,1.000,110.73,110.73,accounting
+tenant_aura,vil_aur_00034_0322,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000442,1.000,13.29,13.29,accounting
+tenant_aura,vil_aur_00034_0323,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000446,1.000,125.84,125.84,accounting
+tenant_aura,vil_aur_00034_0324,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000446,1.000,15.10,15.10,accounting
+tenant_aura,vil_aur_00034_0325,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000447,1.000,98.04,98.04,accounting
+tenant_aura,vil_aur_00034_0326,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000447,1.000,11.76,11.76,accounting
+tenant_aura,vil_aur_00034_0327,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000451,1.000,140.63,140.63,accounting
+tenant_aura,vil_aur_00034_0328,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000451,1.000,16.87,16.87,accounting
+tenant_aura,vil_aur_00034_0329,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000452,1.000,131.46,131.46,accounting
+tenant_aura,vil_aur_00034_0330,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000452,1.000,15.78,15.78,accounting
+tenant_aura,vil_aur_00034_0331,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000457,1.000,104.14,104.14,accounting
+tenant_aura,vil_aur_00034_0332,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000457,1.000,12.50,12.50,accounting
+tenant_aura,vil_aur_00034_0333,vin_aur_00034,freight,Parcel or freight base charge,shp_aur_000459,1.000,125.20,125.20,accounting
+tenant_aura,vil_aur_00034_0334,vin_aur_00034,fuel_surcharge,Carrier fuel surcharge,shp_aur_000459,1.000,15.02,15.02,accounting
+tenant_aura,vil_aur_00035_0001,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000001,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0002,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000001,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0003,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000002,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0004,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000002,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0005,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000005,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0006,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000005,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0007,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000007,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0008,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000007,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0009,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000009,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0010,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000009,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0011,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000010,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0012,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000010,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0013,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000011,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0014,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000011,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0015,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000013,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0016,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000013,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0017,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000015,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00035_0018,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000015,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00035_0019,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000016,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0020,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000016,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0021,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000017,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0022,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000017,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0023,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000018,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0024,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000018,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0025,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000027,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0026,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000027,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0027,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000028,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0028,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000028,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0029,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000029,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0030,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000029,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0031,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000031,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0032,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000031,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0033,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000033,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0034,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000033,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0035,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000035,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00035_0036,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000035,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00035_0037,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000038,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0038,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000038,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0039,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000039,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0040,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000039,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0041,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000041,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0042,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000041,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0043,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000043,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0044,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000043,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0045,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000045,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0046,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000045,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0047,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000046,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0048,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000046,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0049,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000047,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0050,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000047,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0051,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000051,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0052,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000051,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0053,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000052,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00035_0054,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000052,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00035_0055,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000054,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0056,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000054,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0057,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000057,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0058,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000057,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0059,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000060,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0060,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000060,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0061,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000061,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0062,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000061,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0063,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000064,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0064,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000064,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0065,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000069,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0066,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000069,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0067,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000071,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0068,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000071,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0069,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000074,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0070,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000074,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0071,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000078,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0072,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000078,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0073,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000080,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0074,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000080,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0075,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000081,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0076,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000081,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0077,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000082,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0078,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000082,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0079,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000085,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0080,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000085,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0081,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000091,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0082,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000091,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0083,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000097,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00035_0084,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000097,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00035_0085,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000098,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0086,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000098,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0087,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000101,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0088,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000101,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0089,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000102,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0090,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000102,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0091,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000103,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0092,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000103,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0093,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000104,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00035_0094,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000104,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00035_0095,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000106,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0096,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000106,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0097,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000111,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0098,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000111,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0099,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000119,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0100,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000119,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0101,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000121,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0102,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000121,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0103,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000127,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0104,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000127,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0105,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000132,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0106,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000132,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0107,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000134,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0108,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000134,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0109,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000138,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0110,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000138,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0111,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000140,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0112,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000140,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0113,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000141,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0114,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000141,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0115,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000144,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0116,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000144,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0117,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000145,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0118,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000145,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0119,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000149,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0120,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000149,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0121,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000156,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0122,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000156,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0123,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000157,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0124,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000157,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0125,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000161,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0126,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000161,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0127,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000164,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0128,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000164,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0129,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000167,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0130,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000167,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0131,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000171,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0132,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000171,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0133,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000174,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0134,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000174,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0135,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000178,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0136,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000178,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0137,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000180,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0138,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000180,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0139,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000183,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0140,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000183,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0141,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000186,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0142,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000186,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0143,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000189,1.000,15.13,15.13,accounting
+tenant_aura,vil_aur_00035_0144,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000189,1.000,1.82,1.82,accounting
+tenant_aura,vil_aur_00035_0145,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000194,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0146,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000194,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0147,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000195,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0148,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000195,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0149,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000196,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0150,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000196,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0151,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000207,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0152,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000207,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0153,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000208,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0154,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000208,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0155,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000209,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0156,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000209,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0157,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000210,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0158,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000210,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0159,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000217,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0160,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000217,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0161,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000218,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0162,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000218,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0163,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000220,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0164,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000220,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0165,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000221,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0166,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000221,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0167,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000223,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0168,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000223,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0169,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000224,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0170,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000224,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0171,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000229,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0172,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000229,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0173,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000231,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0174,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000231,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0175,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000238,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0176,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000238,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0177,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000239,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0178,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000239,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0179,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000242,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0180,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000242,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0181,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000245,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0182,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000245,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0183,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000254,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0184,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000254,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0185,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000255,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0186,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000255,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0187,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000261,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0188,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000261,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0189,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000264,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00035_0190,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000264,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00035_0191,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000265,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0192,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000265,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0193,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000267,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0194,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000267,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0195,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000277,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0196,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000277,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0197,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000280,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0198,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000280,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0199,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000281,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0200,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000281,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0201,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000283,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0202,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000283,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0203,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000287,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0204,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000287,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0205,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000288,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0206,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000288,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0207,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000290,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0208,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000290,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0209,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000291,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0210,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000291,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0211,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000293,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0212,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000293,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0213,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000296,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0214,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000296,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0215,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000303,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0216,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000303,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0217,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000304,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0218,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000304,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0219,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000316,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0220,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000316,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0221,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000317,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0222,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000317,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0223,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000320,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0224,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000320,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0225,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000322,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0226,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000322,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0227,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000325,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0228,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000325,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0229,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000332,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0230,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000332,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0231,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000337,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0232,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000337,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0233,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000338,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0234,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000338,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0235,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000343,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0236,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000343,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0237,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000344,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0238,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000344,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0239,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000348,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0240,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000348,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0241,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000352,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0242,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000352,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0243,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000353,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0244,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000353,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0245,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000362,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0246,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000362,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0247,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000365,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0248,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000365,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0249,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000367,1.000,11.52,11.52,accounting
+tenant_aura,vil_aur_00035_0250,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000367,1.000,1.38,1.38,accounting
+tenant_aura,vil_aur_00035_0251,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000377,1.000,16.34,16.34,accounting
+tenant_aura,vil_aur_00035_0252,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000377,1.000,1.96,1.96,accounting
+tenant_aura,vil_aur_00035_0253,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000378,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0254,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000378,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0255,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000383,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0256,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000383,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0257,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000384,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0258,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000384,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0259,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000386,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0260,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000386,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0261,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000397,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0262,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000397,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0263,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000398,1.000,13.93,13.93,accounting
+tenant_aura,vil_aur_00035_0264,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000398,1.000,1.67,1.67,accounting
+tenant_aura,vil_aur_00035_0265,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000399,1.000,21.16,21.16,accounting
+tenant_aura,vil_aur_00035_0266,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000399,1.000,2.54,2.54,accounting
+tenant_aura,vil_aur_00035_0267,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000401,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0268,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000401,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0269,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000403,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0270,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000403,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0271,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000404,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0272,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000404,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0273,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000405,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0274,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000405,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0275,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000409,1.000,9.11,9.11,accounting
+tenant_aura,vil_aur_00035_0276,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000409,1.000,1.09,1.09,accounting
+tenant_aura,vil_aur_00035_0277,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000412,1.000,7.90,7.90,accounting
+tenant_aura,vil_aur_00035_0278,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000412,1.000,0.95,0.95,accounting
+tenant_aura,vil_aur_00035_0279,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000420,1.000,12.72,12.72,accounting
+tenant_aura,vil_aur_00035_0280,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000420,1.000,1.53,1.53,accounting
+tenant_aura,vil_aur_00035_0281,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000425,1.000,10.31,10.31,accounting
+tenant_aura,vil_aur_00035_0282,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000425,1.000,1.24,1.24,accounting
+tenant_aura,vil_aur_00035_0283,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000438,1.000,91.77,91.77,accounting
+tenant_aura,vil_aur_00035_0284,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000438,1.000,11.01,11.01,accounting
+tenant_aura,vil_aur_00035_0285,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000440,1.000,90.00,90.00,accounting
+tenant_aura,vil_aur_00035_0286,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000440,1.000,10.80,10.80,accounting
+tenant_aura,vil_aur_00035_0287,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000441,1.000,115.07,115.07,accounting
+tenant_aura,vil_aur_00035_0288,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000441,1.000,13.81,13.81,accounting
+tenant_aura,vil_aur_00035_0289,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000443,1.000,86.63,86.63,accounting
+tenant_aura,vil_aur_00035_0290,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000443,1.000,10.39,10.39,accounting
+tenant_aura,vil_aur_00035_0291,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000444,1.000,92.73,92.73,accounting
+tenant_aura,vil_aur_00035_0292,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000444,1.000,11.13,11.13,accounting
+tenant_aura,vil_aur_00035_0293,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000445,1.000,102.21,102.21,accounting
+tenant_aura,vil_aur_00035_0294,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000445,1.000,12.27,12.27,accounting
+tenant_aura,vil_aur_00035_0295,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000448,1.000,126.16,126.16,accounting
+tenant_aura,vil_aur_00035_0296,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000448,1.000,15.14,15.14,accounting
+tenant_aura,vil_aur_00035_0297,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000456,1.000,110.09,110.09,accounting
+tenant_aura,vil_aur_00035_0298,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000456,1.000,13.21,13.21,accounting
+tenant_aura,vil_aur_00035_0299,vin_aur_00035,freight,Parcel or freight base charge,shp_aur_000458,1.000,106.07,106.07,accounting
+tenant_aura,vil_aur_00035_0300,vin_aur_00035,fuel_surcharge,Carrier fuel surcharge,shp_aur_000458,1.000,12.73,12.73,accounting

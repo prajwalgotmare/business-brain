@@ -65,6 +65,8 @@ Phase 3A data foundation (in progress):
 - Deterministic logistics generator for outbound orders and inbound replenishment
 - Tenant-separated shipments, items, tracking events, SLA facts, exceptions, and manifests
 - Reconciled shipment charges, lifecycle events, SLA outcomes, and provisional penalty credits
+- Public-source calibration manifest with UCI licensing and aggregate transaction statistics
+- Reconciled purchase orders, supplier/carrier invoices, payments, and regional margins
 
 ## Local development
 

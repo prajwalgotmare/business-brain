@@ -1,0 +1,40 @@
+{
+  "profile_version": "1.0",
+  "profiled_at": "2026-10-03",
+  "sources": [
+    {
+      "doi": "10.24432/C5CG6D",
+      "license": "CC BY 4.0",
+      "name": "UCI Online Retail II",
+      "profile": {
+        "cancellation_line_rate": "0.0213",
+        "invoice_value_p25_gbp": "145.00",
+        "invoice_value_p50_gbp": "301.00",
+        "invoice_value_p75_gbp": "503.93",
+        "invoice_value_p90_gbp": "925.67",
+        "lines_per_invoice_p50": "15",
+        "lines_per_invoice_p75": "28",
+        "sample_rows": 100000,
+        "units_per_line_p50": "3",
+        "units_per_line_p75": "10"
+      },
+      "transformation": "Aggregate statistics only; compact demo row counts and USD catalog prices are retained, and no source customer or invoice records are copied.",
+      "url": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+      "use": "commerce quantity, invoice-size, and cancellation plausibility"
+    },
+    {
+      "license": "OASIS specification; freely available",
+      "name": "OASIS Universal Business Language 2.3",
+      "transformation": "Mapped relevant concepts into strict Pydantic and CSV contracts.",
+      "url": "https://docs.oasis-open.org/ubl/UBL-2.3.html",
+      "use": "purchase-order, invoice, line, tax, payment-term, and total semantics"
+    },
+    {
+      "license": "U.S. government public data",
+      "name": "U.S. Bureau of Labor Statistics Producer Price Index",
+      "transformation": "Current demo charges reconcile to shipment manifests; no BLS index value is represented as a carrier contract rate.",
+      "url": "https://www.bls.gov/ppi/",
+      "use": "freight-cost terminology and future price-index calibration"
+    }
+  ]
+}

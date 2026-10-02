@@ -1,0 +1,13 @@
+tenant_id,margin_snapshot_id,region_id,week_start_date,revenue_amount,cost_of_goods_amount,freight_expense_amount,refund_amount,net_profit_amount,net_margin_pct,calculated_at,sensitivity
+tenant_apex,mrg_apx_00001,reg_apx_east,2026-08-10,317.36,148.03,29.85,193.86,-54.38,-0.1714,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00002,reg_apx_east,2026-08-17,738.71,351.38,76.05,287.12,24.16,0.0327,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00003,reg_apx_east,2026-08-24,172.25,79.26,21.75,0.00,71.24,0.4136,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00004,reg_apx_east,2026-08-31,521.28,254.19,65.25,0.00,201.84,0.3872,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00005,reg_apx_east,2026-09-07,322.07,154.04,38.70,0.00,129.33,0.4016,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00006,reg_apx_east,2026-09-14,1030.89,487.47,109.35,0.00,434.07,0.4211,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00007,reg_apx_west,2026-08-10,719.38,337.96,83.55,29.25,268.62,0.3734,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00008,reg_apx_west,2026-08-17,2086.80,992.88,191.40,176.47,726.05,0.3479,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00009,reg_apx_west,2026-08-24,684.12,324.44,70.65,0.00,289.03,0.4225,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00010,reg_apx_west,2026-08-31,308.42,145.03,27.15,0.00,136.24,0.4417,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00011,reg_apx_west,2026-09-07,741.65,346.87,76.05,0.00,318.73,0.4298,2026-09-22T00:15:00Z,executive
+tenant_apex,mrg_apx_00012,reg_apx_west,2026-09-14,300.29,148.04,34.65,0.00,117.60,0.3916,2026-09-22T00:15:00Z,executive
