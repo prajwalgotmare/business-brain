@@ -98,3 +98,4 @@ docker compose up -d
 
 See [`docs/product-contract.md`](docs/product-contract.md) for the locked MVP scope and
 [`docs/data-blueprint.md`](docs/data-blueprint.md) for the canonical Phase 3 data contract.
+Progress is maintained in [`docs/project-tracker.md`](docs/project-tracker.md).
