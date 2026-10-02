@@ -1,0 +1,539 @@
+{
+  "$defs": {
+    "Customer": {
+      "additionalProperties": false,
+      "properties": {
+        "customer_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "customer_segment": {
+          "$ref": "#/$defs/CustomerSegment"
+        },
+        "display_name": {
+          "maxLength": 100,
+          "minLength": 3,
+          "title": "Display Name",
+          "type": "string"
+        },
+        "email_alias": {
+          "pattern": "^[a-z0-9._-]+@[a-z0-9-]+\\.example$",
+          "title": "Email Alias",
+          "type": "string"
+        },
+        "region_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Region Id",
+          "type": "string"
+        },
+        "sensitivity": {
+          "const": "support",
+          "default": "support",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "customer_id",
+        "customer_segment",
+        "region_id",
+        "display_name",
+        "email_alias"
+      ],
+      "title": "Customer",
+      "type": "object"
+    },
+    "CustomerSegment": {
+      "enum": [
+        "consumer",
+        "small_business",
+        "wholesale"
+      ],
+      "title": "CustomerSegment",
+      "type": "string"
+    },
+    "InventoryBalance": {
+      "additionalProperties": false,
+      "properties": {
+        "allocated_quantity": {
+          "minimum": 0,
+          "title": "Allocated Quantity",
+          "type": "integer"
+        },
+        "available_quantity": {
+          "minimum": 0,
+          "title": "Available Quantity",
+          "type": "integer"
+        },
+        "inbound_quantity": {
+          "minimum": 0,
+          "title": "Inbound Quantity",
+          "type": "integer"
+        },
+        "inventory_balance_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Inventory Balance Id",
+          "type": "string"
+        },
+        "on_hand_quantity": {
+          "minimum": 0,
+          "title": "On Hand Quantity",
+          "type": "integer"
+        },
+        "product_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "snapshot_at": {
+          "format": "date-time",
+          "title": "Snapshot At",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "warehouse_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Warehouse Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "inventory_balance_id",
+        "warehouse_id",
+        "product_id",
+        "snapshot_at",
+        "on_hand_quantity",
+        "allocated_quantity",
+        "available_quantity",
+        "inbound_quantity"
+      ],
+      "title": "InventoryBalance",
+      "type": "object"
+    },
+    "InventoryMovement": {
+      "additionalProperties": false,
+      "properties": {
+        "inventory_movement_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Inventory Movement Id",
+          "type": "string"
+        },
+        "movement_type": {
+          "$ref": "#/$defs/MovementType"
+        },
+        "occurred_at": {
+          "format": "date-time",
+          "title": "Occurred At",
+          "type": "string"
+        },
+        "product_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "quantity_delta": {
+          "title": "Quantity Delta",
+          "type": "integer"
+        },
+        "reference_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "reference_type": {
+          "$ref": "#/$defs/ReferenceType"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "warehouse_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Warehouse Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "inventory_movement_id",
+        "warehouse_id",
+        "product_id",
+        "occurred_at",
+        "movement_type",
+        "quantity_delta",
+        "reference_type",
+        "reference_id"
+      ],
+      "title": "InventoryMovement",
+      "type": "object"
+    },
+    "MovementType": {
+      "enum": [
+        "receipt",
+        "allocation",
+        "shipment",
+        "return",
+        "adjustment"
+      ],
+      "title": "MovementType",
+      "type": "string"
+    },
+    "Order": {
+      "additionalProperties": false,
+      "properties": {
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "customer_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "discount_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Discount Amount"
+        },
+        "order_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Order Id",
+          "type": "string"
+        },
+        "order_status": {
+          "$ref": "#/$defs/OrderStatus"
+        },
+        "order_timestamp": {
+          "format": "date-time",
+          "title": "Order Timestamp",
+          "type": "string"
+        },
+        "order_total_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Order Total Amount"
+        },
+        "sales_channel": {
+          "$ref": "#/$defs/SalesChannel"
+        },
+        "sensitivity": {
+          "const": "support",
+          "default": "support",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipping_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Shipping Amount"
+        },
+        "subtotal_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Subtotal Amount"
+        },
+        "tax_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Tax Amount"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "warehouse_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Warehouse Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "order_id",
+        "customer_id",
+        "warehouse_id",
+        "order_timestamp",
+        "order_status",
+        "sales_channel",
+        "currency_code",
+        "subtotal_amount",
+        "discount_amount",
+        "tax_amount",
+        "shipping_amount",
+        "order_total_amount"
+      ],
+      "title": "Order",
+      "type": "object"
+    },
+    "OrderLine": {
+      "additionalProperties": false,
+      "properties": {
+        "discount_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Discount Amount"
+        },
+        "net_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Net Amount"
+        },
+        "order_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Order Id",
+          "type": "string"
+        },
+        "order_line_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Order Line Id",
+          "type": "string"
+        },
+        "product_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "quantity": {
+          "exclusiveMinimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "sensitivity": {
+          "const": "support",
+          "default": "support",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "unit_cost_snapshot": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Unit Cost Snapshot"
+        },
+        "unit_price": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Unit Price"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "order_line_id",
+        "order_id",
+        "product_id",
+        "quantity",
+        "unit_price",
+        "discount_amount",
+        "net_amount",
+        "unit_cost_snapshot"
+      ],
+      "title": "OrderLine",
+      "type": "object"
+    },
+    "OrderStatus": {
+      "enum": [
+        "pending",
+        "allocated",
+        "shipped",
+        "delivered",
+        "cancelled",
+        "returned"
+      ],
+      "title": "OrderStatus",
+      "type": "string"
+    },
+    "ReferenceType": {
+      "enum": [
+        "order",
+        "purchase_order",
+        "return",
+        "adjustment"
+      ],
+      "title": "ReferenceType",
+      "type": "string"
+    },
+    "SalesChannel": {
+      "enum": [
+        "web",
+        "marketplace",
+        "wholesale"
+      ],
+      "title": "SalesChannel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "customers": {
+      "items": {
+        "$ref": "#/$defs/Customer"
+      },
+      "title": "Customers",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "generation_seed": {
+      "minimum": 0,
+      "title": "Generation Seed",
+      "type": "integer"
+    },
+    "inventory_balances": {
+      "items": {
+        "$ref": "#/$defs/InventoryBalance"
+      },
+      "title": "Inventory Balances",
+      "type": "array"
+    },
+    "inventory_movements": {
+      "items": {
+        "$ref": "#/$defs/InventoryMovement"
+      },
+      "title": "Inventory Movements",
+      "type": "array"
+    },
+    "order_lines": {
+      "items": {
+        "$ref": "#/$defs/OrderLine"
+      },
+      "title": "Order Lines",
+      "type": "array"
+    },
+    "orders": {
+      "items": {
+        "$ref": "#/$defs/Order"
+      },
+      "title": "Orders",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "generation_seed",
+    "generated_at",
+    "snapshot_at",
+    "customers",
+    "orders",
+    "order_lines",
+    "inventory_balances",
+    "inventory_movements"
+  ],
+  "title": "CommerceInventoryDataset",
+  "type": "object"
+}

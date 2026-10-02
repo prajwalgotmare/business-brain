@@ -59,6 +59,9 @@ Phase 3A data foundation (in progress):
 - Deterministic demonstration scenarios with planned evaluation ground truth
 - Strict machine-readable reference catalog and generated JSON Schema
 - Fixed Aura/Apex tenants, regions, products, warehouses, suppliers, and carriers
+- Deterministic six-week commerce and inventory generator
+- Tenant-separated customer, order, order-line, balance, and movement CSV files
+- Reconciled order totals, inventory roll-forwards, allocations, and cross-tenant checks
 
 ## Local development
 

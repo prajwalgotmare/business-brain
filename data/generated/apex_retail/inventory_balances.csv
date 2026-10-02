@@ -1,0 +1,17 @@
+tenant_id,inventory_balance_id,warehouse_id,product_id,snapshot_at,on_hand_quantity,allocated_quantity,available_quantity,inbound_quantity,sensitivity
+tenant_apex,ibl_apx_00001,wh_apx_east,prd_apx_001,2026-09-21T23:59:59Z,355,0,355,0,operations
+tenant_apex,ibl_apx_00002,wh_apx_east,prd_apx_002,2026-09-21T23:59:59Z,378,3,375,0,operations
+tenant_apex,ibl_apx_00003,wh_apx_east,prd_apx_003,2026-09-21T23:59:59Z,383,0,383,0,operations
+tenant_apex,ibl_apx_00004,wh_apx_east,prd_apx_004,2026-09-21T23:59:59Z,413,0,413,0,operations
+tenant_apex,ibl_apx_00005,wh_apx_east,prd_apx_005,2026-09-21T23:59:59Z,425,1,424,0,operations
+tenant_apex,ibl_apx_00006,wh_apx_east,prd_apx_006,2026-09-21T23:59:59Z,443,1,442,0,operations
+tenant_apex,ibl_apx_00007,wh_apx_east,prd_apx_007,2026-09-21T23:59:59Z,459,1,458,0,operations
+tenant_apex,ibl_apx_00008,wh_apx_east,prd_apx_008,2026-09-21T23:59:59Z,482,0,482,0,operations
+tenant_apex,ibl_apx_00009,wh_apx_west,prd_apx_001,2026-09-21T23:59:59Z,389,1,388,0,operations
+tenant_apex,ibl_apx_00010,wh_apx_west,prd_apx_002,2026-09-21T23:59:59Z,412,1,411,0,operations
+tenant_apex,ibl_apx_00011,wh_apx_west,prd_apx_003,2026-09-21T23:59:59Z,425,0,425,0,operations
+tenant_apex,ibl_apx_00012,wh_apx_west,prd_apx_004,2026-09-21T23:59:59Z,445,4,441,0,operations
+tenant_apex,ibl_apx_00013,wh_apx_west,prd_apx_005,2026-09-21T23:59:59Z,452,1,451,0,operations
+tenant_apex,ibl_apx_00014,wh_apx_west,prd_apx_006,2026-09-21T23:59:59Z,473,0,473,0,operations
+tenant_apex,ibl_apx_00015,wh_apx_west,prd_apx_007,2026-09-21T23:59:59Z,495,0,495,0,operations
+tenant_apex,ibl_apx_00016,wh_apx_west,prd_apx_008,2026-09-21T23:59:59Z,516,0,516,0,operations
