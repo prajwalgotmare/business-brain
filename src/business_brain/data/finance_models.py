@@ -21,6 +21,11 @@ from business_brain.data.models import (
     StrictModel,
     TenantEntity,
 )
+from business_brain.data.scenario_constants import (
+    APPROVAL_PURCHASE_ORDER_ID,
+    OVERBILLING_AMOUNT,
+    OVERBILLING_SHIPMENT_ID,
+)
 
 SignedMoney = Annotated[Decimal, Field(max_digits=12, decimal_places=2)]
 PositiveMoney = Annotated[Decimal, Field(gt=0, max_digits=12, decimal_places=2)]
@@ -306,7 +311,7 @@ def validate_finance_against_sources(
     po_lines: dict[str, list[PurchaseOrderLine]] = defaultdict(list)
     for line in dataset.purchase_order_lines:
         po_lines[line.purchase_order_id].append(line)
-    if set(inbound) != set(po_by_id):
+    if not set(inbound).issubset(set(po_by_id)):
         raise ValueError("every inbound shipment must have one purchase order")
     for purchase_order in dataset.purchase_orders:
         supplier = suppliers.get(purchase_order.supplier_id)
@@ -315,12 +320,20 @@ def validate_finance_against_sources(
             raise ValueError("purchase-order supplier must remain in tenant")
         if warehouse is None or warehouse.tenant_id != purchase_order.tenant_id:
             raise ValueError("purchase-order warehouse must remain in tenant")
-        inbound_warehouse = inbound[
-            purchase_order.purchase_order_id
-        ].destination_warehouse_id
+        linked_shipment = inbound.get(purchase_order.purchase_order_id)
+        if linked_shipment is None:
+            if purchase_order.purchase_order_id != APPROVAL_PURCHASE_ORDER_ID:
+                raise ValueError("unshipped purchase order is not an approved scenario")
+            if purchase_order.purchase_order_status not in {
+                PurchaseOrderStatus.DRAFT,
+                PurchaseOrderStatus.PENDING_APPROVAL,
+            }:
+                raise ValueError("unshipped scenario purchase order must await approval")
+            continue
+        inbound_warehouse = linked_shipment.destination_warehouse_id
         if inbound_warehouse != purchase_order.warehouse_id:
             raise ValueError("purchase order and inbound shipment warehouse must match")
-        shipment = inbound[purchase_order.purchase_order_id]
+        shipment = linked_shipment
         expected_items = {
             item.product_id: item.expected_quantity
             for item in shipment_items[shipment.shipment_id]
@@ -356,8 +369,10 @@ def validate_finance_against_sources(
         item.shipment_id: item.reported_charge_amount
         for item in logistics.carrier_manifest_entries
     }
-    if billed_by_shipment != manifest_charge:
-        raise ValueError("carrier invoice lines must reconcile to shipment manifests")
+    expected_billing = dict(manifest_charge)
+    expected_billing[OVERBILLING_SHIPMENT_ID] += OVERBILLING_AMOUNT
+    if billed_by_shipment != expected_billing:
+        raise ValueError("carrier billing must match manifests plus the planted variance")
     for snapshot in dataset.regional_margin_snapshots:
         region = regions.get(snapshot.region_id)
         if region is None or region.tenant_id != snapshot.tenant_id:

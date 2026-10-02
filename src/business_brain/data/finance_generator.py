@@ -28,6 +28,13 @@ from business_brain.data.logistics_models import (
     ShipmentStatus,
 )
 from business_brain.data.models import Product, ReferenceCatalog, Supplier
+from business_brain.data.scenario_constants import (
+    APPROVAL_PURCHASE_ORDER_ID,
+    OVERBILLING_AMOUNT,
+    OVERBILLING_SHIPMENT_ID,
+    STOCKOUT_PRODUCT_ID,
+    STOCKOUT_WAREHOUSE_ID,
+)
 
 FINANCE_DATA_SEED = 20261006
 PUBLIC_CALIBRATION = {
@@ -167,6 +174,40 @@ def _purchase_orders(
                 approval_required=True,
             )
         )
+    target_product = next(
+        product for product in catalog.products if product.product_id == STOCKOUT_PRODUCT_ID
+    )
+    approval_quantity = 300
+    approval_subtotal = _money(target_product.standard_cost * approval_quantity)
+    approval_freight = Decimal("125.00")
+    orders.append(
+        PurchaseOrder(
+            purchase_order_id=APPROVAL_PURCHASE_ORDER_ID,
+            tenant_id="tenant_aura",
+            supplier_id="sup_aur_skincare",
+            warehouse_id=STOCKOUT_WAREHOUSE_ID,
+            created_at=SNAPSHOT_AT - timedelta(hours=1),
+            expected_at=SNAPSHOT_AT + timedelta(days=28),
+            purchase_order_status=PurchaseOrderStatus.PENDING_APPROVAL,
+            currency_code="USD",
+            subtotal_amount=approval_subtotal,
+            tax_amount=Decimal("0.00"),
+            freight_amount=approval_freight,
+            total_amount=approval_subtotal + approval_freight,
+            approval_required=True,
+        )
+    )
+    lines.append(
+        PurchaseOrderLine(
+            purchase_order_line_id="pol_aur_approval_00001_01",
+            tenant_id="tenant_aura",
+            purchase_order_id=APPROVAL_PURCHASE_ORDER_ID,
+            product_id=STOCKOUT_PRODUCT_ID,
+            quantity=approval_quantity,
+            unit_cost=target_product.standard_cost,
+            line_amount=approval_subtotal,
+        )
+    )
     return orders, lines
 
 
@@ -196,6 +237,12 @@ def _procurement_invoices(
     invoice_lines: list[VendorInvoiceLine] = []
     payments: list[Payment] = []
     for sequence, purchase_order in enumerate(purchase_orders, start=1):
+        if purchase_order.purchase_order_status in {
+            PurchaseOrderStatus.DRAFT,
+            PurchaseOrderStatus.PENDING_APPROVAL,
+            PurchaseOrderStatus.CANCELLED,
+        }:
+            continue
         prefix = _prefix(purchase_order.tenant_id)
         invoice_id = f"vin_{prefix}_{sequence:05d}"
         invoice_date = (purchase_order.created_at + timedelta(days=2)).date()
@@ -295,6 +342,12 @@ def _carrier_invoices(
                     manifest.fuel_surcharge_amount,
                 ),
             ):
+                billed_amount = amount
+                if (
+                    manifest.shipment_id == OVERBILLING_SHIPMENT_ID
+                    and line_type == InvoiceLineType.FREIGHT
+                ):
+                    billed_amount += OVERBILLING_AMOUNT
                 lines.append(
                     VendorInvoiceLine(
                         vendor_invoice_line_id=f"vil_{prefix}_{offset:05d}_{line_sequence:04d}",
@@ -304,11 +357,11 @@ def _carrier_invoices(
                         description=description,
                         shipment_id=manifest.shipment_id,
                         quantity=Decimal("1.000"),
-                        unit_price=amount,
-                        line_amount=amount,
+                        unit_price=billed_amount,
+                        line_amount=billed_amount,
                     )
                 )
-                subtotal += amount
+                subtotal += billed_amount
                 line_sequence += 1
         subtotal = _money(subtotal)
         invoices.append(

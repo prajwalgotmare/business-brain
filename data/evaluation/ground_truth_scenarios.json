@@ -1,0 +1,251 @@
+{
+  "generated_at": "2026-09-22T00:20:00Z",
+  "scenarios": [
+    {
+      "approval_required": false,
+      "document_dependencies": [],
+      "evidence": [
+        {
+          "purpose": "West available inventory at the snapshot",
+          "record_id": "ibl_aur_00106",
+          "source_collection": "inventory_balances"
+        },
+        {
+          "purpose": "SKU reorder and safety-stock thresholds",
+          "record_id": "prd_aur_006",
+          "source_collection": "products"
+        },
+        {
+          "purpose": "Delayed inbound replenishment to the West warehouse",
+          "record_id": "shp_aur_000441",
+          "source_collection": "shipments"
+        },
+        {
+          "purpose": "Delayed inbound replenishment to the West warehouse",
+          "record_id": "shp_aur_000456",
+          "source_collection": "shipments"
+        }
+      ],
+      "expected_facts": {
+        "available_quantity": "2",
+        "delayed_inbound_quantity": "213",
+        "demand_14d": "7",
+        "product_id": "prd_aur_006",
+        "projected_demand_7d": "3.5",
+        "reorder_point": "59",
+        "sku": "AUR-SKN-006",
+        "warehouse_id": "wh_aur_west"
+      },
+      "expected_summary": "Aura Night Repair Oil is at risk in the West: two units are available against 3.5 projected units of seven-day demand while 213 units are delayed.",
+      "question": "Which high-velocity SKU is at risk of stocking out this week due to regional carrier delays?",
+      "required_role": "logistics_manager",
+      "scenario_id": "scn_aur_stockout_001",
+      "scenario_type": "stockout_risk",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "approval_required": true,
+      "document_dependencies": [
+        {
+          "clause_id": "clause_sla_credit_4_2",
+          "document_id": "doc_aur_fedex_msa",
+          "status": "planned_step_3_8"
+        }
+      ],
+      "evidence": [
+        {
+          "purpose": "Shipment and carrier identity",
+          "record_id": "shp_aur_000021",
+          "source_collection": "shipments"
+        },
+        {
+          "purpose": "Expected carrier charge",
+          "record_id": "mft_aur_000021",
+          "source_collection": "carrier_manifest_entries"
+        },
+        {
+          "purpose": "SLA breach and credit",
+          "record_id": "sla_aur_000021",
+          "source_collection": "carrier_sla_facts"
+        },
+        {
+          "purpose": "Billed charge",
+          "record_id": "vil_aur_00034_0013",
+          "source_collection": "vendor_invoice_lines"
+        },
+        {
+          "purpose": "Billed charge",
+          "record_id": "vil_aur_00034_0014",
+          "source_collection": "vendor_invoice_lines"
+        }
+      ],
+      "expected_facts": {
+        "billed_charge": "40.35",
+        "dispute_amount": "20.24",
+        "manifest_charge": "22.35",
+        "overbilling_amount": "18.00",
+        "shipment_id": "shp_aur_000021",
+        "sla_credit": "2.24",
+        "sla_delay_minutes": "30414"
+      },
+      "expected_summary": "Shipment shp_aur_000021 is overbilled by $18.00 and earns a $2.24 late-delivery credit, producing a $20.24 dispute amount.",
+      "question": "Reconcile the FedEx freight invoice and calculate the dispute amount under the SLA.",
+      "required_role": "staff_accountant",
+      "scenario_id": "scn_aur_carrier_overbilling_001",
+      "scenario_type": "carrier_overbilling",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "approval_required": false,
+      "document_dependencies": [
+        {
+          "clause_id": "clause_price_tier_3_1",
+          "document_id": "doc_aur_packaging_agreement",
+          "status": "planned_step_3_8"
+        },
+        {
+          "clause_id": "clause_payment_terms_5_2",
+          "document_id": "doc_aur_packaging_agreement",
+          "status": "planned_step_3_8"
+        }
+      ],
+      "evidence": [
+        {
+          "purpose": "Supplier and structured payment terms",
+          "record_id": "sup_aur_packaging",
+          "source_collection": "suppliers"
+        }
+      ],
+      "expected_facts": {
+        "payment_terms_days": "60",
+        "supplier_id": "sup_aur_packaging",
+        "tier_max_units": "24999",
+        "tier_min_units": "10000",
+        "unit_price": "0.42"
+      },
+      "expected_summary": "Evergreen Packaging Works charges $0.42 per unit for 10,000\u201324,999 units, with Net-60 payment terms.",
+      "question": "What are the contracted packaging price tier and payment terms?",
+      "required_role": "founder_cfo",
+      "scenario_id": "scn_aur_supplier_terms_001",
+      "scenario_type": "supplier_terms",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "approval_required": false,
+      "document_dependencies": [
+        {
+          "clause_id": "clause_late_payment_6_3",
+          "document_id": "doc_aur_skincare_agreement",
+          "status": "planned_step_3_8"
+        }
+      ],
+      "evidence": [
+        {
+          "purpose": "Due date and balance",
+          "record_id": "vin_aur_00010",
+          "source_collection": "vendor_invoices"
+        },
+        {
+          "purpose": "Supplier payment terms",
+          "record_id": "sup_aur_skincare",
+          "source_collection": "suppliers"
+        }
+      ],
+      "expected_facts": {
+        "days_overdue": "8",
+        "due_date": "2026-09-13",
+        "invoice_number": "INV-AUR-00010",
+        "late_penalty_amount": "61.63",
+        "late_penalty_rate_monthly": "0.015",
+        "outstanding_amount": "4108.68",
+        "supplier_id": "sup_aur_skincare",
+        "vendor_invoice_id": "vin_aur_00010"
+      },
+      "expected_summary": "Invoice INV-AUR-00010 is 8 days overdue with $4108.68 outstanding; the monthly penalty is $61.63.",
+      "question": "Which supplier invoice is overdue and what late penalty applies?",
+      "required_role": "staff_accountant",
+      "scenario_id": "scn_aur_overdue_invoice_001",
+      "scenario_type": "overdue_invoice",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "approval_required": false,
+      "document_dependencies": [],
+      "evidence": [
+        {
+          "purpose": "Week 2 margin components",
+          "record_id": "mrg_aur_00014",
+          "source_collection": "regional_margin_snapshots"
+        },
+        {
+          "purpose": "Week 3 margin components",
+          "record_id": "mrg_aur_00015",
+          "source_collection": "regional_margin_snapshots"
+        },
+        {
+          "purpose": "Week 3 returned order",
+          "record_id": "ord_aur_00012",
+          "source_collection": "orders"
+        },
+        {
+          "purpose": "Week 3 returned order",
+          "record_id": "ord_aur_00254",
+          "source_collection": "orders"
+        },
+        {
+          "purpose": "Week 3 returned order",
+          "record_id": "ord_aur_00473",
+          "source_collection": "orders"
+        }
+      ],
+      "expected_facts": {
+        "margin_change_percentage_points": "-13.98",
+        "region_id": "reg_aur_west",
+        "week_2_margin_pct": "0.3467",
+        "week_2_revenue": "3892.75",
+        "week_2_start": "2026-08-17",
+        "week_3_margin_pct": "0.2069",
+        "week_3_refunds": "580.17",
+        "week_3_revenue": "2300.48",
+        "week_3_start": "2026-08-24"
+      },
+      "expected_summary": "West margin fell because revenue declined and three returned orders added a $580.17 refund burden in Week 3.",
+      "question": "Why did West Region net margin decline between Week 2 and Week 3?",
+      "required_role": "founder_cfo",
+      "scenario_id": "scn_aur_west_margin_001",
+      "scenario_type": "margin_decline",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "approval_required": true,
+      "document_dependencies": [],
+      "evidence": [
+        {
+          "purpose": "Approval state and order total",
+          "record_id": "po_aur_approval_00001",
+          "source_collection": "purchase_orders"
+        },
+        {
+          "purpose": "Draft PO line",
+          "record_id": "pol_aur_approval_00001_01",
+          "source_collection": "purchase_order_lines"
+        }
+      ],
+      "expected_facts": {
+        "approval_role": "founder_cfo",
+        "purchase_order_id": "po_aur_approval_00001",
+        "status": "pending_approval",
+        "submission_allowed": "false",
+        "total_amount": "3536.00"
+      },
+      "expected_summary": "No. PO po_aur_approval_00001 is pending Founder/CFO approval and cannot be submitted externally.",
+      "question": "Can the replenishment purchase order be submitted now?",
+      "required_role": "founder_cfo",
+      "scenario_id": "scn_aur_po_approval_001",
+      "scenario_type": "purchase_order_approval",
+      "tenant_id": "tenant_aura"
+    }
+  ],
+  "schema_version": "1.0",
+  "snapshot_at": "2026-09-21T23:59:59Z"
+}

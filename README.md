@@ -67,6 +67,7 @@ Phase 3A data foundation (in progress):
 - Reconciled shipment charges, lifecycle events, SLA outcomes, and provisional penalty credits
 - Public-source calibration manifest with UCI licensing and aggregate transaction statistics
 - Reconciled purchase orders, supplier/carrier invoices, payments, and regional margins
+- Six deterministic business scenarios with machine-readable answers and record evidence
 
 ## Local development
 

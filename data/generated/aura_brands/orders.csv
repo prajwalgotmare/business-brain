@@ -10,7 +10,7 @@ tenant_aura,ord_aur_00008,cus_aur_0083,wh_aur_central,2026-08-13T23:13:00Z,deliv
 tenant_aura,ord_aur_00009,cus_aur_0105,wh_aur_west,2026-09-06T22:12:00Z,delivered,web,USD,23.39,0.00,1.93,6.99,32.31,support
 tenant_aura,ord_aur_00010,cus_aur_0141,wh_aur_west,2026-09-18T16:22:00Z,delivered,web,USD,57.13,0.00,4.71,6.99,68.83,support
 tenant_aura,ord_aur_00011,cus_aur_0175,wh_aur_east,2026-08-17T04:48:00Z,delivered,marketplace,USD,172.50,0.00,14.23,0.00,186.73,support
-tenant_aura,ord_aur_00012,cus_aur_0120,wh_aur_west,2026-08-27T23:35:00Z,delivered,web,USD,194.45,0.00,16.04,0.00,210.49,support
+tenant_aura,ord_aur_00012,cus_aur_0120,wh_aur_west,2026-08-27T23:35:00Z,returned,web,USD,194.45,0.00,16.04,0.00,210.49,support
 tenant_aura,ord_aur_00013,cus_aur_0174,wh_aur_west,2026-09-03T09:42:00Z,shipped,marketplace,USD,98.97,0.00,8.17,0.00,107.14,support
 tenant_aura,ord_aur_00014,cus_aur_0145,wh_aur_east,2026-09-09T05:08:00Z,delivered,web,USD,169.19,0.00,13.96,0.00,183.15,support
 tenant_aura,ord_aur_00015,cus_aur_0040,wh_aur_east,2026-09-10T22:49:00Z,delivered,marketplace,USD,217.06,10.85,17.01,0.00,223.22,support
@@ -252,7 +252,7 @@ tenant_aura,ord_aur_00250,cus_aur_0068,wh_aur_central,2026-09-04T14:12:00Z,deliv
 tenant_aura,ord_aur_00251,cus_aur_0111,wh_aur_west,2026-08-11T02:23:00Z,delivered,marketplace,USD,51.91,0.00,4.28,6.99,63.18,support
 tenant_aura,ord_aur_00252,cus_aur_0037,wh_aur_east,2026-08-30T03:21:00Z,shipped,marketplace,USD,73.98,0.00,6.10,6.99,87.07,support
 tenant_aura,ord_aur_00253,cus_aur_0145,wh_aur_east,2026-09-17T07:36:00Z,delivered,wholesale,USD,131.97,0.00,10.89,0.00,142.86,support
-tenant_aura,ord_aur_00254,cus_aur_0015,wh_aur_west,2026-08-28T05:58:00Z,delivered,marketplace,USD,177.60,0.00,14.65,0.00,192.25,support
+tenant_aura,ord_aur_00254,cus_aur_0015,wh_aur_west,2026-08-28T05:58:00Z,returned,marketplace,USD,177.60,0.00,14.65,0.00,192.25,support
 tenant_aura,ord_aur_00255,cus_aur_0132,wh_aur_west,2026-08-21T11:22:00Z,allocated,marketplace,USD,186.00,0.00,15.35,0.00,201.35,support
 tenant_aura,ord_aur_00256,cus_aur_0013,wh_aur_east,2026-08-17T07:01:00Z,delivered,web,USD,105.54,0.00,8.71,0.00,114.25,support
 tenant_aura,ord_aur_00257,cus_aur_0130,wh_aur_east,2026-09-14T04:46:00Z,delivered,web,USD,101.15,5.06,7.93,0.00,104.02,support
@@ -471,7 +471,7 @@ tenant_aura,ord_aur_00469,cus_aur_0154,wh_aur_east,2026-09-03T06:34:00Z,delivere
 tenant_aura,ord_aur_00470,cus_aur_0047,wh_aur_central,2026-08-13T20:23:00Z,shipped,web,USD,233.00,11.65,18.26,0.00,239.61,support
 tenant_aura,ord_aur_00471,cus_aur_0100,wh_aur_east,2026-08-14T04:25:00Z,delivered,web,USD,180.94,0.00,14.93,0.00,195.87,support
 tenant_aura,ord_aur_00472,cus_aur_0140,wh_aur_central,2026-09-11T23:56:00Z,delivered,marketplace,USD,71.48,0.00,5.90,6.99,84.37,support
-tenant_aura,ord_aur_00473,cus_aur_0138,wh_aur_west,2026-08-30T19:28:00Z,delivered,marketplace,USD,208.12,10.41,16.31,0.00,214.02,support
+tenant_aura,ord_aur_00473,cus_aur_0138,wh_aur_west,2026-08-30T19:28:00Z,returned,marketplace,USD,208.12,10.41,16.31,0.00,214.02,support
 tenant_aura,ord_aur_00474,cus_aur_0026,wh_aur_central,2026-08-15T03:56:00Z,delivered,web,USD,45.21,0.00,3.73,6.99,55.93,support
 tenant_aura,ord_aur_00475,cus_aur_0108,wh_aur_west,2026-09-11T01:48:00Z,delivered,web,USD,36.33,0.00,3.00,6.99,46.32,support
 tenant_aura,ord_aur_00476,cus_aur_0124,wh_aur_east,2026-08-13T07:20:00Z,delivered,web,USD,209.96,0.00,17.32,0.00,227.28,support

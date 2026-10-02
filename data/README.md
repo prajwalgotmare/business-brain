@@ -22,6 +22,9 @@ supplier, payment, credential, or address information.
 - `schemas/finance.schema.json` describes the combined procurement/finance contract.
 - `sources/public_calibration.json` records source URLs, licenses, aggregate profile
   statistics, intended uses, and transformations. Raw public records are not committed.
+- `evaluation/ground_truth_scenarios.json` contains the six deterministic scenario
+  answer keys, source-record evidence, required roles, approvals, and document clauses.
+- `schemas/scenario_ground_truth.schema.json` validates that answer-key contract.
 
 Regenerate the catalog and schema:
 
@@ -70,7 +73,17 @@ uv run python scripts/generate_finance_data.py
 uv run python scripts/generate_finance_data.py --check
 ```
 
-The finance generator uses seed `20261006`. It materializes every inbound shipment as
-an approved purchase order, reconciles supplier and carrier invoices to source lines,
-applies completed payments, and derives weekly regional margins from commerce and
-outbound freight data.
+The finance generator uses seed `20261006`. It materializes inbound shipments as
+approved purchase orders, adds one CFO-gated draft, reconciles supplier and carrier
+invoices except for the documented overbilling scenario, applies completed payments,
+and derives weekly regional margins from commerce and outbound freight data.
+
+Generate and verify the scenario answer keys:
+
+```powershell
+uv run python scripts/generate_scenario_ground_truth.py
+uv run python scripts/generate_scenario_ground_truth.py --check
+```
+
+The scenario manifest links each expected fact to concrete records. Contract-clause
+dependencies are marked `planned_step_3_8` until the synthetic PDF corpus is generated.

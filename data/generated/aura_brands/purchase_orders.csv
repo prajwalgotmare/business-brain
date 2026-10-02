@@ -23,3 +23,4 @@ tenant_aura,po_aur_00021,sup_aur_skincare,wh_aur_west,2026-08-22T11:59:59Z,2026-
 tenant_aura,po_aur_00022,sup_aur_skincare,wh_aur_east,2026-08-17T11:59:59Z,2026-09-16T11:59:59Z,received,USD,3104.52,0.00,116.64,3221.16,True,executive
 tenant_aura,po_aur_00023,sup_aur_accessories,wh_aur_central,2026-07-31T11:59:59Z,2026-09-08T11:59:59Z,received,USD,4101.89,0.00,118.80,4220.69,True,executive
 tenant_aura,po_aur_00024,sup_aur_wellness,wh_aur_west,2026-08-12T11:59:59Z,2026-09-07T11:59:59Z,received,USD,5039.67,0.00,140.22,5179.89,True,executive
+tenant_aura,po_aur_approval_00001,sup_aur_skincare,wh_aur_west,2026-09-21T22:59:59Z,2026-10-19T23:59:59Z,pending_approval,USD,3411.00,0.00,125.00,3536.00,True,executive

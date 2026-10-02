@@ -24,5 +24,5 @@ tenant_aura,vin_aur_00022,sup_aur_skincare,po_aur_00022,INV-AUR-00022,2026-08-19
 tenant_aura,vin_aur_00023,sup_aur_accessories,po_aur_00023,INV-AUR-00023,2026-08-02,2026-10-01,paid,USD,4220.69,0.00,4220.69,0.00,accounting
 tenant_aura,vin_aur_00024,sup_aur_wellness,po_aur_00024,INV-AUR-00024,2026-08-14,2026-09-13,partially_paid,USD,5179.89,0.00,5179.89,2589.94,accounting
 tenant_aura,vin_aur_00033,sup_aur_blueline,,FRT-AUR-00033,2026-09-21,2026-10-21,open,USD,2367.48,0.00,2367.48,2367.48,accounting
-tenant_aura,vin_aur_00034,sup_aur_fedex_demo,,FRT-AUR-00034,2026-09-21,2026-10-21,open,USD,3155.55,0.00,3155.55,3155.55,accounting
+tenant_aura,vin_aur_00034,sup_aur_fedex_demo,,FRT-AUR-00034,2026-09-21,2026-10-21,open,USD,3173.55,0.00,3173.55,3173.55,accounting
 tenant_aura,vin_aur_00035,sup_aur_northstar,,FRT-AUR-00035,2026-09-21,2026-10-21,open,USD,2738.07,0.00,2738.07,2738.07,accounting

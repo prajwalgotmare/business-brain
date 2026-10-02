@@ -22,6 +22,12 @@ from business_brain.data.commerce_models import (
     validate_commerce_against_catalog,
 )
 from business_brain.data.models import Product, ReferenceCatalog
+from business_brain.data.scenario_constants import (
+    MARGIN_RETURN_ORDER_IDS,
+    STOCKOUT_PRODUCT_ID,
+    STOCKOUT_TARGET_ON_HAND,
+    STOCKOUT_WAREHOUSE_ID,
+)
 
 COMMERCE_DATA_SEED = 20261004
 DATA_START = datetime(2026, 8, 10, tzinfo=UTC)
@@ -226,8 +232,12 @@ def _build_inventory(
         )
         movement_sequence += 1
 
-        if order.order_status == OrderStatus.RETURNED:
-            return_time = min(ship_time + timedelta(days=rng.randint(3, 8)), SNAPSHOT_AT)
+        if (
+            order.order_status == OrderStatus.RETURNED
+            and order.order_id not in MARGIN_RETURN_ORDER_IDS
+        ):
+            return_days = rng.randint(3, 8)
+            return_time = min(ship_time + timedelta(days=return_days), SNAPSHOT_AT)
             on_hand_by_key[key] += line.quantity
             movements.append(
                 InventoryMovement(
@@ -243,6 +253,51 @@ def _build_inventory(
                 )
             )
             movement_sequence += 1
+
+    if tenant_id == "tenant_aura":
+        scenario_return_sequence = 1
+        for line in order_lines:
+            if line.order_id not in MARGIN_RETURN_ORDER_IDS:
+                continue
+            order = order_by_id[line.order_id]
+            key = (order.warehouse_id, line.product_id)
+            on_hand_by_key[key] += line.quantity
+            movements.append(
+                InventoryMovement(
+                    inventory_movement_id=(
+                        f"imv_aur_scn_margin_{scenario_return_sequence:02d}"
+                    ),
+                    tenant_id=tenant_id,
+                    warehouse_id=order.warehouse_id,
+                    product_id=line.product_id,
+                    occurred_at=min(
+                        order.order_timestamp + timedelta(days=7), SNAPSHOT_AT
+                    ),
+                    movement_type=MovementType.RETURN,
+                    quantity_delta=line.quantity,
+                    reference_type=ReferenceType.ORDER,
+                    reference_id=order.order_id,
+                )
+            )
+            scenario_return_sequence += 1
+
+    if tenant_id == "tenant_aura":
+        scenario_key = (STOCKOUT_WAREHOUSE_ID, STOCKOUT_PRODUCT_ID)
+        adjustment = STOCKOUT_TARGET_ON_HAND - on_hand_by_key[scenario_key]
+        on_hand_by_key[scenario_key] = STOCKOUT_TARGET_ON_HAND
+        movements.append(
+            InventoryMovement(
+                inventory_movement_id="imv_aur_scn_stockout",
+                tenant_id=tenant_id,
+                warehouse_id=STOCKOUT_WAREHOUSE_ID,
+                product_id=STOCKOUT_PRODUCT_ID,
+                occurred_at=SNAPSHOT_AT,
+                movement_type=MovementType.ADJUSTMENT,
+                quantity_delta=adjustment,
+                reference_type=ReferenceType.ADJUSTMENT,
+                reference_id="adj_aur_scn_stockout",
+            )
+        )
 
     balances: list[InventoryBalance] = []
     balance_sequence = 1
@@ -312,6 +367,10 @@ def build_commerce_inventory_dataset(
             warehouse_by_region=warehouse_by_region,
             rng=rng,
         )
+        if tenant_id == "tenant_aura":
+            for order in tenant_orders:
+                if order.order_id in MARGIN_RETURN_ORDER_IDS:
+                    order.order_status = OrderStatus.RETURNED
         tenant_balances, tenant_movements = _build_inventory(
             tenant_id=tenant_id,
             products=tenant_products,

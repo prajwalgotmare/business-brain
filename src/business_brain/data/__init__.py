@@ -8,14 +8,18 @@ from business_brain.data.logistics_generator import build_logistics_dataset
 from business_brain.data.logistics_models import LogisticsDataset
 from business_brain.data.models import ReferenceCatalog
 from business_brain.data.reference_catalog import build_reference_catalog
+from business_brain.data.scenario_generator import build_ground_truth_manifest
+from business_brain.data.scenario_models import GroundTruthManifest
 
 __all__ = [
     "CommerceInventoryDataset",
     "FinanceDataset",
+    "GroundTruthManifest",
     "LogisticsDataset",
     "ReferenceCatalog",
     "build_commerce_inventory_dataset",
     "build_finance_dataset",
+    "build_ground_truth_manifest",
     "build_logistics_dataset",
     "build_reference_catalog",
 ]

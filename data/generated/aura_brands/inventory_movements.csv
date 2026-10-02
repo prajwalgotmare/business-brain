@@ -1113,3 +1113,12 @@ tenant_aura,imv_aur_0001111,wh_aur_central,prd_aur_050,2026-09-17T23:25:00Z,ship
 tenant_aura,imv_aur_0001112,wh_aur_east,prd_aur_010,2026-09-09T09:29:00Z,shipment,-1,order,ord_aur_00499,operations
 tenant_aura,imv_aur_0001113,wh_aur_east,prd_aur_050,2026-09-13T06:59:00Z,shipment,-2,order,ord_aur_00500,operations
 tenant_aura,imv_aur_0001114,wh_aur_east,prd_aur_034,2026-09-13T21:59:00Z,shipment,-1,order,ord_aur_00500,operations
+tenant_aura,imv_aur_scn_margin_01,wh_aur_west,prd_aur_034,2026-09-03T23:35:00Z,return,3,order,ord_aur_00012,operations
+tenant_aura,imv_aur_scn_margin_02,wh_aur_west,prd_aur_036,2026-09-03T23:35:00Z,return,1,order,ord_aur_00012,operations
+tenant_aura,imv_aur_scn_margin_03,wh_aur_west,prd_aur_049,2026-09-03T23:35:00Z,return,1,order,ord_aur_00012,operations
+tenant_aura,imv_aur_scn_margin_04,wh_aur_west,prd_aur_031,2026-09-04T05:58:00Z,return,2,order,ord_aur_00254,operations
+tenant_aura,imv_aur_scn_margin_05,wh_aur_west,prd_aur_020,2026-09-04T05:58:00Z,return,3,order,ord_aur_00254,operations
+tenant_aura,imv_aur_scn_margin_06,wh_aur_west,prd_aur_041,2026-09-06T19:28:00Z,return,2,order,ord_aur_00473,operations
+tenant_aura,imv_aur_scn_margin_07,wh_aur_west,prd_aur_042,2026-09-06T19:28:00Z,return,1,order,ord_aur_00473,operations
+tenant_aura,imv_aur_scn_margin_08,wh_aur_west,prd_aur_020,2026-09-06T19:28:00Z,return,3,order,ord_aur_00473,operations
+tenant_aura,imv_aur_scn_stockout,wh_aur_west,prd_aur_006,2026-09-21T23:59:59Z,adjustment,-513,adjustment,adj_aur_scn_stockout,operations

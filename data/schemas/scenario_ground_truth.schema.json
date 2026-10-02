@@ -1,0 +1,186 @@
+{
+  "$defs": {
+    "DocumentDependency": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "document_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "status": {
+          "const": "planned_step_3_8",
+          "default": "planned_step_3_8",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "clause_id"
+      ],
+      "title": "DocumentDependency",
+      "type": "object"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "purpose": {
+          "maxLength": 160,
+          "minLength": 3,
+          "title": "Purpose",
+          "type": "string"
+        },
+        "record_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "source_collection": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Source Collection",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_collection",
+        "record_id",
+        "purpose"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "GroundTruthScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_required": {
+          "default": false,
+          "title": "Approval Required",
+          "type": "boolean"
+        },
+        "document_dependencies": {
+          "items": {
+            "$ref": "#/$defs/DocumentDependency"
+          },
+          "title": "Document Dependencies",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "expected_facts": {
+          "patternProperties": {
+            "^[a-z][a-z0-9_]+$": {
+              "type": "string"
+            }
+          },
+          "title": "Expected Facts",
+          "type": "object"
+        },
+        "expected_summary": {
+          "maxLength": 500,
+          "minLength": 10,
+          "title": "Expected Summary",
+          "type": "string"
+        },
+        "question": {
+          "maxLength": 300,
+          "minLength": 10,
+          "title": "Question",
+          "type": "string"
+        },
+        "required_role": {
+          "enum": [
+            "founder_cfo",
+            "logistics_manager",
+            "staff_accountant"
+          ],
+          "title": "Required Role",
+          "type": "string"
+        },
+        "scenario_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_type": {
+          "$ref": "#/$defs/ScenarioType"
+        },
+        "tenant_id": {
+          "const": "tenant_aura",
+          "default": "tenant_aura",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_type",
+        "question",
+        "expected_summary",
+        "expected_facts",
+        "evidence",
+        "required_role"
+      ],
+      "title": "GroundTruthScenario",
+      "type": "object"
+    },
+    "ScenarioType": {
+      "enum": [
+        "stockout_risk",
+        "carrier_overbilling",
+        "supplier_terms",
+        "overdue_invoice",
+        "margin_decline",
+        "purchase_order_approval"
+      ],
+      "title": "ScenarioType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "scenarios": {
+      "items": {
+        "$ref": "#/$defs/GroundTruthScenario"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "generated_at",
+    "snapshot_at",
+    "scenarios"
+  ],
+  "title": "GroundTruthManifest",
+  "type": "object"
+}

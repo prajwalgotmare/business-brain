@@ -13,6 +13,11 @@ from business_brain.data import (
 )
 from business_brain.data.finance_models import PaymentStatus
 from business_brain.data.logistics_models import ShipmentDirection
+from business_brain.data.scenario_constants import (
+    APPROVAL_PURCHASE_ORDER_ID,
+    OVERBILLING_AMOUNT,
+    OVERBILLING_SHIPMENT_ID,
+)
 
 
 def _sources():
@@ -30,7 +35,9 @@ def test_every_inbound_shipment_has_a_reconciled_purchase_order() -> None:
         for shipment in logistics.shipments
         if shipment.shipment_direction == ShipmentDirection.INBOUND
     }
-    assert inbound_ids == {item.purchase_order_id for item in finance.purchase_orders}
+    purchase_order_ids = {item.purchase_order_id for item in finance.purchase_orders}
+    assert inbound_ids < purchase_order_ids
+    assert purchase_order_ids - inbound_ids == {APPROVAL_PURCHASE_ORDER_ID}
     assert all(item.approval_required for item in finance.purchase_orders)
 
 
@@ -56,6 +63,7 @@ def test_freight_invoice_lines_reconcile_to_manifests() -> None:
         manifest.shipment_id: manifest.reported_charge_amount
         for manifest in logistics.carrier_manifest_entries
     }
+    expected[OVERBILLING_SHIPMENT_ID] += OVERBILLING_AMOUNT
     assert billed == expected
 
 
