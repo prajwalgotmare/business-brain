@@ -5,6 +5,7 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
+from business_brain.api.dependencies import get_generation_tracer
 from business_brain.api.errors import ErrorDetail, ErrorResponse, LLMServiceUnavailableError
 from business_brain.api.request_context import request_id_from_header
 from business_brain.api.routes.ask import router as ask_router
@@ -16,6 +17,7 @@ from business_brain.core.config import get_settings
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     get_settings()
     yield
+    get_generation_tracer().flush()
 
 
 def create_app() -> FastAPI:

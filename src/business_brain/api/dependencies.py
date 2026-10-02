@@ -1,13 +1,20 @@
 from functools import lru_cache
 from typing import Annotated
+from urllib.parse import urlparse
 
 from fastapi import Depends, Header
+from langfuse import Langfuse
 
 from business_brain.api.errors import LLMServiceUnavailableError
 from business_brain.core.config import Settings, get_settings
 from business_brain.llm.gateway import LLMGateway
 from business_brain.llm.groq_client import HttpGroqChatClient
 from business_brain.llm.reliability import CircuitBreaker, RetryPolicy
+from business_brain.observability.tracing import (
+    GenerationTracer,
+    LangfuseGenerationTracer,
+    NoOpGenerationTracer,
+)
 from business_brain.security.context import AuthContext, UserRole
 
 
@@ -70,4 +77,41 @@ def _build_llm_gateway() -> LLMGateway:
 
 def get_llm_gateway() -> LLMGateway:
     return _build_llm_gateway()
+
+
+@lru_cache
+def _build_generation_tracer() -> GenerationTracer:
+    settings = get_settings()
+    if (
+        not settings.langfuse_enabled
+        or not settings.langfuse_public_key
+        or not settings.langfuse_secret_key
+        or not settings.langfuse_public_key.startswith("pk-lf-")
+        or not settings.langfuse_secret_key.startswith("sk-lf-")
+    ):
+        return NoOpGenerationTracer()
+
+    parsed_url = urlparse(settings.langfuse_base_url)
+    if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+        return NoOpGenerationTracer()
+
+    try:
+        client = Langfuse(
+            public_key=settings.langfuse_public_key,
+            secret_key=settings.langfuse_secret_key,
+            base_url=settings.langfuse_base_url,
+            environment=settings.app_env,
+            tracing_enabled=True,
+        )
+    except Exception:
+        return NoOpGenerationTracer()
+
+    return LangfuseGenerationTracer(
+        client=client,
+        capture_content=settings.langfuse_capture_content,
+    )
+
+
+def get_generation_tracer() -> GenerationTracer:
+    return _build_generation_tracer()
 

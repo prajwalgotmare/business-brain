@@ -43,6 +43,14 @@ Phase 2C API boundary:
 - Tenant and role context passed to generation without exposing user identifiers
 - Sanitized validation and provider error responses
 
+Phase 2D observability:
+
+- Langfuse Python SDK v4 generation observations
+- Tenant, role, request, thread, model, fallback, attempts, latency, and token context
+- No authenticated user identifier exported to tracing
+- Configurable prompt/response content capture for synthetic demonstration data
+- Fail-open tracing: initialization, update, export, or flush failures cannot break generation
+
 ## Local development
 
 Prerequisites: Python 3.11+, `uv`, Docker Desktop, and Docker Compose.

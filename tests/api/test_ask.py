@@ -2,10 +2,11 @@ from uuid import UUID
 
 from fastapi.testclient import TestClient
 
-from business_brain.api.dependencies import get_llm_gateway
+from business_brain.api.dependencies import get_generation_tracer, get_llm_gateway
 from business_brain.llm.gateway import AllModelsFailedError
 from business_brain.llm.schemas import GenerationRequest, GenerationResult, TokenUsage
 from business_brain.main import app
+from business_brain.observability.tracing import GenerationTraceContext
 
 
 class StubGateway:
@@ -24,6 +25,20 @@ class StubGateway:
             raise self.error
         assert self.result is not None
         return self.result
+
+
+class RecordingTracer:
+    def __init__(self) -> None:
+        self.contexts: list[GenerationTraceContext] = []
+        self.primary_models: list[str] = []
+
+    async def trace_generation(self, *, context, request, primary_model, operation):
+        self.contexts.append(context)
+        self.primary_models.append(primary_model)
+        return await operation()
+
+    def flush(self) -> None:
+        return None
 
 
 AUTH_HEADERS = {
@@ -94,6 +109,32 @@ def test_ask_preserves_valid_request_and_thread_ids() -> None:
     assert response.status_code == 200
     assert response.json()["request_id"] == request_id
     assert response.json()["thread_id"] == thread_id
+
+
+def test_ask_sends_safe_request_context_to_tracing() -> None:
+    gateway = successful_gateway()
+    tracer = RecordingTracer()
+    app.dependency_overrides[get_llm_gateway] = lambda: gateway
+    app.dependency_overrides[get_generation_tracer] = lambda: tracer
+
+    try:
+        with TestClient(app) as client:
+            response = client.post(
+                "/api/v1/ask",
+                headers=AUTH_HEADERS,
+                json={"question": "Summarize carrier risk"},
+            )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == 200
+    context = tracer.contexts[0]
+    assert context.request_id == response.json()["request_id"]
+    assert context.thread_id == response.json()["thread_id"]
+    assert context.tenant_id == "aura-brands"
+    assert context.role.value == "founder_cfo"
+    assert not hasattr(context, "user_id")
+    assert tracer.primary_models == ["openai/gpt-oss-120b"]
 
 
 def test_missing_auth_headers_returns_sanitized_validation_error() -> None:
