@@ -4,12 +4,18 @@ from uuid import UUID, uuid4
 from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel, ConfigDict, Field
 
-from business_brain.api.dependencies import get_auth_context, get_llm_gateway
+from business_brain.api.dependencies import (
+    get_auth_context,
+    get_generation_tracer,
+    get_llm_gateway,
+)
 from business_brain.api.errors import LLMServiceUnavailableError
 from business_brain.api.request_context import get_request_id
+from business_brain.core.config import Settings, get_settings
 from business_brain.llm.gateway import AllModelsFailedError, LLMGateway
 from business_brain.llm.groq_client import LLMProviderError
 from business_brain.llm.schemas import ChatMessage, GenerationRequest, TokenUsage
+from business_brain.observability.tracing import GenerationTraceContext, GenerationTracer
 from business_brain.security.context import AuthContext, UserRole
 
 router = APIRouter(tags=["assistant"])
@@ -58,7 +64,11 @@ async def ask(
     request: Request,
     auth: Annotated[AuthContext, Depends(get_auth_context)],
     gateway: Annotated[LLMGateway, Depends(get_llm_gateway)],
+    tracer: Annotated[GenerationTracer, Depends(get_generation_tracer)],
+    settings: Annotated[Settings, Depends(get_settings)],
 ) -> AskResponse:
+    request_id = get_request_id(request)
+    thread_id = payload.thread_id or uuid4()
     generation_request = GenerationRequest(
         messages=[
             _system_message(auth),
@@ -68,13 +78,23 @@ async def ask(
     )
 
     try:
-        result = await gateway.generate(generation_request)
+        result = await tracer.trace_generation(
+            context=GenerationTraceContext(
+                request_id=request_id,
+                thread_id=str(thread_id),
+                tenant_id=auth.tenant_id,
+                role=auth.role,
+            ),
+            request=generation_request,
+            primary_model=settings.groq_primary_model,
+            operation=lambda: gateway.generate(generation_request),
+        )
     except (AllModelsFailedError, LLMProviderError) as exc:
         raise LLMServiceUnavailableError("LLM generation is temporarily unavailable") from exc
 
     return AskResponse(
-        request_id=get_request_id(request),
-        thread_id=payload.thread_id or uuid4(),
+        request_id=request_id,
+        thread_id=thread_id,
         answer=result.content,
         model=result.model,
         provider=result.provider,
