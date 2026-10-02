@@ -62,6 +62,9 @@ Phase 3A data foundation (in progress):
 - Deterministic six-week commerce and inventory generator
 - Tenant-separated customer, order, order-line, balance, and movement CSV files
 - Reconciled order totals, inventory roll-forwards, allocations, and cross-tenant checks
+- Deterministic logistics generator for outbound orders and inbound replenishment
+- Tenant-separated shipments, items, tracking events, SLA facts, exceptions, and manifests
+- Reconciled shipment charges, lifecycle events, SLA outcomes, and provisional penalty credits
 
 ## Local development
 

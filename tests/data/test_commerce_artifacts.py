@@ -41,8 +41,11 @@ def test_every_tenant_export_has_all_five_csv_collections() -> None:
         "inventory_movements.csv",
     }
 
-    assert {path.name for path in (GENERATED_ROOT / "aura_brands").glob("*.csv")} == expected_files
-    assert {path.name for path in (GENERATED_ROOT / "apex_retail").glob("*.csv")} == expected_files
+    for directory in ("aura_brands", "apex_retail"):
+        actual_files = {
+            path.name for path in (GENERATED_ROOT / directory).glob("*.csv")
+        }
+        assert expected_files <= actual_files
 
 
 def test_commerce_json_schema_is_committed() -> None:

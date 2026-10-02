@@ -14,6 +14,9 @@ supplier, payment, credential, or address information.
   and inventory movements.
 - `schemas/commerce_inventory.schema.json` describes the combined commerce/inventory
   contract used to validate the CSV source collections before database ingestion.
+- Logistics generation adds shipments, shipment items, tracking events, SLA facts,
+  delivery exceptions, and carrier manifest entries to each tenant directory.
+- `schemas/logistics.schema.json` describes the combined logistics contract.
 
 Regenerate the catalog and schema:
 
@@ -44,3 +47,13 @@ uv run python scripts/generate_commerce_inventory_data.py --check
 
 The commerce generator uses seed `20261004`, a fixed six-week order window beginning
 2026-08-10, and a snapshot cutoff of 2026-09-21T23:59:59Z.
+
+Generate and verify the logistics CSV files:
+
+```powershell
+uv run python scripts/generate_logistics_data.py
+uv run python scripts/generate_logistics_data.py --check
+```
+
+The logistics generator uses seed `20261005`. Inbound shipments contain deterministic
+purchase-order references that the procurement generator must materialize in Step 3.5.

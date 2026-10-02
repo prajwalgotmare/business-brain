@@ -1,0 +1,728 @@
+{
+  "$defs": {
+    "CarrierManifestEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "base_charge_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Base Charge Amount"
+        },
+        "carrier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Carrier Id",
+          "type": "string"
+        },
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "delivery_status": {
+          "$ref": "#/$defs/ShipmentStatus"
+        },
+        "fuel_surcharge_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Fuel Surcharge Amount"
+        },
+        "manifest_date": {
+          "format": "date-time",
+          "title": "Manifest Date",
+          "type": "string"
+        },
+        "manifest_entry_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Manifest Entry Id",
+          "type": "string"
+        },
+        "reported_charge_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Reported Charge Amount"
+        },
+        "reported_weight_kg": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,7}|(?=[\\d.]{1,11}0*$)\\d{0,7}\\.\\d{0,3}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Reported Weight Kg"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "service_level": {
+          "$ref": "#/$defs/ServiceLevel"
+        },
+        "shipment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Id",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "tracking_number": {
+          "pattern": "^[A-Z0-9-]{8,40}$",
+          "title": "Tracking Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "manifest_entry_id",
+        "shipment_id",
+        "carrier_id",
+        "tracking_number",
+        "service_level",
+        "reported_weight_kg",
+        "base_charge_amount",
+        "fuel_surcharge_amount",
+        "reported_charge_amount",
+        "currency_code",
+        "manifest_date",
+        "delivery_status"
+      ],
+      "title": "CarrierManifestEntry",
+      "type": "object"
+    },
+    "CarrierSlaFact": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_delivery_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Actual Delivery At"
+        },
+        "carrier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Carrier Id",
+          "type": "string"
+        },
+        "carrier_sla_fact_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Carrier Sla Fact Id",
+          "type": "string"
+        },
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "delay_minutes": {
+          "minimum": 0,
+          "title": "Delay Minutes",
+          "type": "integer"
+        },
+        "evaluated_at": {
+          "format": "date-time",
+          "title": "Evaluated At",
+          "type": "string"
+        },
+        "evaluation_basis": {
+          "$ref": "#/$defs/SlaEvaluationBasis"
+        },
+        "penalty_eligible": {
+          "title": "Penalty Eligible",
+          "type": "boolean"
+        },
+        "promised_delivery_at": {
+          "format": "date-time",
+          "title": "Promised Delivery At",
+          "type": "string"
+        },
+        "provisional_credit_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Provisional Credit Amount"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Id",
+          "type": "string"
+        },
+        "sla_status": {
+          "$ref": "#/$defs/SlaStatus"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "carrier_sla_fact_id",
+        "shipment_id",
+        "carrier_id",
+        "promised_delivery_at",
+        "evaluated_at",
+        "evaluation_basis",
+        "sla_status",
+        "delay_minutes",
+        "penalty_eligible",
+        "provisional_credit_amount",
+        "currency_code"
+      ],
+      "title": "CarrierSlaFact",
+      "type": "object"
+    },
+    "DeliveryException": {
+      "additionalProperties": false,
+      "properties": {
+        "customer_impact": {
+          "title": "Customer Impact",
+          "type": "boolean"
+        },
+        "delivery_exception_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Delivery Exception Id",
+          "type": "string"
+        },
+        "exception_status": {
+          "$ref": "#/$defs/ExceptionStatus"
+        },
+        "opened_at": {
+          "format": "date-time",
+          "title": "Opened At",
+          "type": "string"
+        },
+        "reason_code": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "resolved_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resolved At"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Id",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "tracking_event_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tracking Event Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "delivery_exception_id",
+        "shipment_id",
+        "tracking_event_id",
+        "reason_code",
+        "opened_at",
+        "exception_status",
+        "customer_impact"
+      ],
+      "title": "DeliveryException",
+      "type": "object"
+    },
+    "EventSource": {
+      "enum": [
+        "carrier_webhook",
+        "batch_manifest"
+      ],
+      "title": "EventSource",
+      "type": "string"
+    },
+    "ExceptionStatus": {
+      "enum": [
+        "open",
+        "resolved"
+      ],
+      "title": "ExceptionStatus",
+      "type": "string"
+    },
+    "ServiceLevel": {
+      "enum": [
+        "standard",
+        "expedited",
+        "same_day"
+      ],
+      "title": "ServiceLevel",
+      "type": "string"
+    },
+    "Shipment": {
+      "additionalProperties": false,
+      "properties": {
+        "carrier_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Carrier Id",
+          "type": "string"
+        },
+        "currency_code": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency Code",
+          "type": "string"
+        },
+        "delivered_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Delivered At"
+        },
+        "destination_region_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Destination Region Id",
+          "type": "string"
+        },
+        "destination_warehouse_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination Warehouse Id"
+        },
+        "freight_charge_amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)",
+              "type": "string"
+            }
+          ],
+          "title": "Freight Charge Amount"
+        },
+        "order_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Order Id"
+        },
+        "origin_warehouse_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Origin Warehouse Id"
+        },
+        "promised_delivery_at": {
+          "format": "date-time",
+          "title": "Promised Delivery At",
+          "type": "string"
+        },
+        "purchase_order_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Purchase Order Id"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipment_direction": {
+          "$ref": "#/$defs/ShipmentDirection"
+        },
+        "shipment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Id",
+          "type": "string"
+        },
+        "shipment_status": {
+          "$ref": "#/$defs/ShipmentStatus"
+        },
+        "shipped_at": {
+          "format": "date-time",
+          "title": "Shipped At",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "tracking_number": {
+          "pattern": "^[A-Z0-9-]{8,40}$",
+          "title": "Tracking Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "shipment_id",
+        "shipment_direction",
+        "carrier_id",
+        "destination_region_id",
+        "tracking_number",
+        "shipped_at",
+        "promised_delivery_at",
+        "shipment_status",
+        "freight_charge_amount",
+        "currency_code"
+      ],
+      "title": "Shipment",
+      "type": "object"
+    },
+    "ShipmentDirection": {
+      "enum": [
+        "outbound",
+        "inbound"
+      ],
+      "title": "ShipmentDirection",
+      "type": "string"
+    },
+    "ShipmentItem": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_quantity": {
+          "exclusiveMinimum": 0,
+          "title": "Expected Quantity",
+          "type": "integer"
+        },
+        "product_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Product Id",
+          "type": "string"
+        },
+        "received_quantity": {
+          "minimum": 0,
+          "title": "Received Quantity",
+          "type": "integer"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Id",
+          "type": "string"
+        },
+        "shipment_item_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Item Id",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "shipment_item_id",
+        "shipment_id",
+        "product_id",
+        "expected_quantity",
+        "received_quantity"
+      ],
+      "title": "ShipmentItem",
+      "type": "object"
+    },
+    "ShipmentStatus": {
+      "enum": [
+        "label_created",
+        "in_transit",
+        "delayed",
+        "delivered",
+        "exception",
+        "cancelled"
+      ],
+      "title": "ShipmentStatus",
+      "type": "string"
+    },
+    "SlaEvaluationBasis": {
+      "enum": [
+        "delivered",
+        "as_of_snapshot"
+      ],
+      "title": "SlaEvaluationBasis",
+      "type": "string"
+    },
+    "SlaStatus": {
+      "enum": [
+        "pending",
+        "on_time",
+        "breached"
+      ],
+      "title": "SlaStatus",
+      "type": "string"
+    },
+    "TrackingEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event_source": {
+          "$ref": "#/$defs/EventSource"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "event_type": {
+          "$ref": "#/$defs/TrackingEventType"
+        },
+        "location_code": {
+          "pattern": "^[A-Z0-9-]{3,40}$",
+          "title": "Location Code",
+          "type": "string"
+        },
+        "raw_event_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Raw Event Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason Code"
+        },
+        "sensitivity": {
+          "const": "operations",
+          "default": "operations",
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "shipment_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Shipment Id",
+          "type": "string"
+        },
+        "tenant_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "tracking_event_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Tracking Event Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "tracking_event_id",
+        "shipment_id",
+        "event_time",
+        "event_type",
+        "location_code",
+        "event_source",
+        "raw_event_id"
+      ],
+      "title": "TrackingEvent",
+      "type": "object"
+    },
+    "TrackingEventType": {
+      "enum": [
+        "picked_up",
+        "departed",
+        "arrived",
+        "out_for_delivery",
+        "delivered",
+        "delay",
+        "exception"
+      ],
+      "title": "TrackingEventType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "carrier_manifest_entries": {
+      "items": {
+        "$ref": "#/$defs/CarrierManifestEntry"
+      },
+      "title": "Carrier Manifest Entries",
+      "type": "array"
+    },
+    "carrier_sla_facts": {
+      "items": {
+        "$ref": "#/$defs/CarrierSlaFact"
+      },
+      "title": "Carrier Sla Facts",
+      "type": "array"
+    },
+    "delivery_exceptions": {
+      "items": {
+        "$ref": "#/$defs/DeliveryException"
+      },
+      "title": "Delivery Exceptions",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "generation_seed": {
+      "minimum": 0,
+      "title": "Generation Seed",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "shipment_items": {
+      "items": {
+        "$ref": "#/$defs/ShipmentItem"
+      },
+      "title": "Shipment Items",
+      "type": "array"
+    },
+    "shipments": {
+      "items": {
+        "$ref": "#/$defs/Shipment"
+      },
+      "title": "Shipments",
+      "type": "array"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    },
+    "tracking_events": {
+      "items": {
+        "$ref": "#/$defs/TrackingEvent"
+      },
+      "title": "Tracking Events",
+      "type": "array"
+    }
+  },
+  "required": [
+    "generation_seed",
+    "generated_at",
+    "snapshot_at",
+    "shipments",
+    "shipment_items",
+    "tracking_events",
+    "carrier_sla_facts",
+    "delivery_exceptions",
+    "carrier_manifest_entries"
+  ],
+  "title": "LogisticsDataset",
+  "type": "object"
+}
