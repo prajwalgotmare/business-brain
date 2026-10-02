@@ -35,6 +35,14 @@ Phase 2B reliability:
 - Automatic fallback after primary retry exhaustion or while its circuit is open
 - Deterministic tests for retry timing, circuit recovery, and failure classification
 
+Phase 2C API boundary:
+
+- Validated `POST /api/v1/ask` request and response contracts
+- Correlation IDs returned in both response bodies and `X-Request-ID` headers
+- Explicit mock `X-Tenant-ID`, `X-User-ID`, and `X-Role` development headers
+- Tenant and role context passed to generation without exposing user identifiers
+- Sanitized validation and provider error responses
+
 ## Local development
 
 Prerequisites: Python 3.11+, `uv`, Docker Desktop, and Docker Compose.
