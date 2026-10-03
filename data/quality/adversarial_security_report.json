@@ -1,0 +1,17 @@
+{
+  "verified_on": "2026-10-03",
+  "status": "passed",
+  "adversarial_cases": 21,
+  "adversarial_failures": 0,
+  "pass_rate_percent": 100,
+  "categories": [
+    "cross_tenant_retrieval",
+    "privilege_escalation",
+    "prompt_injection",
+    "unauthorized_tool_execution",
+    "tool_argument_injection",
+    "route_intent_confusion"
+  ],
+  "full_suite_tests_passed": 213,
+  "lint": "passed"
+}
