@@ -1,0 +1,11 @@
+{
+  "dataset_case_count": 50,
+  "minimum_ragas_cases": 8,
+  "minimum_ragas_groundedness": 0.85,
+  "minimum_citation_recall": 0.85,
+  "minimum_routing_accuracy": 0.75,
+  "minimum_permission_accuracy": 0.85,
+  "minimum_action_policy_accuracy": 0.5,
+  "minimum_task_success_rate": 0.5,
+  "maximum_runtime_errors": 1
+}

@@ -20,4 +20,6 @@ jobs:
       - run: uv sync --locked --all-groups
       - run: uv run ruff check .
       - run: uv run pytest
+      - name: Check evaluation quality gates
+        run: uv run python scripts/check_evaluation_gates.py
 
