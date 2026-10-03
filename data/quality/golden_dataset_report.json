@@ -1,0 +1,28 @@
+{
+  "verified_on": "2026-10-03",
+  "status": "passed",
+  "dataset_version": "1.0",
+  "case_count": 50,
+  "sha256": "318f60e2e18a2a8838a5f22dff374683af8589058c8ba1a14f7d46a5f1dcb3d2",
+  "categories": {
+    "sql_analytics": 16,
+    "document_retrieval": 10,
+    "action_drafting": 8,
+    "authorization_refusal": 12,
+    "direct_response": 2,
+    "unsupported": 2
+  },
+  "roles": {
+    "founder_cfo": 21,
+    "logistics_manager": 8,
+    "staff_accountant": 10,
+    "support_intern": 11
+  },
+  "source_scenarios": 6,
+  "citation_documents": 4,
+  "cross_tenant_cases": 1,
+  "schema_valid": true,
+  "deterministic_regeneration": true,
+  "full_suite_tests_passed": 229,
+  "lint": "passed"
+}

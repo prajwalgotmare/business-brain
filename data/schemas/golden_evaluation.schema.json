@@ -1,0 +1,334 @@
+{
+  "$defs": {
+    "AgentRoute": {
+      "enum": [
+        "sql_analytics",
+        "document_retrieval",
+        "action_drafting",
+        "direct_response",
+        "refuse"
+      ],
+      "title": "AgentRoute",
+      "type": "string"
+    },
+    "ApprovalExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "approver_roles": {
+          "items": {
+            "$ref": "#/$defs/UserRole"
+          },
+          "minItems": 1,
+          "title": "Approver Roles",
+          "type": "array"
+        },
+        "required": {
+          "const": true,
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "risk_level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "submission_allowed": {
+          "const": false,
+          "default": false,
+          "title": "Submission Allowed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "risk_level",
+        "approver_roles"
+      ],
+      "title": "ApprovalExpectation",
+      "type": "object"
+    },
+    "CitationExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clause Id"
+        },
+        "document_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "page_number": {
+          "minimum": 1,
+          "title": "Page Number",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "document_id",
+        "page_number"
+      ],
+      "title": "CitationExpectation",
+      "type": "object"
+    },
+    "EvaluationCategory": {
+      "enum": [
+        "sql_analytics",
+        "document_retrieval",
+        "action_drafting",
+        "authorization_refusal",
+        "direct_response",
+        "unsupported"
+      ],
+      "title": "EvaluationCategory",
+      "type": "string"
+    },
+    "GoldenEvaluationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalExpectation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "case_id": {
+          "pattern": "^gold_\\d{3}$",
+          "title": "Case Id",
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/$defs/EvaluationCategory"
+        },
+        "expected_citations": {
+          "items": {
+            "$ref": "#/$defs/CitationExpectation"
+          },
+          "title": "Expected Citations",
+          "type": "array"
+        },
+        "expected_error_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Error Code"
+        },
+        "expected_facts": {
+          "patternProperties": {
+            "^[a-z][a-z0-9_]+$": {
+              "type": "string"
+            }
+          },
+          "title": "Expected Facts",
+          "type": "object"
+        },
+        "expected_intent": {
+          "$ref": "#/$defs/SupervisorIntent"
+        },
+        "expected_route": {
+          "$ref": "#/$defs/AgentRoute"
+        },
+        "expected_status": {
+          "$ref": "#/$defs/WorkflowStatus"
+        },
+        "expected_summary": {
+          "maxLength": 600,
+          "minLength": 3,
+          "title": "Expected Summary",
+          "type": "string"
+        },
+        "expected_tool": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Tool"
+        },
+        "must_include": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Must Include",
+          "type": "array"
+        },
+        "must_not_include": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Must Not Include",
+          "type": "array"
+        },
+        "question": {
+          "maxLength": 500,
+          "minLength": 3,
+          "title": "Question",
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/UserRole"
+        },
+        "source_scenario_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Scenario Id"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Tags",
+          "type": "array"
+        },
+        "tenant_id": {
+          "const": "tenant_aura",
+          "default": "tenant_aura",
+          "title": "Tenant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "role",
+        "category",
+        "question",
+        "expected_route",
+        "expected_intent",
+        "expected_status",
+        "expected_summary",
+        "tags"
+      ],
+      "title": "GoldenEvaluationCase",
+      "type": "object"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "SupervisorIntent": {
+      "enum": [
+        "stockout_risk",
+        "freight_reconciliation",
+        "supplier_terms",
+        "overdue_invoices",
+        "margin_analysis",
+        "draft_purchase_order",
+        "draft_carrier_dispute",
+        "draft_payment_reminder",
+        "draft_delay_advisory",
+        "general_document_question",
+        "general_conversation",
+        "unsupported"
+      ],
+      "title": "SupervisorIntent",
+      "type": "string"
+    },
+    "UserRole": {
+      "enum": [
+        "founder_cfo",
+        "logistics_manager",
+        "staff_accountant",
+        "support_intern"
+      ],
+      "title": "UserRole",
+      "type": "string"
+    },
+    "WorkflowStatus": {
+      "enum": [
+        "completed",
+        "routed",
+        "pending_approval",
+        "approved",
+        "rejected",
+        "refused",
+        "failed"
+      ],
+      "title": "WorkflowStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "case_count": {
+      "const": 50,
+      "default": 50,
+      "title": "Case Count",
+      "type": "integer"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/GoldenEvaluationCase"
+      },
+      "maxItems": 50,
+      "minItems": 50,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "generated_at",
+    "snapshot_at",
+    "cases"
+  ],
+  "title": "GoldenEvaluationManifest",
+  "type": "object"
+}

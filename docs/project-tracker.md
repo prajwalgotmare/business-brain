@@ -45,7 +45,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 4.7 | RBAC and tenant enforcement | DONE | One centralized 14-capability policy governs all four roles across API, agent/tool, SQL, Qdrant, upload/document, and draft/approval boundaries; all 12 protected business endpoints require authenticated context while health alone remains public; tenant IDs are strictly validated, SQL rejects missing tenant predicates, Qdrant applies tenant plus sensitivity filters and verifies returned payloads, upload commits recheck every normalized row, and the documented authorization matrix is exhaustively tested; Ruff and 192 tests passed | None |
 | 4.8 | Adversarial security suite | DONE | Versioned 21-case attack corpus exercises cross-tenant retrieval, privilege escalation, prompt injection, unauthorized finance/action tools, injected tool arguments, route/intent confusion, and malicious Qdrant payloads; requests are refused before tools run, strict schemas reject attacker-controlled tenant/SQL-like fields, and returned vector payloads are rechecked; adversarial pass rate was 100%, Ruff passed, and the complete suite passed 213 tests | None |
 | 4.9 | MCP integration | DONE | Official MCP Python SDK 2.3 provides an Auth0 bearer-gated Streamable HTTP resource server with five typed read-only tools for governed document search and fixed analytics; tenant/role are reconstructed only from validated immutable claims and never accepted as tool arguments; existing service RBAC, SQL predicates, Qdrant filters, input constraints, safe errors, protected-resource discovery, and transport-level 401 enforcement remain active; arbitrary SQL, uploads, approvals, and external action execution are not exposed; Ruff and 222 tests passed | None |
-| 5.1 | Golden evaluation dataset | TODO | — | Create and version at least 50 questions with expected facts, citations, permissions, and refusal behavior |
+| 5.1 | Golden evaluation dataset | DONE | Deterministic versioned dataset contains exactly 50 unique questions: 16 fixed-SQL, 10 cited-document, 8 approval-gated action, 12 authorization-refusal, 2 direct-response, and 2 unsupported-operation cases across all four roles; strict contracts record expected routes, intents, facts, citations, tools, errors, approval policies, inclusion/exclusion checks, and source scenarios; citations resolve to real ingested pages/clauses, scenario facts and server action policy are drift-tested, JSON Schema is generated, the dataset regenerates byte-stably, Ruff passed, and 229 tests passed | None |
 | 5.2 | RAGAS and task-quality metrics | TODO | — | Measure groundedness, faithfulness/relevance as selected, citation accuracy, routing, and tool correctness |
 | 5.3 | CI evaluation gates | TODO | — | Block regressions below locked quality/security thresholds and publish reports |
 | 5.4 | Demand/stockout forecasting | TODO | — | Build leakage-safe baseline and XGBoost model using time-aware validation |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **4.9 MCP integration**
-- Next step: **5.1 golden evaluation dataset**
+- Current completed step: **5.1 golden evaluation dataset**
+- Next step: **5.2 RAGAS and task-quality metrics**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification: the official MCP SDK advertised exactly five tenant-implicit read-only tools; missing bearer tokens were rejected at the Streamable HTTP boundary, invalid claims failed closed, typed inputs rejected injection strings, and an unauthorized support role could not reach the repository through MCP; nine MCP tests passed, Ruff passed, and the complete suite passed 222 tests. Non-sensitive evidence is in `data/quality/mcp_integration_report.json`.
+- Latest verification: all 50 golden cases validated against the strict schema and locked distribution; all four roles, every governed intent, permission refusals, one explicit cross-tenant attempt, action approvals, exact facts, and four ingested citation documents are covered; deterministic regeneration, source-scenario drift, role policy, clause existence, and action-policy tests passed; Ruff passed and the full suite passed 229 tests. Evidence is in `data/quality/golden_dataset_report.json`.
 
 ## Update rule
 
