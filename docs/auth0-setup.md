@@ -65,6 +65,7 @@ Copy the Auth0 Domain and API Identifier into the uncommitted `.env` file:
 AUTH_MODE=auth0
 AUTH0_DOMAIN=your-tenant-region.auth0.com
 AUTH0_AUDIENCE=https://api.aura-business-brain.demo
+AUTH0_CLIENT_ID=your-public-spa-client-id
 AUTH0_TENANT_CLAIM=https://business-brain.demo/tenant_id
 AUTH0_ROLE_CLAIM=https://business-brain.demo/role
 ```
@@ -82,5 +83,10 @@ GET /api/v1/auth/me
 Authorization: Bearer <access-token>
 ```
 
-The response must show the token-derived tenant, Auth0 subject, and role. Mock
-identity headers are ignored in Auth0 mode.
+For the pre-frontend live check, allow `http://127.0.0.1:8765/callback` in the
+SPA and run `uv run python scripts/verify_auth0_login.py`. Open the displayed
+authorization URL and sign in. The script validates the returned access token
+and prints only the derived identity; it never prints or stores the token.
+
+The response or verification output must show the token-derived tenant, Auth0
+subject, and role. Mock identity headers are ignored in Auth0 mode.

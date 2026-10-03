@@ -1,0 +1,20 @@
+{
+  "verified_on": "2026-10-03",
+  "status": "passed",
+  "flow": "authorization_code_with_pkce",
+  "domain": "aura-business-brain-dev.eu.auth0.com",
+  "audience": "https://api.aura-business-brain.demo",
+  "algorithm": "RS256",
+  "tenant_id": "tenant_aura",
+  "role": "founder_cfo",
+  "checks": {
+    "jwks_signature": true,
+    "issuer": true,
+    "audience": true,
+    "expiration": true,
+    "subject": true,
+    "tenant_claim": true,
+    "single_supported_role": true
+  },
+  "sensitive_artifacts_persisted": false
+}

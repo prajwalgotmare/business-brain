@@ -62,6 +62,7 @@ class Settings(BaseSettings):
 
     auth0_domain: str | None = None
     auth0_audience: str | None = None
+    auth0_client_id: str | None = None
     auth0_tenant_claim: str = "https://business-brain.demo/tenant_id"
     auth0_role_claim: str = "https://business-brain.demo/role"
     auth0_jwks_cache_seconds: int = Field(default=3600, ge=60, le=86_400)
