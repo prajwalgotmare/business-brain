@@ -41,6 +41,7 @@ class Settings(BaseSettings):
 
     database_url: str | None = None
     database_url_direct: str | None = None
+    database_statement_timeout_seconds: float = Field(default=10.0, gt=0, le=60)
     qdrant_url: str | None = None
     qdrant_api_key: str | None = None
     qdrant_collection: str = "business_brain_documents_v1"

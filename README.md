@@ -77,6 +77,10 @@ Phase 3A data foundation (in progress):
 - Indexed tenant, sensitivity, document, clause, and page payloads with live role-isolation checks
 - Dense/BM25 hybrid search with Qdrant reciprocal-rank fusion and identifier-aware reranking
 - Governed retrieval API with structured page, section, clause, and chunk citations
+- Four fixed, parameterized Neon analytics for stockout risk, freight reconciliation,
+  overdue invoices, and regional margin variance
+- Explicit read-only transactions, statement timeouts, role gates, typed results, and
+  post-query scenario/cross-tenant verification
 
 ## Local development
 
@@ -146,6 +150,15 @@ uv run python scripts/verify_hybrid_retrieval.py
 The authenticated retrieval endpoint is `POST /api/v1/retrieval/search`. Every dense
 and sparse query requires the canonical tenant and role-derived sensitivity filter;
 returned payloads are checked again before they leave the service.
+
+Run the live governed SQL scenario suite:
+
+```powershell
+uv run python scripts/verify_sql_analytics.py
+```
+
+Analytics are available under `/api/v1/analytics`. The application exposes only fixed
+business operations; users and models cannot submit arbitrary SQL.
 
 ## Delivery phases
 

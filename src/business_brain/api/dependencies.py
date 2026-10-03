@@ -5,7 +5,13 @@ from urllib.parse import urlparse
 from fastapi import Depends, Header
 from langfuse import Langfuse
 
-from business_brain.api.errors import LLMServiceUnavailableError, RetrievalServiceUnavailableError
+from business_brain.analytics.repository import AnalyticsRepository
+from business_brain.analytics.service import GovernedAnalyticsService
+from business_brain.api.errors import (
+    AnalyticsServiceUnavailableError,
+    LLMServiceUnavailableError,
+    RetrievalServiceUnavailableError,
+)
 from business_brain.core.config import Settings, get_settings
 from business_brain.llm.gateway import LLMGateway
 from business_brain.llm.groq_client import HttpGroqChatClient
@@ -127,4 +133,16 @@ def _build_hybrid_retriever() -> HybridRetriever:
 
 def get_hybrid_retriever() -> HybridRetriever:
     return _build_hybrid_retriever()
+
+
+@lru_cache
+def _build_analytics_service() -> GovernedAnalyticsService:
+    try:
+        return GovernedAnalyticsService(AnalyticsRepository(settings=get_settings()))
+    except Exception as exc:
+        raise AnalyticsServiceUnavailableError("Analytics service is not configured") from exc
+
+
+def get_analytics_service() -> GovernedAnalyticsService:
+    return _build_analytics_service()
 

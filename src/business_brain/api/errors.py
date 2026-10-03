@@ -22,3 +22,15 @@ class LLMServiceUnavailableError(RuntimeError):
 class RetrievalServiceUnavailableError(RuntimeError):
     """Safe application-level error for unavailable governed retrieval."""
 
+
+class AnalyticsServiceUnavailableError(RuntimeError):
+    """Safe application-level error for unavailable governed analytics."""
+
+
+class AnalyticsForbiddenError(PermissionError):
+    """Safe application-level error for a role denied access to an analytic."""
+
+
+class AnalyticsBadRequestError(ValueError):
+    """Safe application-level error for invalid analytic parameters."""
+

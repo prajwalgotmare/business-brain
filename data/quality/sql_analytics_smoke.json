@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-03T08:18:26.215366+00:00",
+  "transaction_mode": "read_only",
+  "parameterized_queries": 4,
+  "scenario_checks": {
+    "stockout_risk": "passed",
+    "freight_reconciliation": "passed",
+    "overdue_invoices": "passed",
+    "margin_variance": "passed"
+  },
+  "latency_ms": {
+    "stockout_risk": 835.5,
+    "freight_reconciliation": 883.72,
+    "overdue_invoices": 812.95,
+    "margin_variance": 884.34
+  },
+  "cross_tenant_leak_count": 0
+}

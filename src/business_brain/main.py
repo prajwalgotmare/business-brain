@@ -7,12 +7,16 @@ from fastapi.responses import JSONResponse
 
 from business_brain.api.dependencies import get_generation_tracer
 from business_brain.api.errors import (
+    AnalyticsBadRequestError,
+    AnalyticsForbiddenError,
+    AnalyticsServiceUnavailableError,
     ErrorDetail,
     ErrorResponse,
     LLMServiceUnavailableError,
     RetrievalServiceUnavailableError,
 )
 from business_brain.api.request_context import request_id_from_header
+from business_brain.api.routes.analytics import router as analytics_router
 from business_brain.api.routes.ask import router as ask_router
 from business_brain.api.routes.health import router as health_router
 from business_brain.api.routes.search import router as search_router
@@ -94,9 +98,52 @@ def create_app() -> FastAPI:
         )
         return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
 
+    @app.exception_handler(AnalyticsServiceUnavailableError)
+    async def analytics_unavailable_handler(
+        request: Request,
+        _: AnalyticsServiceUnavailableError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="analytics_service_unavailable",
+                message="Business analytics are temporarily unavailable. Please try again later.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(AnalyticsForbiddenError)
+    async def analytics_forbidden_handler(
+        request: Request,
+        _: AnalyticsForbiddenError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="analytics_forbidden",
+                message="Your role cannot access the requested analytic.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=403, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(AnalyticsBadRequestError)
+    async def analytics_bad_request_handler(
+        request: Request,
+        _: AnalyticsBadRequestError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="analytics_bad_request",
+                message="The analytics parameters are invalid.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=400, content=payload.model_dump(mode="json"))
+
     app.include_router(health_router, prefix="/api/v1")
     app.include_router(ask_router, prefix="/api/v1")
     app.include_router(search_router, prefix="/api/v1/retrieval")
+    app.include_router(analytics_router, prefix="/api/v1/analytics")
     return app
 
 

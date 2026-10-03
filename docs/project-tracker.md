@@ -34,7 +34,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.9 | Neon structured-data ingestion | DONE | Neon Singapore project connected; immutable checksum migration created 23 tenant-safe relational tables and six operational indexes; idempotent upsert loaded and verified 9,392 Aura/Apex rows with provenance and composite tenant foreign keys; second run applied zero migrations with identical counts; Ruff and 85 tests passed | None |
 | 3.10 | Qdrant document ingestion | DONE | Free Frankfurt cluster connected; ten authorized synthetic PDFs produced 49 deterministic clause-aware chunks; local BGE-small dense plus BM25 sparse embeddings synchronized to `business_brain_documents_v1`; six payload indexes, source hashes, required clauses, exact counts, idempotent rerun, Aura/Apex tenant boundary, and four role visibility profiles verified; Ruff and 93 tests passed | None |
 | 3.11 | Hybrid retrieval with citations | DONE | Governed API performs BGE dense plus BM25 sparse candidate search, Qdrant RRF fusion, deterministic business-identifier reranking, and typed document/page/section/clause/chunk citations; canonical tenant header fixed across API/Neon/Qdrant; five live expected citations ranked first with zero support-to-executive and Apex-to-Aura leaks; Ruff and 99 tests passed | None |
-| 3.12 | Governed SQL analytics | TODO | — | Implement read-only tenant-scoped queries for inventory, shipping, invoices, and margins |
+| 3.12 | Governed SQL analytics | DONE | Four fixed parameterized Neon operations cover stockout risk, freight reconciliation, overdue invoices, and regional margin variance; explicit read-only transactions, statement timeout, canonical tenant predicates, pre-query role gates, typed API results, and sanitized 400/403/503 errors implemented; all locked scenario facts matched live and Apex queries returned zero Aura records; Ruff and 106 tests passed | None |
 | 3.13 | Website/API file-upload ingestion | TODO | — | Authorized CSV/JSON/PDF upload, validation, preview, tenant tagging, quarantine, and ingestion status |
 | 4.1 | LangGraph governed supervisor | TODO | — | Add persistent state, routing, structured decisions, and bounded failure paths |
 | 4.2 | Specialized tool nodes | TODO | — | Add SQL/analytics, hybrid RAG, and validated action-drafting nodes |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.11 Hybrid retrieval with citations**
-- Next step: **3.12 Governed SQL analytics**
+- Current completed step: **3.12 Governed SQL analytics**
+- Next step: **3.13 Website/API file-upload ingestion**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: five live hybrid citation cases ranked expected evidence first, support/executive and Apex/Aura leakage checks returned zero, Ruff passed, and 99 tests passed
+- Latest verification at this checkpoint: four live read-only Neon analytics matched locked scenario facts, cross-tenant queries returned zero Aura records, role-denial tests passed before database access, Ruff passed, and 106 tests passed
 
 ## Update rule
 
