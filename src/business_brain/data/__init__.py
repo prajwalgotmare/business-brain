@@ -2,6 +2,7 @@
 
 from business_brain.data.commerce_generator import build_commerce_inventory_dataset
 from business_brain.data.commerce_models import CommerceInventoryDataset
+from business_brain.data.document_models import DocumentManifest
 from business_brain.data.finance_generator import build_finance_dataset
 from business_brain.data.finance_models import FinanceDataset
 from business_brain.data.logistics_generator import build_logistics_dataset
@@ -16,6 +17,7 @@ from business_brain.data.scenario_models import GroundTruthManifest
 __all__ = [
     "CommerceInventoryDataset",
     "DataQualityManifest",
+    "DocumentManifest",
     "FinanceDataset",
     "GroundTruthManifest",
     "LogisticsDataset",

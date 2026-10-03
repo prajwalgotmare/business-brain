@@ -30,7 +30,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.5 | Finance and procurement generator | DONE | Public-source calibration manifest plus deterministic purchase orders, supplier/carrier invoices, invoice lines, completed payments, and weekly regional margin snapshots; UBL-aligned structures and end-to-end financial reconciliations verified | None |
 | 3.6 | Ground-truth business scenarios | DONE | Six schema-validated Aura answer keys connect exact source rows for stockout risk, carrier overbilling plus SLA credit, supplier terms, overdue invoice, West margin decline, and CFO-gated PO submission; future PDF clauses are explicitly marked as Step 3.8 dependencies | None |
 | 3.7 | Data-quality suite and manifest | DONE | Deterministic manifest records every source artifact hash and all CSV row/column metadata; nine automated checks cover freshness, keys, totals, dates, inventory, tenant isolation, and scenario evidence | None |
-| 3.8 | Synthetic PDF corpus | TODO | — | Create and verify 8–12 supplier agreements, carrier agreements, invoices, policies, and compliance documents |
+| 3.8 | Source-grounded PDF corpus | DONE | Ten synthetic Aura PDFs plus two downloaded CC BY 4.0 CUAD references; scenario clauses, provenance, sensitivity, hashes, page counts, extractable text, and visual rendering verified | None |
 | 3.9 | Neon structured-data ingestion | TODO | — | Create account/database, migrations, tenant-safe ingestion, indexes, and reproducible seed process |
 | 3.10 | Qdrant document ingestion | TODO | — | Create account/cluster, extraction, chunking, embeddings, metadata, and mandatory tenant/sensitivity filters |
 | 3.11 | Hybrid retrieval with citations | TODO | — | Implement dense plus keyword retrieval, reranking, clause/page citations, and retrieval tests |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.7 Data-quality suite and manifest**
-- Next step: **3.8 Synthetic PDF corpus**
+- Current completed step: **3.8 Source-grounded PDF corpus**
+- Next step: **3.9 Neon structured-data ingestion**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: data-quality artifacts current, all fingerprints verified against committed files, Ruff passed, and 76 tests passed
+- Latest verification at this checkpoint: 12 PDFs and manifests current, all required scenario clauses extractable, visual render review passed, Ruff passed, and 80 tests passed
 
 ## Update rule
 

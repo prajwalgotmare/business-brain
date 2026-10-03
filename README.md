@@ -69,6 +69,7 @@ Phase 3A data foundation (in progress):
 - Reconciled purchase orders, supplier/carrier invoices, payments, and regional margins
 - Six deterministic business scenarios with machine-readable answers and record evidence
 - Deterministic data-quality manifest with row counts, tenant checks, and SHA-256 hashes
+- Source-grounded PDF corpus with ten Aura documents and two CC BY 4.0 contract references
 
 ## Local development
 

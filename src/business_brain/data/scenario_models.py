@@ -28,7 +28,7 @@ class EvidenceReference(StrictModel):
 class DocumentDependency(StrictModel):
     document_id: Identifier
     clause_id: Identifier
-    status: Literal["planned_step_3_8"] = "planned_step_3_8"
+    status: Literal["available"] = "available"
 
 
 class GroundTruthScenario(StrictModel):

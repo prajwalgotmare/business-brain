@@ -14,8 +14,8 @@
           "type": "string"
         },
         "status": {
-          "const": "planned_step_3_8",
-          "default": "planned_step_3_8",
+          "const": "available",
+          "default": "available",
           "title": "Status",
           "type": "string"
         }

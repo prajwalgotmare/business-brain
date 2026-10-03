@@ -49,7 +49,7 @@
         {
           "clause_id": "clause_sla_credit_4_2",
           "document_id": "doc_aur_fedex_msa",
-          "status": "planned_step_3_8"
+          "status": "available"
         }
       ],
       "evidence": [
@@ -101,12 +101,12 @@
         {
           "clause_id": "clause_price_tier_3_1",
           "document_id": "doc_aur_packaging_agreement",
-          "status": "planned_step_3_8"
+          "status": "available"
         },
         {
           "clause_id": "clause_payment_terms_5_2",
           "document_id": "doc_aur_packaging_agreement",
-          "status": "planned_step_3_8"
+          "status": "available"
         }
       ],
       "evidence": [
@@ -136,7 +136,7 @@
         {
           "clause_id": "clause_late_payment_6_3",
           "document_id": "doc_aur_skincare_agreement",
-          "status": "planned_step_3_8"
+          "status": "available"
         }
       ],
       "evidence": [

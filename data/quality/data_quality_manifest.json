@@ -2,12 +2,12 @@
   "artifact_count": 42,
   "artifacts": [
     {
-      "byte_count": 8771,
+      "byte_count": 8743,
       "columns": [],
       "media_type": "application/json",
       "relative_path": "data/evaluation/ground_truth_scenarios.json",
       "row_count": null,
-      "sha256": "c6ff5e22e191f391e85800a420d6b87e8286031c9c27d5b15169ef07afd06201",
+      "sha256": "51d4678d141e8169518eb51d40e73771c5234f8efd817969a45259848e32fb1b",
       "tenant_id": null
     },
     {
@@ -765,12 +765,12 @@
       "tenant_id": null
     },
     {
-      "byte_count": 4424,
+      "byte_count": 4410,
       "columns": [],
       "media_type": "application/json",
       "relative_path": "data/schemas/scenario_ground_truth.schema.json",
       "row_count": null,
-      "sha256": "1a64564de5094b1eb0edb2ae341b6d92a18a9d09413a332390cc9ed3c5411249",
+      "sha256": "ddb9635e3f8307d9f70769ce427bef50fd91ec4a42782d619e83c019693d3ac5",
       "tenant_id": null
     },
     {

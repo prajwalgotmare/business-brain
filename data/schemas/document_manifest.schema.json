@@ -1,0 +1,212 @@
+{
+  "$defs": {
+    "DocumentKind": {
+      "enum": [
+        "agreement",
+        "invoice",
+        "policy",
+        "calendar",
+        "procedure",
+        "reference"
+      ],
+      "title": "DocumentKind",
+      "type": "string"
+    },
+    "DocumentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attribution"
+        },
+        "byte_count": {
+          "exclusiveMinimum": 0,
+          "title": "Byte Count",
+          "type": "integer"
+        },
+        "clause_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Clause Ids",
+          "type": "array"
+        },
+        "document_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Date"
+        },
+        "document_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_kind": {
+          "$ref": "#/$defs/DocumentKind"
+        },
+        "ingest": {
+          "title": "Ingest",
+          "type": "boolean"
+        },
+        "license_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "License Name"
+        },
+        "page_count": {
+          "exclusiveMinimum": 0,
+          "title": "Page Count",
+          "type": "integer"
+        },
+        "relative_path": {
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "sensitivity": {
+          "$ref": "#/$defs/Sensitivity"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "source_type": {
+          "$ref": "#/$defs/DocumentSource"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        },
+        "tenant_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tenant Id"
+        },
+        "title": {
+          "maxLength": 180,
+          "minLength": 5,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "title",
+        "document_kind",
+        "source_type",
+        "relative_path",
+        "sensitivity",
+        "ingest",
+        "byte_count",
+        "page_count",
+        "sha256"
+      ],
+      "title": "DocumentRecord",
+      "type": "object"
+    },
+    "DocumentSource": {
+      "enum": [
+        "synthetic",
+        "public_reference"
+      ],
+      "title": "DocumentSource",
+      "type": "string"
+    },
+    "Sensitivity": {
+      "enum": [
+        "public",
+        "support",
+        "operations",
+        "accounting",
+        "executive"
+      ],
+      "title": "Sensitivity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "document_count": {
+      "exclusiveMinimum": 0,
+      "title": "Document Count",
+      "type": "integer"
+    },
+    "documents": {
+      "items": {
+        "$ref": "#/$defs/DocumentRecord"
+      },
+      "title": "Documents",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "public_reference_count": {
+      "exclusiveMinimum": 0,
+      "title": "Public Reference Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "synthetic_count": {
+      "exclusiveMinimum": 0,
+      "title": "Synthetic Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "generated_at",
+    "document_count",
+    "synthetic_count",
+    "public_reference_count",
+    "documents"
+  ],
+  "title": "DocumentManifest",
+  "type": "object"
+}

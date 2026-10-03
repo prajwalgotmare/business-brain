@@ -84,12 +84,18 @@ Generate and verify the scenario answer keys:
 uv run python scripts/generate_scenario_ground_truth.py
 uv run python scripts/generate_scenario_ground_truth.py --check
 uv run python scripts/generate_data_quality_manifest.py --check
+uv run python scripts/generate_document_corpus.py --check
 ```
 
 The scenario manifest links each expected fact to concrete records. Contract-clause
-dependencies are marked `planned_step_3_8` until the synthetic PDF corpus is generated.
+dependencies are marked `available` and resolve to exact clauses in the PDF corpus.
 
 `quality/data_quality_manifest.json` is the deterministic audit record for all prior
 data artifacts. It stores exact row counts, columns, tenant ownership, byte sizes, and
 SHA-256 hashes, plus explicit checks for keys, totals, dates, inventory, isolation, and
 scenario evidence.
+
+`documents/` contains ten compact synthetic Aura PDFs and two downloaded CUAD contract
+references licensed CC BY 4.0. Only the ten Aura documents are marked for ingestion; the
+public contracts remain non-ingested structural references. The document manifest records
+provenance, sensitivity, clause IDs, page counts, byte sizes, and SHA-256 hashes.
