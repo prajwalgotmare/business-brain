@@ -1,10 +1,11 @@
-from typing import Annotated
+from typing import Annotated, Any
 from uuid import UUID, uuid4
 
 from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel, ConfigDict, Field
 
 from business_brain.agent.schemas import (
+    ActionDraftPreview,
     AgentRoute,
     RiskLevel,
     SupervisorIntent,
@@ -14,6 +15,7 @@ from business_brain.agent.supervisor import GovernedSupervisor
 from business_brain.api.dependencies import get_auth_context, get_governed_supervisor
 from business_brain.api.request_context import get_request_id
 from business_brain.llm.schemas import TokenUsage
+from business_brain.retrieval.schemas import DocumentCitation
 from business_brain.security.context import AuthContext, UserRole
 
 router = APIRouter(tags=["agent"])
@@ -48,6 +50,10 @@ class AgentResponse(BaseModel):
     attempt_count: int
     supervisor_attempts: int
     usage: TokenUsage
+    tool_name: str | None
+    tool_result: Any | None
+    citations: list[DocumentCitation]
+    action_draft: ActionDraftPreview | None
     context: AgentContextResponse
 
 

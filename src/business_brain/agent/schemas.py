@@ -1,9 +1,11 @@
+from datetime import date
 from enum import StrEnum
-from typing import TypedDict
+from typing import Any, Literal, TypedDict
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from business_brain.llm.schemas import TokenUsage
+from business_brain.retrieval.schemas import DocumentCitation
 
 
 class AgentRoute(StrEnum):
@@ -42,6 +44,25 @@ class WorkflowStatus(StrEnum):
     FAILED = "failed"
 
 
+class ToolArguments(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    shipment_id: str | None = Field(
+        default=None,
+        pattern=r"^[a-z][a-z0-9_]+$",
+        max_length=80,
+    )
+    as_of: date | None = None
+    region_id: str | None = Field(
+        default=None,
+        pattern=r"^[a-z][a-z0-9_]+$",
+        max_length=80,
+    )
+    earlier: date | None = None
+    later: date | None = None
+    limit: int | None = Field(default=None, ge=1, le=20)
+
+
 class SupervisorDecision(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -50,6 +71,20 @@ class SupervisorDecision(BaseModel):
     risk_level: RiskLevel
     rationale: str = Field(min_length=1, max_length=500)
     confidence: float = Field(ge=0, le=1)
+    arguments: ToolArguments = Field(default_factory=ToolArguments)
+
+
+class ActionDraftPreview(BaseModel):
+    action_type: SupervisorIntent
+    content: str = Field(min_length=1, max_length=8_000)
+    draft_only: Literal[True] = True
+    requires_human_approval: Literal[True] = True
+
+    @model_validator(mode="after")
+    def validate_action_type(self) -> "ActionDraftPreview":
+        if not self.action_type.value.startswith("draft_"):
+            raise ValueError("action_type must be a drafting intent")
+        return self
 
 
 class AgentState(TypedDict, total=False):
@@ -65,6 +100,7 @@ class AgentState(TypedDict, total=False):
     risk_level: str
     rationale: str
     confidence: float
+    arguments: dict[str, Any]
     status: str
     answer: str
     error_code: str
@@ -76,6 +112,10 @@ class AgentState(TypedDict, total=False):
     completion_tokens: int
     total_tokens: int
     supervisor_attempts: int
+    tool_name: str
+    tool_result: Any
+    citations: list[dict[str, Any]]
+    action_draft: dict[str, Any]
 
 
 class AgentRunResult(BaseModel):
@@ -94,3 +134,7 @@ class AgentRunResult(BaseModel):
     attempt_count: int = 0
     supervisor_attempts: int = 1
     usage: TokenUsage = Field(default_factory=TokenUsage)
+    tool_name: str | None = None
+    tool_result: Any | None = None
+    citations: list[DocumentCitation] = Field(default_factory=list)
+    action_draft: ActionDraftPreview | None = None

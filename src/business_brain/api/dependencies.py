@@ -134,6 +134,8 @@ def _build_governed_supervisor() -> GovernedSupervisor:
         gateway=_build_llm_gateway(),
         tracer=_build_generation_tracer(),
         primary_model=settings.groq_primary_model,
+        analytics_service=_build_analytics_service(),
+        retriever=_build_hybrid_retriever(),
     )
 
 

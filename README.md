@@ -94,6 +94,10 @@ Phase 4A governed orchestration:
 - Deterministic role/intent policy checks independent of model output
 - Bounded termination with fail-closed handling for invalid model output or provider failure
 - Langfuse-traced routing and direct-response generations
+- Executable fixed-operation SQL node with typed, tenant-scoped results
+- Executable dense/BM25 retrieval node with role filters and structured citations
+- Draft-only action node that cannot send, submit, approve, or execute an action
+- Schema-bounded tool arguments and deterministic action-risk overrides
 
 ## Local development
 
@@ -185,9 +189,10 @@ Run the live workflow verification:
 uv run python scripts/verify_upload_workflow.py
 ```
 
-The governed supervisor is available at `POST /api/v1/agent/run`. In Step 4.1 it
-authorizes and routes business requests without executing a tool. Step 4.2 connects the
-existing governed SQL and hybrid-retrieval services plus the action-drafting node.
+The governed supervisor is available at `POST /api/v1/agent/run`. It routes authorized
+requests into fixed SQL analytics, governed hybrid retrieval, or draft-only action
+generation. Responses expose the selected route, intent, workflow status, typed tool
+result, citations, token usage, and any action preview. No action is externally executed.
 
 ## Delivery phases
 

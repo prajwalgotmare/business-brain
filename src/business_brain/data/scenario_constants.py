@@ -1,7 +1,11 @@
 """Stable identifiers and values for the six evaluation scenarios."""
 
+from datetime import date
 from decimal import Decimal
 
+DEMO_AS_OF_DATE = date(2026, 9, 21)
+MARGIN_WEEK_2_START = date(2026, 8, 17)
+MARGIN_WEEK_3_START = date(2026, 8, 24)
 STOCKOUT_PRODUCT_ID = "prd_aur_006"
 STOCKOUT_WAREHOUSE_ID = "wh_aur_west"
 STOCKOUT_TARGET_ON_HAND = 3

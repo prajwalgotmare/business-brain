@@ -37,7 +37,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.12 | Governed SQL analytics | DONE | Four fixed parameterized Neon operations cover stockout risk, freight reconciliation, overdue invoices, and regional margin variance; explicit read-only transactions, statement timeout, canonical tenant predicates, pre-query role gates, typed API results, and sanitized 400/403/503 errors implemented; all locked scenario facts matched live and Apex queries returned zero Aura records; Ruff and 106 tests passed | None |
 | 3.13 | Website/API file-upload ingestion | DONE | Two-phase multipart API supports tracking-event and vendor-invoice CSV/JSON plus business-document PDF; authenticated tenant is injected server-side, resource/sensitivity role policy enforced, previews and raw bytes/status staged in Neon with expiry metadata, explicit commit required, and invalid/cross-tenant/spoofed/active-content/formula-like inputs quarantined; live PDF preview-to-Qdrant commit, JSON tenant tagging, persistent status, repeatable corpus coexistence, and zero cross-tenant status leakage verified; Ruff and 113 tests passed | Website UI consumes these APIs in Phase 6 |
 | 4.1 | LangGraph governed supervisor | DONE | Typed tenant/role/thread state, strict structured intent routing, deterministic role-policy enforcement, fail-closed malformed-output/provider paths, bounded graph termination, traced Groq calls, and `POST /api/v1/agent/run`; live primary-model stockout request routed correctly and Ruff plus 126 tests passed | Connect the already-built analytics and retrieval services plus action drafting as executable nodes in Step 4.2; durable Neon checkpoints remain Step 4.5 |
-| 4.2 | Specialized tool nodes | TODO | — | Add SQL/analytics, hybrid RAG, and validated action-drafting nodes |
+| 4.2 | Specialized tool nodes | DONE | LangGraph now executes fixed governed SQL analytics, tenant/role-filtered hybrid RAG with structured citations, and a draft-only action node; model-extracted arguments are schema-bounded, tools run outside the event loop, evidence synthesis rejects embedded instructions, action risk is code-derived, and tool/provider failures are sanitized; live Neon stockout and Qdrant supplier-term paths completed through the agent, while Ruff and 129 tests passed | Replace generic action previews with four action-specific schemas and complete field/risk validation in Step 4.3 |
 | 4.3 | Action schemas and risk policy | TODO | — | Add Pydantic PO, carrier-dispute, AP reminder, and delay-email outputs with policy-derived risk |
 | 4.4 | Human approval workflow | TODO | — | Add interrupt/resume edges and manager/accountant/CFO approval rules |
 | 4.5 | Durable checkpoints | TODO | — | Persist LangGraph checkpoints in Neon and prove restart recovery for pending approvals |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **4.1 LangGraph governed supervisor**
-- Next step: **4.2 Specialized tool nodes**
+- Current completed step: **4.2 Specialized tool nodes**
+- Next step: **4.3 Action schemas and risk policy**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: the live `openai/gpt-oss-120b` routing probe classified the stockout question as `sql_analytics` / `stockout_risk` in one bounded supervisor pass; malformed output, provider failure, extra-field injection, route-intent mismatch, and unauthorized finance access all fail closed; Ruff passed and 126 tests passed
+- Latest verification at this checkpoint: the live agent routed and executed the Neon stockout tool with `AUR-SKN-006` first, and separately routed supplier terms through governed Qdrant retrieval with five citations and `clause_price_tier_3_1` ranked first; tool arguments, role denial, tenant propagation, missing parameters, draft-only behavior, deterministic risk override, and failure paths are covered; Ruff passed and 129 tests passed
 
 ## Update rule
 
