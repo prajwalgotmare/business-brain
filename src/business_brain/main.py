@@ -20,6 +20,7 @@ from business_brain.api.errors import (
     UploadServiceUnavailableError,
 )
 from business_brain.api.request_context import request_id_from_header
+from business_brain.api.routes.agent import router as agent_router
 from business_brain.api.routes.analytics import router as analytics_router
 from business_brain.api.routes.ask import router as ask_router
 from business_brain.api.routes.health import router as health_router
@@ -202,6 +203,7 @@ def create_app() -> FastAPI:
         return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
 
     app.include_router(health_router, prefix="/api/v1")
+    app.include_router(agent_router, prefix="/api/v1")
     app.include_router(ask_router, prefix="/api/v1")
     app.include_router(search_router, prefix="/api/v1/retrieval")
     app.include_router(analytics_router, prefix="/api/v1/analytics")

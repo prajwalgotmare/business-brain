@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 from fastapi import Depends, Header
 from langfuse import Langfuse
 
+from business_brain.agent.supervisor import GovernedSupervisor
 from business_brain.analytics.repository import AnalyticsRepository
 from business_brain.analytics.service import GovernedAnalyticsService
 from business_brain.api.errors import (
@@ -124,6 +125,20 @@ def _build_generation_tracer() -> GenerationTracer:
 
 def get_generation_tracer() -> GenerationTracer:
     return _build_generation_tracer()
+
+
+@lru_cache
+def _build_governed_supervisor() -> GovernedSupervisor:
+    settings = get_settings()
+    return GovernedSupervisor(
+        gateway=_build_llm_gateway(),
+        tracer=_build_generation_tracer(),
+        primary_model=settings.groq_primary_model,
+    )
+
+
+def get_governed_supervisor() -> GovernedSupervisor:
+    return _build_governed_supervisor()
 
 
 @lru_cache

@@ -86,6 +86,15 @@ Phase 3A data foundation (in progress):
 - PDF signature, encryption, active-content, page-count, and extractable-text checks;
   structured Pydantic schemas, row limits, duplicate-key, and formula-like input checks
 
+Phase 4A governed orchestration:
+
+- Typed LangGraph state carrying request, thread, tenant, user, and role context
+- Strict structured routing across SQL analytics, document retrieval, action drafting,
+  direct response, and refusal paths
+- Deterministic role/intent policy checks independent of model output
+- Bounded termination with fail-closed handling for invalid model output or provider failure
+- Langfuse-traced routing and direct-response generations
+
 ## Local development
 
 Prerequisites: Python 3.11+, `uv`, Docker Desktop, and Docker Compose.
@@ -175,6 +184,10 @@ Run the live workflow verification:
 ```powershell
 uv run python scripts/verify_upload_workflow.py
 ```
+
+The governed supervisor is available at `POST /api/v1/agent/run`. In Step 4.1 it
+authorizes and routes business requests without executing a tool. Step 4.2 connects the
+existing governed SQL and hybrid-retrieval services plus the action-drafting node.
 
 ## Delivery phases
 
