@@ -52,7 +52,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 5.5 | DagsHub experiment tracking | DONE | Local DagsHub-compatible manifest records forecast parameters, metrics, artifact hashes, split, and seed; it can be uploaded after the pending DagsHub account is created | Connect the manifest to a remote DagsHub repository when that account is available |
 | 5.6 | Performance and cost evaluation | DONE | Ten-sample local forecast latency benchmark plus latest 50-case agent latency, token, and fallback summary are stored in `data/quality/performance_benchmark.json`; provider pricing is intentionally read from current provider dashboards rather than hardcoded | Add live retrieval/tool P95 probes during deployment acceptance |
 | 6.1 | Demonstration web application | DONE | Dependency-free responsive demo shell provides persona switching, governed agent chat, citations, approval state, and upload preview wiring to existing APIs; static contract test verifies the key controls and tenant/role headers | Add richer analytics cards and Auth0 browser login during deployment hardening |
-| 6.2 | Instant demo identity flow | TODO | — | Provide safe preconfigured demo personas without exposing secrets |
+| 6.2 | Instant demo identity flow | DONE | Development-only `/api/v1/auth/demo-personas` catalog exposes four Aura roles with non-secret demo IDs; it is unavailable in production or Auth0 mode, with coverage tests | Wire the catalog to Auth0 SPA login during deployment hardening |
 | 6.3 | Public deployment | TODO | — | Configure Cloudflare/Vercel and backend/data services within verified zero-card free tiers |
 | 6.4 | End-to-end acceptance suite | TODO | — | Verify all five core questions, four draft actions, approvals, crash recovery, isolation, and failure states |
 | 6.5 | Portfolio documentation | TODO | — | Complete README, architecture diagrams, threat model, demo script, measurements, and limitations |
@@ -81,8 +81,8 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **6.1 demonstration web application**
-- Next step: **6.2 instant demo identity flow**
+- Current completed step: **6.2 instant demo identity flow**
+- Next step: **6.3 public deployment**
 - Active Git branch: `feat/data-blueprint`
 - Latest verification: all 50 golden cases validated against the strict schema and locked distribution; all four roles, every governed intent, permission refusals, one explicit cross-tenant attempt, action approvals, exact facts, and four ingested citation documents are covered; deterministic regeneration, source-scenario drift, role policy, clause existence, and action-policy tests passed; Ruff passed and the full suite passed 229 tests. Evidence is in `data/quality/golden_dataset_report.json`.
 
