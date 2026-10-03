@@ -5,7 +5,7 @@ from decimal import Decimal
 
 import pytest
 
-from business_brain.agent.schemas import AgentRoute, SupervisorIntent, WorkflowStatus
+from business_brain.agent.schemas import AgentRoute, RiskLevel, SupervisorIntent, WorkflowStatus
 from business_brain.agent.supervisor import GovernedSupervisor
 from business_brain.analytics.schemas import StockoutRisk
 from business_brain.llm.gateway import AllModelsFailedError
@@ -48,6 +48,29 @@ def routing_json(route: str, intent: str, risk: str = "low", arguments=None) -> 
             "arguments": arguments or {},
         }
     )
+
+
+def purchase_order_payload() -> dict:
+    return {
+        "supplier_id": "sup_aur_packaging",
+        "warehouse_id": "wh_aur_west",
+        "expected_delivery_date": "2026-10-15",
+        "currency_code": "USD",
+        "lines": [
+            {
+                "product_id": "prd_aur_006",
+                "sku": "AUR-SKN-006",
+                "quantity": 300,
+                "unit_cost": "11.37",
+                "line_amount": "3411.00",
+            }
+        ],
+        "subtotal_amount": "3411.00",
+        "tax_amount": "0.00",
+        "freight_amount": "125.00",
+        "total_amount": "3536.00",
+        "notes": "Replenishment for West warehouse",
+    }
 
 
 def auth(role: UserRole) -> AuthContext:
@@ -248,7 +271,7 @@ async def test_action_node_creates_draft_only_artifact_with_deterministic_risk()
             generation(
                 routing_json("action_drafting", "draft_purchase_order", risk="low")
             ),
-            generation("DRAFT PURCHASE ORDER\nSupplier: [supplier]"),
+            generation(json.dumps(purchase_order_payload())),
         ]
     )
 
@@ -257,8 +280,29 @@ async def test_action_node_creates_draft_only_artifact_with_deterministic_risk()
     assert result.status == WorkflowStatus.COMPLETED
     assert result.risk_level.value == "high"
     assert result.action_draft is not None
-    assert result.action_draft.draft_only is True
-    assert result.action_draft.requires_human_approval is True
+    assert result.action_draft["approval_required"] is True
+    assert result.action_draft["submission_allowed"] is False
+    assert result.action_draft["required_approver_roles"] == ["founder_cfo"]
+    assert result.action_draft["payload"]["total_amount"] == "3536.00"
+    assert len(gateway.requests) == 2
+
+
+@pytest.mark.asyncio
+async def test_invalid_action_payload_fails_closed() -> None:
+    invalid = purchase_order_payload() | {"total_amount": "1.00"}
+    agent, gateway, _, _ = supervisor(
+        [
+            generation(routing_json("action_drafting", "draft_purchase_order")),
+            generation(json.dumps(invalid)),
+        ]
+    )
+
+    result = await run(agent, UserRole.FOUNDER_CFO, "Draft a purchase order")
+
+    assert result.status == WorkflowStatus.FAILED
+    assert result.error_code == "invalid_draft"
+    assert result.risk_level == RiskLevel.HIGH
+    assert result.action_draft is None
     assert len(gateway.requests) == 2
 
 

@@ -1,8 +1,8 @@
 from datetime import date
 from enum import StrEnum
-from typing import Any, Literal, TypedDict
+from typing import Any, TypedDict
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field
 
 from business_brain.llm.schemas import TokenUsage
 from business_brain.retrieval.schemas import DocumentCitation
@@ -74,19 +74,6 @@ class SupervisorDecision(BaseModel):
     arguments: ToolArguments = Field(default_factory=ToolArguments)
 
 
-class ActionDraftPreview(BaseModel):
-    action_type: SupervisorIntent
-    content: str = Field(min_length=1, max_length=8_000)
-    draft_only: Literal[True] = True
-    requires_human_approval: Literal[True] = True
-
-    @model_validator(mode="after")
-    def validate_action_type(self) -> "ActionDraftPreview":
-        if not self.action_type.value.startswith("draft_"):
-            raise ValueError("action_type must be a drafting intent")
-        return self
-
-
 class AgentState(TypedDict, total=False):
     request_id: str
     thread_id: str
@@ -137,4 +124,4 @@ class AgentRunResult(BaseModel):
     tool_name: str | None = None
     tool_result: Any | None = None
     citations: list[DocumentCitation] = Field(default_factory=list)
-    action_draft: ActionDraftPreview | None = None
+    action_draft: Any | None = None

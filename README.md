@@ -98,6 +98,9 @@ Phase 4A governed orchestration:
 - Executable dense/BM25 retrieval node with role filters and structured citations
 - Draft-only action node that cannot send, submit, approve, or execute an action
 - Schema-bounded tool arguments and deterministic action-risk overrides
+- Strict purchase-order, carrier-dispute, payment-reminder, and delay-advisory payloads
+- Reconciled monetary fields, validated dates/recipients, and server-owned approval metadata
+- Founder/CFO-only approval requirement for high-risk purchase orders and disputes
 
 ## Local development
 

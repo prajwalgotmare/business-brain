@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from business_brain.agent.actions import ACTION_POLICIES
 from business_brain.agent.schemas import AgentRoute, SupervisorDecision, SupervisorIntent
 from business_brain.security.context import UserRole
 
@@ -22,22 +23,18 @@ _ALLOWED_ROLES: dict[SupervisorIntent, frozenset[UserRole]] = {
         {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}
     ),
     SupervisorIntent.MARGIN_ANALYSIS: frozenset({UserRole.FOUNDER_CFO}),
-    SupervisorIntent.DRAFT_PURCHASE_ORDER: frozenset(
-        {UserRole.FOUNDER_CFO, UserRole.LOGISTICS_MANAGER}
-    ),
-    SupervisorIntent.DRAFT_CARRIER_DISPUTE: frozenset(
-        {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}
-    ),
-    SupervisorIntent.DRAFT_PAYMENT_REMINDER: frozenset(
-        {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}
-    ),
-    SupervisorIntent.DRAFT_DELAY_ADVISORY: frozenset(
-        {
-            UserRole.FOUNDER_CFO,
-            UserRole.LOGISTICS_MANAGER,
-            UserRole.SUPPORT_INTERN,
-        }
-    ),
+    SupervisorIntent.DRAFT_PURCHASE_ORDER: ACTION_POLICIES[
+        SupervisorIntent.DRAFT_PURCHASE_ORDER
+    ].drafter_roles,
+    SupervisorIntent.DRAFT_CARRIER_DISPUTE: ACTION_POLICIES[
+        SupervisorIntent.DRAFT_CARRIER_DISPUTE
+    ].drafter_roles,
+    SupervisorIntent.DRAFT_PAYMENT_REMINDER: ACTION_POLICIES[
+        SupervisorIntent.DRAFT_PAYMENT_REMINDER
+    ].drafter_roles,
+    SupervisorIntent.DRAFT_DELAY_ADVISORY: ACTION_POLICIES[
+        SupervisorIntent.DRAFT_DELAY_ADVISORY
+    ].drafter_roles,
     SupervisorIntent.GENERAL_DOCUMENT_QUESTION: frozenset(UserRole),
     SupervisorIntent.GENERAL_CONVERSATION: frozenset(UserRole),
     SupervisorIntent.UNSUPPORTED: frozenset(),

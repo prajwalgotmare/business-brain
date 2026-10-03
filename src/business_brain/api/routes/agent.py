@@ -4,8 +4,8 @@ from uuid import UUID, uuid4
 from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel, ConfigDict, Field
 
+from business_brain.agent.actions import ActionDraftArtifact
 from business_brain.agent.schemas import (
-    ActionDraftPreview,
     AgentRoute,
     RiskLevel,
     SupervisorIntent,
@@ -53,7 +53,7 @@ class AgentResponse(BaseModel):
     tool_name: str | None
     tool_result: Any | None
     citations: list[DocumentCitation]
-    action_draft: ActionDraftPreview | None
+    action_draft: ActionDraftArtifact | None
     context: AgentContextResponse
 
 
