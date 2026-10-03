@@ -3,6 +3,7 @@ from typing import Annotated
 from urllib.parse import urlparse
 
 from fastapi import Depends, Header
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from langfuse import Langfuse
 from langgraph.checkpoint.memory import InMemorySaver
 
@@ -11,6 +12,7 @@ from business_brain.analytics.repository import AnalyticsRepository
 from business_brain.analytics.service import GovernedAnalyticsService
 from business_brain.api.errors import (
     AnalyticsServiceUnavailableError,
+    AuthenticationError,
     LLMServiceUnavailableError,
     RetrievalServiceUnavailableError,
     UploadServiceUnavailableError,
@@ -25,39 +27,83 @@ from business_brain.observability.tracing import (
     NoOpGenerationTracer,
 )
 from business_brain.retrieval.hybrid import HybridRetriever
+from business_brain.security.auth0 import Auth0TokenValidator, TokenValidationError
 from business_brain.security.context import AuthContext, UserRole
 from business_brain.uploads.repository import UploadRepository
 from business_brain.uploads.service import UploadService
 
 _agent_checkpointer = None
 _agent_checkpoint_pool = None
+_bearer_scheme = HTTPBearer(auto_error=False)
 
 
-def get_auth_context(
-    x_tenant_id: Annotated[
-        str,
-        Header(
-            alias="X-Tenant-ID",
-            min_length=2,
-            max_length=63,
-            pattern=r"^[a-z0-9][a-z0-9_-]*$",
-        ),
-    ],
-    x_user_id: Annotated[
-        str,
-        Header(
-            alias="X-User-ID",
-            min_length=2,
-            max_length=100,
-            pattern=r"^[A-Za-z0-9][A-Za-z0-9._@-]*$",
-        ),
-    ],
-    x_role: Annotated[UserRole, Header(alias="X-Role")],
+@lru_cache
+def _build_auth0_validator(
+    domain: str,
+    audience: str,
+    tenant_claim: str,
+    role_claim: str,
+    cache_seconds: int,
+    clock_skew_seconds: int,
+) -> Auth0TokenValidator:
+    return Auth0TokenValidator(
+        domain=domain,
+        audience=audience,
+        tenant_claim=tenant_claim,
+        role_claim=role_claim,
+        cache_seconds=cache_seconds,
+        clock_skew_seconds=clock_skew_seconds,
+    )
+
+
+def get_auth0_validator(
     settings: Annotated[Settings, Depends(get_settings)],
+) -> Auth0TokenValidator | None:
+    if settings.auth_mode == "mock":
+        return None
+    if not settings.auth0_domain or not settings.auth0_audience:
+        raise AuthenticationError("Auth0 authentication is not configured")
+    return _build_auth0_validator(
+        settings.auth0_domain,
+        settings.auth0_audience,
+        settings.auth0_tenant_claim,
+        settings.auth0_role_claim,
+        settings.auth0_jwks_cache_seconds,
+        settings.auth0_clock_skew_seconds,
+    )
+
+
+async def get_auth_context(
+    credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(_bearer_scheme)],
+    settings: Annotated[Settings, Depends(get_settings)],
+    validator: Annotated[Auth0TokenValidator | None, Depends(get_auth0_validator)],
+    x_tenant_id: Annotated[
+        str | None,
+        Header(alias="X-Tenant-ID"),
+    ] = None,
+    x_user_id: Annotated[
+        str | None,
+        Header(alias="X-User-ID"),
+    ] = None,
+    x_role: Annotated[str | None, Header(alias="X-Role")] = None,
 ) -> AuthContext:
-    if settings.auth_mode != "mock":
-        raise LLMServiceUnavailableError("Mock authentication is disabled")
-    return AuthContext(tenant_id=x_tenant_id, user_id=x_user_id, role=x_role)
+    if settings.auth_mode == "auth0":
+        if credentials is None or credentials.scheme.lower() != "bearer":
+            raise AuthenticationError("A bearer token is required")
+        if validator is None:
+            raise AuthenticationError("Auth0 authentication is not configured")
+        try:
+            return await validator.validate(credentials.credentials)
+        except TokenValidationError as exc:
+            raise AuthenticationError("Bearer token is invalid") from exc
+
+    if not x_tenant_id or not x_user_id or not x_role:
+        raise AuthenticationError("Mock identity headers are required")
+    try:
+        role = UserRole(x_role)
+        return AuthContext(tenant_id=x_tenant_id, user_id=x_user_id, role=role)
+    except ValueError as exc:
+        raise AuthenticationError("Mock identity headers are invalid") from exc
 
 
 @lru_cache

@@ -41,7 +41,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 4.3 | Action schemas and risk policy | DONE | Four strict Pydantic payloads validate purchase-order lines/totals, carrier overbilling plus SLA credits and evidence clauses, AP reminder balances/messages, and customer delay recipients/dates; the server injects tenant, deterministic draft ID, risk, approver roles, draft status, mandatory approval, and `submission_allowed=false`; high-risk PO/dispute drafts require Founder/CFO approval, medium-risk reminder/advisory drafts require the locked operational approvers, and model attempts to override policy fields fail closed; a live Groq PO payload validated successfully and Ruff plus 144 tests passed | Add durable interrupt/resume approval decisions in Step 4.4 |
 | 4.4 | Human approval workflow | DONE | Validated action drafts pause at a LangGraph `interrupt` using a process-local checkpointer; `POST /api/v1/agent/threads/{thread_id}/approval` resumes the exact thread with authenticated approve/reject input; tenant and role are checked before resume and again inside the node, high-risk drafts remain CFO-only, unauthorized attempts do not consume the interrupt, repeat decisions return conflict, decision identity/time/comment are audited, and approved drafts remain explicitly unexecuted; Ruff and 156 tests passed | Replace the process-local checkpointer with Neon persistence and prove restart recovery in Step 4.5 |
 | 4.5 | Durable checkpoints | DONE | Official `langgraph-checkpoint-postgres` async saver integrated with a bounded Neon connection pool; application startup runs idempotent checkpoint schema setup and shutdown closes the pool; tests use isolated memory state; `scripts/verify_checkpoint_recovery.py` created a pending PO approval, closed the first Neon connection, restored it through a new saver and supervisor, approved it with zero additional LLM calls, confirmed submission remained disabled, and deleted the verification thread; Ruff and 157 tests passed | None |
-| 4.6 | Auth0 identity integration | TODO | — | Create/configure account, validate OIDC JWTs, and map immutable tenant/role claims |
+| 4.6 | Auth0 identity integration | ACTIVE | RS256/JWKS access-token validation enforces issuer, audience, expiry, subject, immutable tenant claim, and exactly one supported role; JWKS caching, safe 401 responses, `/api/v1/auth/me`, spoofed-header defense, setup guide, and automated failure cases implemented; Ruff and 168 tests passed | Create/configure the Auth0 tenant, API, roles, Action, and demo user; add domain/audience to `.env`; verify a live user access token |
 | 4.7 | RBAC and tenant enforcement | TODO | — | Enforce policy at API, tool, SQL, Qdrant, document, and action boundaries |
 | 4.8 | Adversarial security suite | TODO | — | Test cross-tenant retrieval, privilege escalation, prompt injection, and unauthorized tool execution |
 | 4.9 | MCP integration | TODO | — | Expose or consume narrowly scoped governed tools with authentication and schema validation |
@@ -75,16 +75,17 @@ application integration.
 | Qdrant Cloud | Ready | DONE for document ingestion | Use existing dense+sparse collection for hybrid retrieval in Step 3.11 |
 | Neon Postgres | Ready | DONE for structured data and LangGraph checkpoints | Continue using tenant-scoped application tables and official checkpoint tables |
 | Cloudflare | Pending | TODO | Hosting/edge capability selected during deployment design |
-| Auth0 | Pending | TODO | Production-style OIDC authentication and claims |
+| Auth0 | Pending | ACTIVE locally | Create the account and complete the live token check described in `docs/auth0-setup.md` |
 | DagsHub | Pending | TODO | Forecasting experiment tracking |
 | Vercel | Pending | TODO | Public demonstration frontend/deployment |
 
 ## Current checkpoint
 
 - Current completed step: **4.5 Durable checkpoints**
-- Next step: **4.6 Auth0 identity integration**
+- Active step: **4.6 Auth0 identity integration**
+- Next action: create the Auth0 tenant and `Aura Business Brain API`, then provide its Domain and API Identifier through the local `.env`
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: the application Neon checkpoint pool initialized and closed successfully; a pending high-risk PO survived closure of the first database connection and construction of a fresh saver/supervisor, then resumed to Founder/CFO approval with zero LLM calls and `submission_allowed=false`; the temporary checkpoint thread was deleted, the machine-readable report is in `data/quality/checkpoint_recovery_smoke.json`, Ruff passed, and 157 tests passed
+- Latest verification: Auth0-mode tokens are verified with cached RS256 JWKS plus issuer, audience, time, subject, tenant, and role checks; mock headers cannot override token identity; malformed identities receive a sanitized 401; Ruff passed and 168 tests passed. Live Auth0 verification remains pending.
 
 ## Update rule
 

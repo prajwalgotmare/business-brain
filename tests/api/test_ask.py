@@ -137,14 +137,15 @@ def test_ask_sends_safe_request_context_to_tracing() -> None:
     assert tracer.primary_models == ["openai/gpt-oss-120b"]
 
 
-def test_missing_auth_headers_returns_sanitized_validation_error() -> None:
+def test_missing_auth_headers_returns_sanitized_authentication_error() -> None:
     with TestClient(app) as client:
         response = client.post("/api/v1/ask", json={"question": "Show inventory risk"})
 
-    assert response.status_code == 422
+    assert response.status_code == 401
     body = response.json()
     assert body["status"] == "error"
-    assert body["error"]["code"] == "validation_error"
+    assert body["error"]["code"] == "invalid_authentication"
+    assert response.headers["WWW-Authenticate"] == "Bearer"
     UUID(body["error"]["request_id"])
     assert "input" not in response.text.lower()
     assert "groq" not in response.text.lower()
@@ -164,7 +165,8 @@ def test_invalid_role_is_rejected_before_generation() -> None:
     finally:
         app.dependency_overrides.clear()
 
-    assert response.status_code == 422
+    assert response.status_code == 401
+    assert response.json()["error"]["code"] == "invalid_authentication"
     assert gateway.requests == []
 
 

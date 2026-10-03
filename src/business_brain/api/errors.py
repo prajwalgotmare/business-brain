@@ -15,6 +15,10 @@ class ErrorResponse(BaseModel):
     error: ErrorDetail
 
 
+class AuthenticationError(PermissionError):
+    """Safe application-level error for missing or invalid authentication."""
+
+
 class LLMServiceUnavailableError(RuntimeError):
     """Safe application-level error for unavailable model generation."""
 

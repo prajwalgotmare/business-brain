@@ -17,6 +17,7 @@ from business_brain.api.errors import (
     ApprovalConflictError,
     ApprovalForbiddenError,
     ApprovalNotFoundError,
+    AuthenticationError,
     ErrorDetail,
     ErrorResponse,
     LLMServiceUnavailableError,
@@ -30,6 +31,7 @@ from business_brain.api.request_context import request_id_from_header
 from business_brain.api.routes.agent import router as agent_router
 from business_brain.api.routes.analytics import router as analytics_router
 from business_brain.api.routes.ask import router as ask_router
+from business_brain.api.routes.auth import router as auth_router
 from business_brain.api.routes.health import router as health_router
 from business_brain.api.routes.search import router as search_router
 from business_brain.api.routes.uploads import router as uploads_router
@@ -86,6 +88,24 @@ def create_app() -> FastAPI:
             )
         )
         return JSONResponse(status_code=422, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(AuthenticationError)
+    async def authentication_error_handler(
+        request: Request,
+        _: AuthenticationError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="invalid_authentication",
+                message="A valid authenticated identity is required.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(
+            status_code=401,
+            content=payload.model_dump(mode="json"),
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
     @app.exception_handler(LLMServiceUnavailableError)
     async def llm_unavailable_handler(
@@ -256,6 +276,7 @@ def create_app() -> FastAPI:
         return JSONResponse(status_code=409, content=payload.model_dump(mode="json"))
 
     app.include_router(health_router, prefix="/api/v1")
+    app.include_router(auth_router, prefix="/api/v1")
     app.include_router(agent_router, prefix="/api/v1")
     app.include_router(ask_router, prefix="/api/v1")
     app.include_router(search_router, prefix="/api/v1/retrieval")
