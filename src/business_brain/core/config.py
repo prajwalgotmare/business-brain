@@ -40,6 +40,7 @@ class Settings(BaseSettings):
     langfuse_capture_content: bool = True
 
     database_url: str | None = None
+    database_url_direct: str | None = None
     qdrant_url: str | None = None
     qdrant_api_key: str | None = None
 

@@ -70,6 +70,8 @@ Phase 3A data foundation (in progress):
 - Six deterministic business scenarios with machine-readable answers and record evidence
 - Deterministic data-quality manifest with row counts, tenant checks, and SHA-256 hashes
 - Source-grounded PDF corpus with ten Aura documents and two CC BY 4.0 contract references
+- Versioned Neon PostgreSQL schema with 23 tenant-safe relational tables and operational indexes
+- Idempotent Aura/Apex ingestion with 9,392 live rows, provenance, integrity checks, and count verification
 
 ## Local development
 
@@ -99,6 +101,21 @@ Start local state services when needed:
 ```powershell
 docker compose up -d
 ```
+
+Configure Neon with the pooled application URL and direct administrative URL in `.env`:
+
+```text
+DATABASE_URL=postgresql://...-pooler...?sslmode=require
+DATABASE_URL_DIRECT=postgresql://...?sslmode=require
+```
+
+Apply pending migrations, idempotently seed both demo tenants, and verify every table:
+
+```powershell
+uv run python -m business_brain.db
+```
+
+The command never prints either connection string. Do not commit `.env`.
 
 ## Delivery phases
 

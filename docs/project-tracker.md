@@ -31,7 +31,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.6 | Ground-truth business scenarios | DONE | Six schema-validated Aura answer keys connect exact source rows for stockout risk, carrier overbilling plus SLA credit, supplier terms, overdue invoice, West margin decline, and CFO-gated PO submission; future PDF clauses are explicitly marked as Step 3.8 dependencies | None |
 | 3.7 | Data-quality suite and manifest | DONE | Deterministic manifest records every source artifact hash and all CSV row/column metadata; nine automated checks cover freshness, keys, totals, dates, inventory, tenant isolation, and scenario evidence | None |
 | 3.8 | Source-grounded PDF corpus | DONE | Ten synthetic Aura PDFs plus two downloaded CC BY 4.0 CUAD references; scenario clauses, provenance, sensitivity, hashes, page counts, extractable text, and visual rendering verified | None |
-| 3.9 | Neon structured-data ingestion | TODO | — | Create account/database, migrations, tenant-safe ingestion, indexes, and reproducible seed process |
+| 3.9 | Neon structured-data ingestion | DONE | Neon Singapore project connected; immutable checksum migration created 23 tenant-safe relational tables and six operational indexes; idempotent upsert loaded and verified 9,392 Aura/Apex rows with provenance and composite tenant foreign keys; second run applied zero migrations with identical counts; Ruff and 85 tests passed | None |
 | 3.10 | Qdrant document ingestion | TODO | — | Create account/cluster, extraction, chunking, embeddings, metadata, and mandatory tenant/sensitivity filters |
 | 3.11 | Hybrid retrieval with citations | TODO | — | Implement dense plus keyword retrieval, reranking, clause/page citations, and retrieval tests |
 | 3.12 | Governed SQL analytics | TODO | — | Implement read-only tenant-scoped queries for inventory, shipping, invoices, and margins |
@@ -73,7 +73,7 @@ application integration.
 | Kaggle | Ready | TODO | Public dataset reference/download and optional notebook work |
 | Hugging Face | Ready | TODO | Embedding/model access if selected |
 | Qdrant Cloud | Pending | TODO | Hybrid document retrieval |
-| Neon Postgres | Pending | TODO | Structured data, checkpoints, and durable application state |
+| Neon Postgres | Ready | DONE for structured demo data | Extend for LangGraph checkpoints and durable application state in Phase 4 |
 | Cloudflare | Pending | TODO | Hosting/edge capability selected during deployment design |
 | Auth0 | Pending | TODO | Production-style OIDC authentication and claims |
 | DagsHub | Pending | TODO | Forecasting experiment tracking |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.8 Source-grounded PDF corpus**
-- Next step: **3.9 Neon structured-data ingestion**
+- Current completed step: **3.9 Neon structured-data ingestion**
+- Next step: **3.10 Qdrant document ingestion**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: 12 PDFs and manifests current, all required scenario clauses extractable, visual render review passed, Ruff passed, and 80 tests passed
+- Latest verification at this checkpoint: Neon migration and idempotent rerun passed, 23 tables and 9,392 rows verified, Ruff passed, and 85 tests passed
 
 ## Update rule
 
