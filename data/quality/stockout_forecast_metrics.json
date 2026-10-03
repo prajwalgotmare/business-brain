@@ -1,0 +1,21 @@
+{
+  "model": "xgboost",
+  "feature_names": [
+    "lag_1",
+    "lag_2",
+    "rolling_3",
+    "week_index"
+  ],
+  "split": {
+    "strategy": "time_ordered",
+    "cutoff_week": "2026-09-14"
+  },
+  "metrics": {
+    "baseline_mae": 3.94,
+    "baseline_rmse": 4.747630988187687,
+    "xgboost_mae": 2.923471565246582,
+    "xgboost_rmse": 3.5970591493496356,
+    "train_rows": 150,
+    "test_rows": 50
+  }
+}

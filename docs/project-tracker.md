@@ -48,7 +48,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 5.1 | Golden evaluation dataset | DONE | Deterministic versioned dataset contains exactly 50 unique questions: 16 fixed-SQL, 10 cited-document, 8 approval-gated action, 12 authorization-refusal, 2 direct-response, and 2 unsupported-operation cases across all four roles; strict contracts record expected routes, intents, facts, citations, tools, errors, approval policies, inclusion/exclusion checks, and source scenarios; citations resolve to real ingested pages/clauses, scenario facts and server action policy are drift-tested, JSON Schema is generated, the dataset regenerates byte-stably, Ruff passed, and 229 tests passed | None |
 | 5.2 | RAGAS and task-quality metrics | DONE | Live 50-case runner, deterministic task scoring, citation precision/recall, routing/tool/permission/action metrics, token/latency accounting, and RAGAS Faithfulness judging are implemented; latest measured groundedness is 96.9% and citation recall is 90% | Step 5.3 must turn the measured routing/action/task baselines into CI gates and regression fixtures |
 | 5.3 | CI evaluation gates | DONE | GitHub Actions now runs the offline 50-case evaluation gate checker; locked policy checks dataset coverage, RAGAS groundedness, citation recall, routing, permission, action-policy, task-success, runtime-error floors, and dataset version; regression tests verify pass/fail behavior without live API calls | Publish live-run artifacts in a future deployment workflow if needed |
-| 5.4 | Demand/stockout forecasting | TODO | — | Build leakage-safe baseline and XGBoost model using time-aware validation |
+| 5.4 | Demand/stockout forecasting | DONE | Leakage-safe weekly demand features and ordered 80/20 time split implemented; native XGBoost model beats lag-1 baseline (MAE 2.92 vs 3.94; RMSE 3.60 vs 4.75) on 150 train and 50 test rows; model, metrics, and two reproducibility tests committed | Extend with richer covariates during productization if needed |
 | 5.5 | DagsHub experiment tracking | TODO | — | Create/configure account and track data/model versions, parameters, metrics, and artifacts |
 | 5.6 | Performance and cost evaluation | TODO | — | Measure retrieval/tool P95, end-to-end generation latency, token use, fallback rate, and free-tier fit |
 | 6.1 | Demonstration web application | TODO | — | Build role-switchable dashboard, chat, analytics, citations, draft actions, uploads, and approval UI |
@@ -81,8 +81,8 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **5.3 CI evaluation gates**
-- Next step: **5.4 demand/stockout forecasting**
+- Current completed step: **5.4 demand/stockout forecasting**
+- Next step: **5.5 DagsHub experiment tracking**
 - Active Git branch: `feat/data-blueprint`
 - Latest verification: all 50 golden cases validated against the strict schema and locked distribution; all four roles, every governed intent, permission refusals, one explicit cross-tenant attempt, action approvals, exact facts, and four ingested citation documents are covered; deterministic regeneration, source-scenario drift, role policy, clause existence, and action-policy tests passed; Ruff passed and the full suite passed 229 tests. Evidence is in `data/quality/golden_dataset_report.json`.
 
