@@ -1,0 +1,21 @@
+{
+  "verified_on": "2026-10-03",
+  "status": "passed",
+  "sdk": "mcp",
+  "sdk_version": "2.3.0",
+  "transport": "streamable_http",
+  "authentication": "auth0_bearer_jwt",
+  "tools": [
+    "search_documents",
+    "get_stockout_risks",
+    "reconcile_freight",
+    "list_overdue_invoices",
+    "analyze_margin_variance"
+  ],
+  "tool_count": 5,
+  "all_tools_read_only": true,
+  "tenant_parameter_exposed": false,
+  "mcp_tests_passed": 9,
+  "full_suite_tests_passed": 222,
+  "lint": "passed"
+}

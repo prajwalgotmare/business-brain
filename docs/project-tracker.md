@@ -44,7 +44,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 4.6 | Auth0 identity integration | DONE | Auth0 EU tenant, custom API, RBAC, four exact roles, Post Login immutable tenant/role claims, Founder/CFO demo user, and least-privilege SPA user grant configured; Authorization Code with PKCE produced a live RS256 access token that the backend verified as `tenant_aura`/`founder_cfo` using cached JWKS, issuer, audience, time, subject, tenant, and role checks without printing or storing the token; spoofed headers are ignored, failures return sanitized 401s, Ruff and 168 tests passed, and `data/quality/auth0_live_smoke.json` records non-sensitive evidence | None |
 | 4.7 | RBAC and tenant enforcement | DONE | One centralized 14-capability policy governs all four roles across API, agent/tool, SQL, Qdrant, upload/document, and draft/approval boundaries; all 12 protected business endpoints require authenticated context while health alone remains public; tenant IDs are strictly validated, SQL rejects missing tenant predicates, Qdrant applies tenant plus sensitivity filters and verifies returned payloads, upload commits recheck every normalized row, and the documented authorization matrix is exhaustively tested; Ruff and 192 tests passed | None |
 | 4.8 | Adversarial security suite | DONE | Versioned 21-case attack corpus exercises cross-tenant retrieval, privilege escalation, prompt injection, unauthorized finance/action tools, injected tool arguments, route/intent confusion, and malicious Qdrant payloads; requests are refused before tools run, strict schemas reject attacker-controlled tenant/SQL-like fields, and returned vector payloads are rechecked; adversarial pass rate was 100%, Ruff passed, and the complete suite passed 213 tests | None |
-| 4.9 | MCP integration | TODO | — | Expose or consume narrowly scoped governed tools with authentication and schema validation |
+| 4.9 | MCP integration | DONE | Official MCP Python SDK 2.3 provides an Auth0 bearer-gated Streamable HTTP resource server with five typed read-only tools for governed document search and fixed analytics; tenant/role are reconstructed only from validated immutable claims and never accepted as tool arguments; existing service RBAC, SQL predicates, Qdrant filters, input constraints, safe errors, protected-resource discovery, and transport-level 401 enforcement remain active; arbitrary SQL, uploads, approvals, and external action execution are not exposed; Ruff and 222 tests passed | None |
 | 5.1 | Golden evaluation dataset | TODO | — | Create and version at least 50 questions with expected facts, citations, permissions, and refusal behavior |
 | 5.2 | RAGAS and task-quality metrics | TODO | — | Measure groundedness, faithfulness/relevance as selected, citation accuracy, routing, and tool correctness |
 | 5.3 | CI evaluation gates | TODO | — | Block regressions below locked quality/security thresholds and publish reports |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **4.8 adversarial security suite**
-- Next step: **4.9 MCP integration**
+- Current completed step: **4.9 MCP integration**
+- Next step: **5.1 golden evaluation dataset**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification: all 21 versioned adversarial cases passed with zero security failures across tenant isolation, privilege escalation, prompt injection, tool authorization, argument injection, route confusion, and malicious vector payloads; Ruff passed and the full suite passed 213 tests. Non-sensitive evidence is in `data/quality/adversarial_security_report.json`.
+- Latest verification: the official MCP SDK advertised exactly five tenant-implicit read-only tools; missing bearer tokens were rejected at the Streamable HTTP boundary, invalid claims failed closed, typed inputs rejected injection strings, and an unauthorized support role could not reach the repository through MCP; nine MCP tests passed, Ruff passed, and the complete suite passed 222 tests. Non-sensitive evidence is in `data/quality/mcp_integration_report.json`.
 
 ## Update rule
 

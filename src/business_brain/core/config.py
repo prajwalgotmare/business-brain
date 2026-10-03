@@ -67,6 +67,7 @@ class Settings(BaseSettings):
     auth0_role_claim: str = "https://business-brain.demo/role"
     auth0_jwks_cache_seconds: int = Field(default=3600, ge=60, le=86_400)
     auth0_clock_skew_seconds: int = Field(default=30, ge=0, le=300)
+    mcp_resource_server_url: HttpUrl = HttpUrl("http://127.0.0.1:8001/mcp")
 
 
 @lru_cache
