@@ -39,7 +39,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 4.1 | LangGraph governed supervisor | DONE | Typed tenant/role/thread state, strict structured intent routing, deterministic role-policy enforcement, fail-closed malformed-output/provider paths, bounded graph termination, traced Groq calls, and `POST /api/v1/agent/run`; live primary-model stockout request routed correctly and Ruff plus 126 tests passed | Connect the already-built analytics and retrieval services plus action drafting as executable nodes in Step 4.2; durable Neon checkpoints remain Step 4.5 |
 | 4.2 | Specialized tool nodes | DONE | LangGraph now executes fixed governed SQL analytics, tenant/role-filtered hybrid RAG with structured citations, and a draft-only action node; model-extracted arguments are schema-bounded, tools run outside the event loop, evidence synthesis rejects embedded instructions, action risk is code-derived, and tool/provider failures are sanitized; live Neon stockout and Qdrant supplier-term paths completed through the agent, while Ruff and 129 tests passed | Replace generic action previews with four action-specific schemas and complete field/risk validation in Step 4.3 |
 | 4.3 | Action schemas and risk policy | DONE | Four strict Pydantic payloads validate purchase-order lines/totals, carrier overbilling plus SLA credits and evidence clauses, AP reminder balances/messages, and customer delay recipients/dates; the server injects tenant, deterministic draft ID, risk, approver roles, draft status, mandatory approval, and `submission_allowed=false`; high-risk PO/dispute drafts require Founder/CFO approval, medium-risk reminder/advisory drafts require the locked operational approvers, and model attempts to override policy fields fail closed; a live Groq PO payload validated successfully and Ruff plus 144 tests passed | Add durable interrupt/resume approval decisions in Step 4.4 |
-| 4.4 | Human approval workflow | TODO | — | Add interrupt/resume edges and manager/accountant/CFO approval rules |
+| 4.4 | Human approval workflow | DONE | Validated action drafts pause at a LangGraph `interrupt` using a process-local checkpointer; `POST /api/v1/agent/threads/{thread_id}/approval` resumes the exact thread with authenticated approve/reject input; tenant and role are checked before resume and again inside the node, high-risk drafts remain CFO-only, unauthorized attempts do not consume the interrupt, repeat decisions return conflict, decision identity/time/comment are audited, and approved drafts remain explicitly unexecuted; Ruff and 156 tests passed | Replace the process-local checkpointer with Neon persistence and prove restart recovery in Step 4.5 |
 | 4.5 | Durable checkpoints | TODO | — | Persist LangGraph checkpoints in Neon and prove restart recovery for pending approvals |
 | 4.6 | Auth0 identity integration | TODO | — | Create/configure account, validate OIDC JWTs, and map immutable tenant/role claims |
 | 4.7 | RBAC and tenant enforcement | TODO | — | Enforce policy at API, tool, SQL, Qdrant, document, and action boundaries |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **4.3 Action schemas and risk policy**
-- Next step: **4.4 Human approval workflow**
+- Current completed step: **4.4 Human approval workflow**
+- Next step: **4.5 Durable checkpoints**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: all four action payload types validate under strict schemas; invalid totals, inconsistent disputes, invalid email/date combinations, extra fields, risk downgrades, and submission overrides are rejected; the live primary model produced a valid purchase-order payload while the server independently fixed its risk to high, required Founder/CFO approval, and kept submission disabled; Ruff passed and 144 tests passed
+- Latest verification at this checkpoint: deterministic interrupt/resume tests prove logistics can draft but cannot approve a high-risk PO, Founder/CFO approval resumes without another model call, rejection terminates safely, cross-tenant access returns not found, and repeat decisions return conflict; API tests cover authenticated approver propagation and sanitized 403/404/409 responses; Ruff passed and 156 tests passed
 
 ## Update rule
 

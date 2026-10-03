@@ -10,6 +10,9 @@ from business_brain.api.errors import (
     AnalyticsBadRequestError,
     AnalyticsForbiddenError,
     AnalyticsServiceUnavailableError,
+    ApprovalConflictError,
+    ApprovalForbiddenError,
+    ApprovalNotFoundError,
     ErrorDetail,
     ErrorResponse,
     LLMServiceUnavailableError,
@@ -201,6 +204,48 @@ def create_app() -> FastAPI:
             )
         )
         return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(ApprovalNotFoundError)
+    async def approval_not_found_handler(
+        request: Request,
+        _: ApprovalNotFoundError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="approval_not_found",
+                message="The pending approval was not found.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=404, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(ApprovalForbiddenError)
+    async def approval_forbidden_handler(
+        request: Request,
+        _: ApprovalForbiddenError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="approval_forbidden",
+                message="Your role cannot decide this approval.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=403, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(ApprovalConflictError)
+    async def approval_conflict_handler(
+        request: Request,
+        _: ApprovalConflictError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="approval_conflict",
+                message="This approval is no longer pending.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=409, content=payload.model_dump(mode="json"))
 
     app.include_router(health_router, prefix="/api/v1")
     app.include_router(agent_router, prefix="/api/v1")

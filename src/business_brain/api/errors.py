@@ -50,3 +50,15 @@ class UploadConflictError(RuntimeError):
 class UploadServiceUnavailableError(RuntimeError):
     """Safe application-level error for unavailable upload persistence."""
 
+
+class ApprovalNotFoundError(KeyError):
+    """Safe application-level error for a missing tenant-scoped approval."""
+
+
+class ApprovalForbiddenError(PermissionError):
+    """Safe application-level error for an unauthorized approval decision."""
+
+
+class ApprovalConflictError(RuntimeError):
+    """Safe application-level error for an approval that is no longer pending."""
+

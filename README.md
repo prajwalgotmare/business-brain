@@ -101,6 +101,9 @@ Phase 4A governed orchestration:
 - Strict purchase-order, carrier-dispute, payment-reminder, and delay-advisory payloads
 - Reconciled monetary fields, validated dates/recipients, and server-owned approval metadata
 - Founder/CFO-only approval requirement for high-risk purchase orders and disputes
+- LangGraph human interrupts for every validated action draft
+- Authenticated approve/reject resume endpoint with tenant and approver-role enforcement
+- Audited decision identity, role, timestamp, and comment; approved drafts stay unexecuted
 
 ## Local development
 
@@ -196,6 +199,11 @@ The governed supervisor is available at `POST /api/v1/agent/run`. It routes auth
 requests into fixed SQL analytics, governed hybrid retrieval, or draft-only action
 generation. Responses expose the selected route, intent, workflow status, typed tool
 result, citations, token usage, and any action preview. No action is externally executed.
+
+Action responses pause with `pending_approval`. An authorized human resumes the same
+thread with `POST /api/v1/agent/threads/{thread_id}/approval` and an `approve` or
+`reject` decision. Step 4.4 uses process-local checkpoints; Step 4.5 moves them to Neon
+so pending approvals survive application restarts.
 
 ## Delivery phases
 

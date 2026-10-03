@@ -5,6 +5,12 @@ from decimal import Decimal
 
 import pytest
 
+from business_brain.agent.approvals import (
+    ApprovalConflictError,
+    ApprovalDecision,
+    ApprovalForbiddenError,
+    ApprovalNotFoundError,
+)
 from business_brain.agent.schemas import AgentRoute, RiskLevel, SupervisorIntent, WorkflowStatus
 from business_brain.agent.supervisor import GovernedSupervisor
 from business_brain.analytics.schemas import StockoutRisk
@@ -277,13 +283,14 @@ async def test_action_node_creates_draft_only_artifact_with_deterministic_risk()
 
     result = await run(agent, UserRole.FOUNDER_CFO, "Draft a replenishment purchase order")
 
-    assert result.status == WorkflowStatus.COMPLETED
+    assert result.status == WorkflowStatus.PENDING_APPROVAL
     assert result.risk_level.value == "high"
     assert result.action_draft is not None
     assert result.action_draft["approval_required"] is True
     assert result.action_draft["submission_allowed"] is False
     assert result.action_draft["required_approver_roles"] == ["founder_cfo"]
     assert result.action_draft["payload"]["total_amount"] == "3536.00"
+    assert result.approval["status"] == "pending"
     assert len(gateway.requests) == 2
 
 
@@ -304,6 +311,123 @@ async def test_invalid_action_payload_fails_closed() -> None:
     assert result.risk_level == RiskLevel.HIGH
     assert result.action_draft is None
     assert len(gateway.requests) == 2
+
+
+@pytest.mark.asyncio
+async def test_authorized_cfo_approval_resumes_without_regenerating_draft() -> None:
+    agent, gateway, _, _ = supervisor(
+        [
+            generation(routing_json("action_drafting", "draft_purchase_order")),
+            generation(json.dumps(purchase_order_payload())),
+        ]
+    )
+    thread_id = "9c825d3b-b21c-4425-87f4-416597203a3b"
+    pending = await agent.run(
+        request_id="req-draft",
+        thread_id=thread_id,
+        auth=auth(UserRole.LOGISTICS_MANAGER),
+        question="Draft a replenishment purchase order",
+        max_tokens=512,
+    )
+
+    approved = await agent.resume_approval(
+        request_id="req-approve",
+        thread_id=thread_id,
+        auth=auth(UserRole.FOUNDER_CFO),
+        decision=ApprovalDecision.APPROVE,
+        comment="Budget and quantity verified",
+    )
+
+    assert pending.status == WorkflowStatus.PENDING_APPROVAL
+    assert approved.status == WorkflowStatus.APPROVED
+    assert approved.request_id == "req-approve"
+    assert approved.approval["status"] == "approved"
+    assert approved.approval["decided_by_role"] == "founder_cfo"
+    assert approved.approval["comment"] == "Budget and quantity verified"
+    assert approved.action_draft["submission_allowed"] is False
+    assert len(gateway.requests) == 2
+
+
+@pytest.mark.asyncio
+async def test_unauthorized_approver_cannot_consume_pending_interrupt() -> None:
+    agent, _, _, _ = supervisor(
+        [
+            generation(routing_json("action_drafting", "draft_purchase_order")),
+            generation(json.dumps(purchase_order_payload())),
+        ]
+    )
+    thread_id = "b7935df0-7bbf-4c78-83a6-ad36f1a2de2d"
+    await agent.run(
+        request_id="req-draft",
+        thread_id=thread_id,
+        auth=auth(UserRole.LOGISTICS_MANAGER),
+        question="Draft a replenishment purchase order",
+        max_tokens=512,
+    )
+
+    with pytest.raises(ApprovalForbiddenError):
+        await agent.resume_approval(
+            request_id="req-wrong-role",
+            thread_id=thread_id,
+            auth=auth(UserRole.LOGISTICS_MANAGER),
+            decision=ApprovalDecision.APPROVE,
+        )
+
+    approved = await agent.resume_approval(
+        request_id="req-cfo",
+        thread_id=thread_id,
+        auth=auth(UserRole.FOUNDER_CFO),
+        decision=ApprovalDecision.APPROVE,
+    )
+    assert approved.status == WorkflowStatus.APPROVED
+
+
+@pytest.mark.asyncio
+async def test_cross_tenant_approval_is_hidden_and_repeat_decision_conflicts() -> None:
+    agent, _, _, _ = supervisor(
+        [
+            generation(routing_json("action_drafting", "draft_purchase_order")),
+            generation(json.dumps(purchase_order_payload())),
+        ]
+    )
+    thread_id = "b79f892f-4b67-4686-b9e6-50c9a79c238b"
+    await agent.run(
+        request_id="req-draft",
+        thread_id=thread_id,
+        auth=auth(UserRole.FOUNDER_CFO),
+        question="Draft a replenishment purchase order",
+        max_tokens=512,
+    )
+    other_tenant = AuthContext(
+        tenant_id="tenant_apex",
+        user_id="other-cfo",
+        role=UserRole.FOUNDER_CFO,
+    )
+    with pytest.raises(ApprovalNotFoundError):
+        await agent.resume_approval(
+            request_id="req-cross-tenant",
+            thread_id=thread_id,
+            auth=other_tenant,
+            decision=ApprovalDecision.REJECT,
+        )
+
+    rejected = await agent.resume_approval(
+        request_id="req-reject",
+        thread_id=thread_id,
+        auth=auth(UserRole.FOUNDER_CFO),
+        decision=ApprovalDecision.REJECT,
+        comment="Quantity exceeds current plan",
+    )
+    assert rejected.status == WorkflowStatus.REJECTED
+    assert rejected.approval["status"] == "rejected"
+
+    with pytest.raises(ApprovalConflictError):
+        await agent.resume_approval(
+            request_id="req-repeat",
+            thread_id=thread_id,
+            auth=auth(UserRole.FOUNDER_CFO),
+            decision=ApprovalDecision.APPROVE,
+        )
 
 
 @pytest.mark.asyncio

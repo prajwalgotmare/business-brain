@@ -40,6 +40,9 @@ class RiskLevel(StrEnum):
 class WorkflowStatus(StrEnum):
     COMPLETED = "completed"
     ROUTED = "routed"
+    PENDING_APPROVAL = "pending_approval"
+    APPROVED = "approved"
+    REJECTED = "rejected"
     REFUSED = "refused"
     FAILED = "failed"
 
@@ -103,6 +106,7 @@ class AgentState(TypedDict, total=False):
     tool_result: Any
     citations: list[dict[str, Any]]
     action_draft: dict[str, Any]
+    approval: dict[str, Any]
 
 
 class AgentRunResult(BaseModel):
@@ -125,3 +129,4 @@ class AgentRunResult(BaseModel):
     tool_result: Any | None = None
     citations: list[DocumentCitation] = Field(default_factory=list)
     action_draft: Any | None = None
+    approval: Any | None = None

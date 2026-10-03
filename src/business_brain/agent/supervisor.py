@@ -1,15 +1,29 @@
 import asyncio
 import json
+from datetime import UTC, datetime
 from typing import Any
 from uuid import NAMESPACE_URL, uuid5
 
+from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph import END, START, StateGraph
+from langgraph.types import Command, interrupt
 
 from business_brain.agent.actions import (
     ACTION_PAYLOAD_MODELS,
     ActionDraftArtifact,
     get_action_policy,
     validate_action_payload,
+)
+from business_brain.agent.approvals import (
+    ApprovalConflictError,
+    ApprovalDecision,
+    ApprovalForbiddenError,
+    ApprovalNotFoundError,
+    ApprovalRecord,
+    ApprovalResumeCommand,
+    ApprovalStatus,
+    decide_approval,
+    pending_approval,
 )
 from business_brain.agent.policy import authorize_decision
 from business_brain.agent.schemas import (
@@ -57,17 +71,20 @@ class GovernedSupervisor:
         primary_model: str,
         analytics_service: GovernedAnalyticsService | None = None,
         retriever: HybridRetriever | None = None,
+        checkpointer: Any | None = None,
     ) -> None:
         self._gateway = gateway
         self._tracer = tracer
         self._primary_model = primary_model
         self._analytics = analytics_service
         self._retriever = retriever
+        self._checkpointer = checkpointer or InMemorySaver()
         graph = StateGraph(AgentState)
         graph.add_node("supervise", self._supervise)
         graph.add_node("sql_analytics", self._sql_analytics)
         graph.add_node("document_retrieval", self._document_retrieval)
         graph.add_node("action_drafting", self._action_drafting)
+        graph.add_node("approval_gate", self._approval_gate)
         graph.add_node("direct_response", self._direct_response)
         graph.add_node("refuse", self._refuse)
         graph.add_node("failure", self._failure)
@@ -87,13 +104,18 @@ class GovernedSupervisor:
         for node in (
             "sql_analytics",
             "document_retrieval",
-            "action_drafting",
             "direct_response",
             "refuse",
             "failure",
         ):
             graph.add_edge(node, END)
-        self._graph = graph.compile()
+        graph.add_conditional_edges(
+            "action_drafting",
+            self._after_action,
+            {"approval_gate": "approval_gate", "end": END},
+        )
+        graph.add_edge("approval_gate", END)
+        self._graph = graph.compile(checkpointer=self._checkpointer)
 
     async def run(
         self,
@@ -119,7 +141,49 @@ class GovernedSupervisor:
             "attempt_count": 0,
             "used_fallback": False,
         }
-        state = await self._graph.ainvoke(initial, config={"recursion_limit": 8})
+        state = await self._graph.ainvoke(initial, config=self._config(thread_id))
+        return self._result_from_state(state)
+
+    async def resume_approval(
+        self,
+        *,
+        request_id: str,
+        thread_id: str,
+        auth: AuthContext,
+        decision: ApprovalDecision,
+        comment: str | None = None,
+    ) -> AgentRunResult:
+        config = self._config(thread_id)
+        snapshot = await self._graph.aget_state(config)
+        values = dict(snapshot.values or {})
+        if not values or "approval" not in values:
+            raise ApprovalNotFoundError("pending approval was not found")
+        record = ApprovalRecord.model_validate(values["approval"])
+        if record.tenant_id != auth.tenant_id:
+            raise ApprovalNotFoundError("pending approval was not found")
+        if not snapshot.interrupts:
+            raise ApprovalConflictError("approval is no longer pending")
+        if auth.role not in record.required_approver_roles:
+            raise ApprovalForbiddenError("role cannot decide this approval")
+        command = ApprovalResumeCommand(
+            decision=decision,
+            tenant_id=auth.tenant_id,
+            approver_user_id=auth.user_id,
+            approver_role=auth.role,
+            decided_at=datetime.now(UTC),
+            comment=comment,
+        )
+        state = await self._graph.ainvoke(
+            Command(
+                resume=command.model_dump(mode="json"),
+                update={"request_id": request_id},
+            ),
+            config=config,
+        )
+        return self._result_from_state(state)
+
+    @staticmethod
+    def _result_from_state(state: dict[str, Any]) -> AgentRunResult:
         return AgentRunResult(
             request_id=state["request_id"],
             thread_id=state["thread_id"],
@@ -144,6 +208,7 @@ class GovernedSupervisor:
             tool_result=state.get("tool_result"),
             citations=state.get("citations", []),
             action_draft=state.get("action_draft"),
+            approval=state.get("approval"),
         )
 
     async def _supervise(self, state: AgentState) -> dict[str, Any]:
@@ -324,17 +389,53 @@ class GovernedSupervisor:
         except ValueError:
             return self._action_failure("invalid_draft", policy.risk_level)
         artifact_json = artifact.model_dump(mode="json")
+        approval = pending_approval(artifact)
         return {
             **self._generation_updates(state, result),
             "risk_level": policy.risk_level.value,
             "tool_name": "action_drafting",
             "tool_result": artifact_json,
             "action_draft": artifact_json,
+            "approval": approval.model_dump(mode="json"),
             "answer": (
                 f"A validated {intent.value} draft was created. It cannot be submitted "
                 "until an authorized human approves it."
             ),
-            "status": WorkflowStatus.COMPLETED.value,
+            "status": WorkflowStatus.PENDING_APPROVAL.value,
+        }
+
+    @staticmethod
+    def _approval_gate(state: AgentState) -> dict[str, Any]:
+        record = ApprovalRecord.model_validate(state["approval"])
+        raw_command = interrupt(
+            {
+                "approval": record.model_dump(mode="json"),
+                "message": "Human approval is required before this draft can proceed.",
+            },
+            response_schema=ApprovalResumeCommand,
+        )
+        command = (
+            raw_command
+            if isinstance(raw_command, ApprovalResumeCommand)
+            else ApprovalResumeCommand.model_validate(raw_command)
+        )
+        try:
+            decided = decide_approval(record, command)
+        except PermissionError as exc:
+            raise ApprovalForbiddenError("approval authorization failed") from exc
+        except ValueError as exc:
+            raise ApprovalConflictError("approval is no longer pending") from exc
+        approved = decided.status == ApprovalStatus.APPROVED
+        return {
+            "approval": decided.model_dump(mode="json"),
+            "status": (
+                WorkflowStatus.APPROVED.value if approved else WorkflowStatus.REJECTED.value
+            ),
+            "answer": (
+                "The draft was approved by an authorized human and remains unexecuted."
+                if approved
+                else "The draft was rejected by an authorized human and will not proceed."
+            ),
         }
 
     async def _answer_from_evidence(
@@ -431,6 +532,12 @@ class GovernedSupervisor:
             return "failure"
         return AgentRoute(state["route"]).value
 
+    @staticmethod
+    def _after_action(state: AgentState) -> str:
+        if state.get("status") == WorkflowStatus.PENDING_APPROVAL.value:
+            return "approval_gate"
+        return "end"
+
     async def _generate(
         self,
         state: AgentState,
@@ -520,3 +627,10 @@ class GovernedSupervisor:
     def _draft_id(state: AgentState, intent: SupervisorIntent) -> str:
         seed = f"{state['tenant_id']}:{state['thread_id']}:{intent.value}:{state['question']}"
         return f"draft_{uuid5(NAMESPACE_URL, seed).hex}"
+
+    @staticmethod
+    def _config(thread_id: str) -> dict[str, Any]:
+        return {
+            "configurable": {"thread_id": thread_id},
+            "recursion_limit": 8,
+        }
