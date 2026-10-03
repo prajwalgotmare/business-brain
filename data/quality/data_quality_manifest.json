@@ -1,0 +1,866 @@
+{
+  "artifact_count": 42,
+  "artifacts": [
+    {
+      "byte_count": 8771,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/evaluation/ground_truth_scenarios.json",
+      "row_count": null,
+      "sha256": "c6ff5e22e191f391e85800a420d6b87e8286031c9c27d5b15169ef07afd06201",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 11162,
+      "columns": [
+        "tenant_id",
+        "manifest_entry_id",
+        "shipment_id",
+        "carrier_id",
+        "tracking_number",
+        "service_level",
+        "reported_weight_kg",
+        "base_charge_amount",
+        "fuel_surcharge_amount",
+        "reported_charge_amount",
+        "currency_code",
+        "manifest_date",
+        "delivery_status",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/carrier_manifest_entries.csv",
+      "row_count": 72,
+      "sha256": "07b6e9b70bc7a777848ff3244e2f8e0e017ed83e47baad7118fb7c327121733a",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 12108,
+      "columns": [
+        "tenant_id",
+        "carrier_sla_fact_id",
+        "shipment_id",
+        "carrier_id",
+        "promised_delivery_at",
+        "actual_delivery_at",
+        "evaluated_at",
+        "evaluation_basis",
+        "sla_status",
+        "delay_minutes",
+        "penalty_eligible",
+        "provisional_credit_amount",
+        "currency_code",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/carrier_sla_facts.csv",
+      "row_count": 72,
+      "sha256": "6efcaa5a5f6c06b8f5a6081196196a5278951a399d58518f055517157e7de138",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 3052,
+      "columns": [
+        "tenant_id",
+        "customer_id",
+        "customer_segment",
+        "region_id",
+        "display_name",
+        "email_alias",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/customers.csv",
+      "row_count": 30,
+      "sha256": "a2cfb4fbaf2312c5a2bbf371c001bc02205ea439f5bdb688277beb65383db622",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 3136,
+      "columns": [
+        "tenant_id",
+        "delivery_exception_id",
+        "shipment_id",
+        "tracking_event_id",
+        "reason_code",
+        "opened_at",
+        "resolved_at",
+        "exception_status",
+        "customer_impact",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/delivery_exceptions.csv",
+      "row_count": 22,
+      "sha256": "a6f08aab12de5ca81fc9d1a3de872a2db2c56f22a5228549504eac1abfedc964",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 1655,
+      "columns": [
+        "tenant_id",
+        "inventory_balance_id",
+        "warehouse_id",
+        "product_id",
+        "snapshot_at",
+        "on_hand_quantity",
+        "allocated_quantity",
+        "available_quantity",
+        "inbound_quantity",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/inventory_balances.csv",
+      "row_count": 16,
+      "sha256": "2ec4de10501f8dab3cf7e3a35ff5cc7140a485c32ae2c36e31bc4c20532463c0",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 19752,
+      "columns": [
+        "tenant_id",
+        "inventory_movement_id",
+        "warehouse_id",
+        "product_id",
+        "occurred_at",
+        "movement_type",
+        "quantity_delta",
+        "reference_type",
+        "reference_id",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/inventory_movements.csv",
+      "row_count": 168,
+      "sha256": "ff2937cf7e4ce49daf17a238eebd0ff2579b0a3e466c7afb596b13245ea1f183",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 14761,
+      "columns": [
+        "tenant_id",
+        "order_line_id",
+        "order_id",
+        "product_id",
+        "quantity",
+        "unit_price",
+        "discount_amount",
+        "net_amount",
+        "unit_cost_snapshot",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/order_lines.csv",
+      "row_count": 170,
+      "sha256": "791f3d100c1ae43d1d4948692f0b90ebc1d211615564964aa6a2dcc26111a1f2",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 10500,
+      "columns": [
+        "tenant_id",
+        "order_id",
+        "customer_id",
+        "warehouse_id",
+        "order_timestamp",
+        "order_status",
+        "sales_channel",
+        "currency_code",
+        "subtotal_amount",
+        "discount_amount",
+        "tax_amount",
+        "shipping_amount",
+        "order_total_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/orders.csv",
+      "row_count": 80,
+      "sha256": "65e0d90887900ae5c65ace61aa44e7124ee595ec2fbbb52f63cdd2d9d0aa1677",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 444,
+      "columns": [
+        "tenant_id",
+        "payment_id",
+        "vendor_invoice_id",
+        "payment_date",
+        "payment_amount",
+        "currency_code",
+        "payment_status",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/payments.csv",
+      "row_count": 4,
+      "sha256": "41bc4a34a1fd226d51b8b31741a937fc7b4d84ec907b8340eb42c7faa33b465b",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 1085,
+      "columns": [
+        "tenant_id",
+        "purchase_order_line_id",
+        "purchase_order_id",
+        "product_id",
+        "quantity",
+        "unit_cost",
+        "line_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/purchase_order_lines.csv",
+      "row_count": 12,
+      "sha256": "59becfdb19c16cdde873b8ece68a5721f62fa5bdd93fa2f1cdf10e0eec670e56",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 1093,
+      "columns": [
+        "tenant_id",
+        "purchase_order_id",
+        "supplier_id",
+        "warehouse_id",
+        "created_at",
+        "expected_at",
+        "purchase_order_status",
+        "currency_code",
+        "subtotal_amount",
+        "tax_amount",
+        "freight_amount",
+        "total_amount",
+        "approval_required",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/purchase_orders.csv",
+      "row_count": 6,
+      "sha256": "b21dbfae5f13430418a625d8ac3f8b5b41a868f4d7dc1edce2ad34a5d767fd32",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 1636,
+      "columns": [
+        "tenant_id",
+        "margin_snapshot_id",
+        "region_id",
+        "week_start_date",
+        "revenue_amount",
+        "cost_of_goods_amount",
+        "freight_expense_amount",
+        "refund_amount",
+        "net_profit_amount",
+        "net_margin_pct",
+        "calculated_at",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/regional_margin_snapshots.csv",
+      "row_count": 12,
+      "sha256": "b6f96334e240bc247ec5edd0035d46968e63886ef0484da1227c15dfe13fd541",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 10843,
+      "columns": [
+        "tenant_id",
+        "shipment_item_id",
+        "shipment_id",
+        "product_id",
+        "expected_quantity",
+        "received_quantity",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/shipment_items.csv",
+      "row_count": 153,
+      "sha256": "97e8c6c97248e2119bcb9561af2d3662c7485d22085abf25e65c69530ae93f05",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 14675,
+      "columns": [
+        "tenant_id",
+        "shipment_id",
+        "shipment_direction",
+        "order_id",
+        "purchase_order_id",
+        "carrier_id",
+        "origin_warehouse_id",
+        "destination_warehouse_id",
+        "destination_region_id",
+        "tracking_number",
+        "shipped_at",
+        "promised_delivery_at",
+        "delivered_at",
+        "shipment_status",
+        "freight_charge_amount",
+        "currency_code",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/shipments.csv",
+      "row_count": 72,
+      "sha256": "ef4539c91c2fef0f6d09a7388ee6b45ef3854d998e0ce4ba4ab6e4cdcceecdc1",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 31066,
+      "columns": [
+        "tenant_id",
+        "tracking_event_id",
+        "shipment_id",
+        "event_time",
+        "event_type",
+        "location_code",
+        "reason_code",
+        "event_source",
+        "raw_event_id",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/tracking_events.csv",
+      "row_count": 235,
+      "sha256": "13e56437a3636fb1cc355749326562b87b6312bb825169b2bf5183bb66419d5a",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 20225,
+      "columns": [
+        "tenant_id",
+        "vendor_invoice_line_id",
+        "vendor_invoice_id",
+        "line_type",
+        "description",
+        "shipment_id",
+        "quantity",
+        "unit_price",
+        "line_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/vendor_invoice_lines.csv",
+      "row_count": 162,
+      "sha256": "c0e0ef54664906918a3cdfa1d6be6eb4fa3eaa4dc3bedc1ae37648e0ce3b9ebc",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 1286,
+      "columns": [
+        "tenant_id",
+        "vendor_invoice_id",
+        "supplier_id",
+        "purchase_order_id",
+        "invoice_number",
+        "invoice_date",
+        "due_date",
+        "invoice_status",
+        "currency_code",
+        "subtotal_amount",
+        "tax_amount",
+        "total_amount",
+        "outstanding_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/apex_retail/vendor_invoices.csv",
+      "row_count": 8,
+      "sha256": "4d544ef2bf3e03be2142c62c42462ab090b6ed3fb956827579454761bdb0ac77",
+      "tenant_id": "tenant_apex"
+    },
+    {
+      "byte_count": 71443,
+      "columns": [
+        "tenant_id",
+        "manifest_entry_id",
+        "shipment_id",
+        "carrier_id",
+        "tracking_number",
+        "service_level",
+        "reported_weight_kg",
+        "base_charge_amount",
+        "fuel_surcharge_amount",
+        "reported_charge_amount",
+        "currency_code",
+        "manifest_date",
+        "delivery_status",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/carrier_manifest_entries.csv",
+      "row_count": 459,
+      "sha256": "27aec8f302d8cba981270a47f912ecbe8bc2bef9c58928891f3410185cd3f7c7",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 77445,
+      "columns": [
+        "tenant_id",
+        "carrier_sla_fact_id",
+        "shipment_id",
+        "carrier_id",
+        "promised_delivery_at",
+        "actual_delivery_at",
+        "evaluated_at",
+        "evaluation_basis",
+        "sla_status",
+        "delay_minutes",
+        "penalty_eligible",
+        "provisional_credit_amount",
+        "currency_code",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/carrier_sla_facts.csv",
+      "row_count": 459,
+      "sha256": "45429b5e644dc59f4e9570ca34b0513e68c27a50243bd2d8067bd324093ea509",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 18115,
+      "columns": [
+        "tenant_id",
+        "customer_id",
+        "customer_segment",
+        "region_id",
+        "display_name",
+        "email_alias",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/customers.csv",
+      "row_count": 180,
+      "sha256": "44c5df1db4565fc3c8d404cb27d80cda0750fbe7e8aff51bc8637055876ab8fd",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 14652,
+      "columns": [
+        "tenant_id",
+        "delivery_exception_id",
+        "shipment_id",
+        "tracking_event_id",
+        "reason_code",
+        "opened_at",
+        "resolved_at",
+        "exception_status",
+        "customer_impact",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/delivery_exceptions.csv",
+      "row_count": 108,
+      "sha256": "1da5c2c8229c33318b3defe8f9f56d8ecfb88e44355943b78a1217e174b7fa76",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 14397,
+      "columns": [
+        "tenant_id",
+        "inventory_balance_id",
+        "warehouse_id",
+        "product_id",
+        "snapshot_at",
+        "on_hand_quantity",
+        "allocated_quantity",
+        "available_quantity",
+        "inbound_quantity",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/inventory_balances.csv",
+      "row_count": 150,
+      "sha256": "2cd4b29543c24022217b2effa0af86df800d24f6b81f9d75467f591a9e6cfd1d",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 132925,
+      "columns": [
+        "tenant_id",
+        "inventory_movement_id",
+        "warehouse_id",
+        "product_id",
+        "occurred_at",
+        "movement_type",
+        "quantity_delta",
+        "reference_type",
+        "reference_id",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/inventory_movements.csv",
+      "row_count": 1123,
+      "sha256": "2a9514e42b18e9d7cc391fe80c457dd0aec39554d0424cbbf720385fdb88e721",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 87782,
+      "columns": [
+        "tenant_id",
+        "order_line_id",
+        "order_id",
+        "product_id",
+        "quantity",
+        "unit_price",
+        "discount_amount",
+        "net_amount",
+        "unit_cost_snapshot",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/order_lines.csv",
+      "row_count": 1019,
+      "sha256": "02b3ccc9eea475e03edd53dc23a0d161087f1a593871021dc9a50b2d4d3c211d",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 65177,
+      "columns": [
+        "tenant_id",
+        "order_id",
+        "customer_id",
+        "warehouse_id",
+        "order_timestamp",
+        "order_status",
+        "sales_channel",
+        "currency_code",
+        "subtotal_amount",
+        "discount_amount",
+        "tax_amount",
+        "shipping_amount",
+        "order_total_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/orders.csv",
+      "row_count": 500,
+      "sha256": "5a48ac2d37c4c3e98608db2ad2eabd647a35884f99318243baccf8f63e51bea2",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 1787,
+      "columns": [
+        "tenant_id",
+        "payment_id",
+        "vendor_invoice_id",
+        "payment_date",
+        "payment_amount",
+        "currency_code",
+        "payment_status",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/payments.csv",
+      "row_count": 20,
+      "sha256": "35d57d6208c4abc2b7d44266db0a0d2812b38871d08ba4593a87efc0fd32fdcc",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 4598,
+      "columns": [
+        "tenant_id",
+        "purchase_order_line_id",
+        "purchase_order_id",
+        "product_id",
+        "quantity",
+        "unit_cost",
+        "line_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/purchase_order_lines.csv",
+      "row_count": 55,
+      "sha256": "58523778c4fc153435ad63871cc68bf5c84487159a79562bfd1f75f65ab97a35",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 3971,
+      "columns": [
+        "tenant_id",
+        "purchase_order_id",
+        "supplier_id",
+        "warehouse_id",
+        "created_at",
+        "expected_at",
+        "purchase_order_status",
+        "currency_code",
+        "subtotal_amount",
+        "tax_amount",
+        "freight_amount",
+        "total_amount",
+        "approval_required",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/purchase_orders.csv",
+      "row_count": 25,
+      "sha256": "a351d77255d466f79c359171e656629500fdf5024bc7712e20bc6fb6f308a39f",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 2454,
+      "columns": [
+        "tenant_id",
+        "margin_snapshot_id",
+        "region_id",
+        "week_start_date",
+        "revenue_amount",
+        "cost_of_goods_amount",
+        "freight_expense_amount",
+        "refund_amount",
+        "net_profit_amount",
+        "net_margin_pct",
+        "calculated_at",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/regional_margin_snapshots.csv",
+      "row_count": 18,
+      "sha256": "c1c5edfd9367a90019d0cd365690837f875ca77595572df0ed858dc2e695139a",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 66673,
+      "columns": [
+        "tenant_id",
+        "shipment_item_id",
+        "shipment_id",
+        "product_id",
+        "expected_quantity",
+        "received_quantity",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/shipment_items.csv",
+      "row_count": 949,
+      "sha256": "1ad10f8093ea2a4dee6e6df3bad90770d0834bdc916b69b7375723e9c67defe5",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 94523,
+      "columns": [
+        "tenant_id",
+        "shipment_id",
+        "shipment_direction",
+        "order_id",
+        "purchase_order_id",
+        "carrier_id",
+        "origin_warehouse_id",
+        "destination_warehouse_id",
+        "destination_region_id",
+        "tracking_number",
+        "shipped_at",
+        "promised_delivery_at",
+        "delivered_at",
+        "shipment_status",
+        "freight_charge_amount",
+        "currency_code",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/shipments.csv",
+      "row_count": 459,
+      "sha256": "bf1a33c7339bb8c055acb1087c228294938d73eb8dcbead0a8af8b46d6b0a569",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 192547,
+      "columns": [
+        "tenant_id",
+        "tracking_event_id",
+        "shipment_id",
+        "event_time",
+        "event_type",
+        "location_code",
+        "reason_code",
+        "event_source",
+        "raw_event_id",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/tracking_events.csv",
+      "row_count": 1464,
+      "sha256": "f3ea4fb2c22659ff0c147e124e89f545eab5ac11c2575d84b57951843f273061",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 124134,
+      "columns": [
+        "tenant_id",
+        "vendor_invoice_line_id",
+        "vendor_invoice_id",
+        "line_type",
+        "description",
+        "shipment_id",
+        "quantity",
+        "unit_price",
+        "line_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/vendor_invoice_lines.csv",
+      "row_count": 996,
+      "sha256": "8ae7cf518689ef87eef9cb2939b87008e7f869debc18639e60994e90d9c95257",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 3983,
+      "columns": [
+        "tenant_id",
+        "vendor_invoice_id",
+        "supplier_id",
+        "purchase_order_id",
+        "invoice_number",
+        "invoice_date",
+        "due_date",
+        "invoice_status",
+        "currency_code",
+        "subtotal_amount",
+        "tax_amount",
+        "total_amount",
+        "outstanding_amount",
+        "sensitivity"
+      ],
+      "media_type": "text/csv",
+      "relative_path": "data/generated/aura_brands/vendor_invoices.csv",
+      "row_count": 27,
+      "sha256": "7c5204d56aa958e4fddf3abed9d3aefda7ca2e59c2a5dcdc23633f1212bf9d71",
+      "tenant_id": "tenant_aura"
+    },
+    {
+      "byte_count": 13377,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/schemas/commerce_inventory.schema.json",
+      "row_count": null,
+      "sha256": "e4215736c0b5aa845089011c31a6aa2988d01fd84c9f233246f23209f5a961b4",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 18967,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/schemas/finance.schema.json",
+      "row_count": null,
+      "sha256": "b611853abd962f33f6d0efd4724233421407642d05ac13eaae2f7d2a999351e3",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 18157,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/schemas/logistics.schema.json",
+      "row_count": null,
+      "sha256": "94a0e59a29aabbd244ceffdf59408baf07dbadaf11e138dc584d24f47aca0ed2",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 10159,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/schemas/reference_catalog.schema.json",
+      "row_count": null,
+      "sha256": "c075f3bda6aed60db3de518e9690be1a9e40213b04240b5373a49628de5d2627",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 4424,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/schemas/scenario_ground_truth.schema.json",
+      "row_count": null,
+      "sha256": "1a64564de5094b1eb0edb2ae341b6d92a18a9d09413a332390cc9ed3c5411249",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 32974,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/seeds/reference_catalog.json",
+      "row_count": null,
+      "sha256": "4417a5e9f4369c69bbab4eff997395cb02a1b8b51d06bd2562cde4712213229f",
+      "tenant_id": null
+    },
+    {
+      "byte_count": 1691,
+      "columns": [],
+      "media_type": "application/json",
+      "relative_path": "data/sources/public_calibration.json",
+      "row_count": null,
+      "sha256": "e29d6e57e48c1795427f75c40e88715311ab0793e4eafc63149b18a22e59ca4a",
+      "tenant_id": null
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "artifacts_current",
+      "details": "Every committed source artifact exactly matches deterministic generator output.",
+      "name": "Deterministic artifact comparison",
+      "records_checked": 42,
+      "status": "pass"
+    },
+    {
+      "check_id": "row_counts",
+      "details": "Every CSV has a non-empty header and its exact row count is recorded.",
+      "name": "CSV row counts",
+      "records_checked": 9305,
+      "status": "pass"
+    },
+    {
+      "check_id": "primary_keys",
+      "details": "Every generated CSV primary key is populated and unique within its collection.",
+      "name": "Primary-key uniqueness",
+      "records_checked": 9305,
+      "status": "pass"
+    },
+    {
+      "check_id": "tenant_isolation",
+      "details": "Aura and Apex CSV files contain only their expected tenant_id.",
+      "name": "Tenant isolation",
+      "records_checked": 9305,
+      "status": "pass"
+    },
+    {
+      "check_id": "schema_validation",
+      "details": "Reference, commerce, logistics, finance, and scenario models validate strictly.",
+      "name": "Schema and reference validation",
+      "records_checked": 23,
+      "status": "pass"
+    },
+    {
+      "check_id": "totals_reconcile",
+      "details": "Order, purchase-order, invoice, payment, freight, and margin totals reconcile.",
+      "name": "Commercial and financial reconciliation",
+      "records_checked": 615,
+      "status": "pass"
+    },
+    {
+      "check_id": "inventory_reconciles",
+      "details": "Movements and allocations reconcile to every inventory snapshot.",
+      "name": "Inventory roll-forward",
+      "records_checked": 166,
+      "status": "pass"
+    },
+    {
+      "check_id": "dates_valid",
+      "details": "Events stay within the snapshot and lifecycle/payment dates remain ordered.",
+      "name": "Dates and lifecycle order",
+      "records_checked": 1135,
+      "status": "pass"
+    },
+    {
+      "check_id": "scenario_evidence",
+      "details": "Every scenario evidence reference resolves to a concrete source record.",
+      "name": "Ground-truth evidence resolution",
+      "records_checked": 19,
+      "status": "pass"
+    }
+  ],
+  "csv_file_count": 34,
+  "generated_at": "2026-09-22T00:25:00Z",
+  "schema_version": "1.0",
+  "snapshot_at": "2026-09-21T23:59:59Z",
+  "status": "pass",
+  "total_csv_rows": 9305
+}

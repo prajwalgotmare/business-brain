@@ -68,6 +68,7 @@ Phase 3A data foundation (in progress):
 - Public-source calibration manifest with UCI licensing and aggregate transaction statistics
 - Reconciled purchase orders, supplier/carrier invoices, payments, and regional margins
 - Six deterministic business scenarios with machine-readable answers and record evidence
+- Deterministic data-quality manifest with row counts, tenant checks, and SHA-256 hashes
 
 ## Local development
 

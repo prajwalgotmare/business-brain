@@ -1,0 +1,174 @@
+{
+  "$defs": {
+    "ArtifactFingerprint": {
+      "additionalProperties": false,
+      "properties": {
+        "byte_count": {
+          "exclusiveMinimum": 0,
+          "title": "Byte Count",
+          "type": "integer"
+        },
+        "columns": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Columns",
+          "type": "array"
+        },
+        "media_type": {
+          "enum": [
+            "text/csv",
+            "application/json"
+          ],
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "row_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row Count"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "tenant_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tenant Id"
+        }
+      },
+      "required": [
+        "relative_path",
+        "media_type",
+        "byte_count",
+        "sha256"
+      ],
+      "title": "ArtifactFingerprint",
+      "type": "object"
+    },
+    "QualityCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "pattern": "^[a-z][a-z0-9_]+$",
+          "title": "Check Id",
+          "type": "string"
+        },
+        "details": {
+          "title": "Details",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "records_checked": {
+          "minimum": 0,
+          "title": "Records Checked",
+          "type": "integer"
+        },
+        "status": {
+          "const": "pass",
+          "default": "pass",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "check_id",
+        "name",
+        "records_checked",
+        "details"
+      ],
+      "title": "QualityCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Artifact Count",
+      "type": "integer"
+    },
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactFingerprint"
+      },
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/QualityCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "csv_file_count": {
+      "exclusiveMinimum": 0,
+      "title": "Csv File Count",
+      "type": "integer"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    },
+    "status": {
+      "const": "pass",
+      "default": "pass",
+      "title": "Status",
+      "type": "string"
+    },
+    "total_csv_rows": {
+      "exclusiveMinimum": 0,
+      "title": "Total Csv Rows",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "generated_at",
+    "snapshot_at",
+    "artifact_count",
+    "csv_file_count",
+    "total_csv_rows",
+    "artifacts",
+    "checks"
+  ],
+  "title": "DataQualityManifest",
+  "type": "object"
+}

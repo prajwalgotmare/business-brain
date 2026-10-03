@@ -29,7 +29,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.4 | Logistics generator | DONE | Deterministic generator produced 531 shipments, 1,096 shipment items, 1,696 tracking events, 531 SLA facts, 129 exceptions, and 531 manifests across isolated Aura/Apex datasets; schema, reconciliation tests, reproducibility checks, and spreadsheet-runtime inspection passed | None |
 | 3.5 | Finance and procurement generator | DONE | Public-source calibration manifest plus deterministic purchase orders, supplier/carrier invoices, invoice lines, completed payments, and weekly regional margin snapshots; UBL-aligned structures and end-to-end financial reconciliations verified | None |
 | 3.6 | Ground-truth business scenarios | DONE | Six schema-validated Aura answer keys connect exact source rows for stockout risk, carrier overbilling plus SLA credit, supplier terms, overdue invoice, West margin decline, and CFO-gated PO submission; future PDF clauses are explicitly marked as Step 3.8 dependencies | None |
-| 3.7 | Data-quality suite and manifest | TODO | — | Validate keys, totals, dates, inventory, tenant isolation, scenario evidence, row counts, and file hashes |
+| 3.7 | Data-quality suite and manifest | DONE | Deterministic manifest records every source artifact hash and all CSV row/column metadata; nine automated checks cover freshness, keys, totals, dates, inventory, tenant isolation, and scenario evidence | None |
 | 3.8 | Synthetic PDF corpus | TODO | — | Create and verify 8–12 supplier agreements, carrier agreements, invoices, policies, and compliance documents |
 | 3.9 | Neon structured-data ingestion | TODO | — | Create account/database, migrations, tenant-safe ingestion, indexes, and reproducible seed process |
 | 3.10 | Qdrant document ingestion | TODO | — | Create account/cluster, extraction, chunking, embeddings, metadata, and mandatory tenant/sensitivity filters |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.6 Ground-truth business scenarios**
-- Next step: **3.7 Data-quality suite and manifest**
+- Current completed step: **3.7 Data-quality suite and manifest**
+- Next step: **3.8 Synthetic PDF corpus**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: scenario answer keys and generated artifacts current, Ruff passed, 73 tests passed, and planted CSV evidence independently inspected with the spreadsheet runtime
+- Latest verification at this checkpoint: data-quality artifacts current, all fingerprints verified against committed files, Ruff passed, and 76 tests passed
 
 ## Update rule
 

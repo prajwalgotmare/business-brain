@@ -83,7 +83,13 @@ Generate and verify the scenario answer keys:
 ```powershell
 uv run python scripts/generate_scenario_ground_truth.py
 uv run python scripts/generate_scenario_ground_truth.py --check
+uv run python scripts/generate_data_quality_manifest.py --check
 ```
 
 The scenario manifest links each expected fact to concrete records. Contract-clause
 dependencies are marked `planned_step_3_8` until the synthetic PDF corpus is generated.
+
+`quality/data_quality_manifest.json` is the deterministic audit record for all prior
+data artifacts. It stores exact row counts, columns, tenant ownership, byte sizes, and
+SHA-256 hashes, plus explicit checks for keys, totals, dates, inventory, isolation, and
+scenario evidence.
