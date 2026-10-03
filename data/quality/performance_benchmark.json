@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "forecast_training_latency_ms": {
+    "p50": 10.871,
+    "p95": 1032.239,
+    "mean": 112.846,
+    "samples": 10
+  },
+  "latest_agent_run": {
+    "case_count": 50,
+    "mean_latency_ms": 2087.27,
+    "total_tokens": 51718,
+    "fallback_case_count": 0
+  },
+  "cost_note": "LLM prices are intentionally not hardcoded; use the provider dashboard for current billing."
+}

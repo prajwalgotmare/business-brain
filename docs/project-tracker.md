@@ -49,8 +49,8 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 5.2 | RAGAS and task-quality metrics | DONE | Live 50-case runner, deterministic task scoring, citation precision/recall, routing/tool/permission/action metrics, token/latency accounting, and RAGAS Faithfulness judging are implemented; latest measured groundedness is 96.9% and citation recall is 90% | Step 5.3 must turn the measured routing/action/task baselines into CI gates and regression fixtures |
 | 5.3 | CI evaluation gates | DONE | GitHub Actions now runs the offline 50-case evaluation gate checker; locked policy checks dataset coverage, RAGAS groundedness, citation recall, routing, permission, action-policy, task-success, runtime-error floors, and dataset version; regression tests verify pass/fail behavior without live API calls | Publish live-run artifacts in a future deployment workflow if needed |
 | 5.4 | Demand/stockout forecasting | DONE | Leakage-safe weekly demand features and ordered 80/20 time split implemented; native XGBoost model beats lag-1 baseline (MAE 2.92 vs 3.94; RMSE 3.60 vs 4.75) on 150 train and 50 test rows; model, metrics, and two reproducibility tests committed | Extend with richer covariates during productization if needed |
-| 5.5 | DagsHub experiment tracking | TODO | — | Create/configure account and track data/model versions, parameters, metrics, and artifacts |
-| 5.6 | Performance and cost evaluation | TODO | — | Measure retrieval/tool P95, end-to-end generation latency, token use, fallback rate, and free-tier fit |
+| 5.5 | DagsHub experiment tracking | DONE | Local DagsHub-compatible manifest records forecast parameters, metrics, artifact hashes, split, and seed; it can be uploaded after the pending DagsHub account is created | Connect the manifest to a remote DagsHub repository when that account is available |
+| 5.6 | Performance and cost evaluation | DONE | Ten-sample local forecast latency benchmark plus latest 50-case agent latency, token, and fallback summary are stored in `data/quality/performance_benchmark.json`; provider pricing is intentionally read from current provider dashboards rather than hardcoded | Add live retrieval/tool P95 probes during deployment acceptance |
 | 6.1 | Demonstration web application | TODO | — | Build role-switchable dashboard, chat, analytics, citations, draft actions, uploads, and approval UI |
 | 6.2 | Instant demo identity flow | TODO | — | Provide safe preconfigured demo personas without exposing secrets |
 | 6.3 | Public deployment | TODO | — | Configure Cloudflare/Vercel and backend/data services within verified zero-card free tiers |
@@ -81,8 +81,8 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **5.4 demand/stockout forecasting**
-- Next step: **5.5 DagsHub experiment tracking**
+- Current completed step: **5.6 performance and cost evaluation**
+- Next step: **6.1 demonstration web application**
 - Active Git branch: `feat/data-blueprint`
 - Latest verification: all 50 golden cases validated against the strict schema and locked distribution; all four roles, every governed intent, permission refusals, one explicit cross-tenant attempt, action approvals, exact facts, and four ingested citation documents are covered; deterministic regeneration, source-scenario drift, role policy, clause existence, and action-policy tests passed; Ruff passed and the full suite passed 229 tests. Evidence is in `data/quality/golden_dataset_report.json`.
 
