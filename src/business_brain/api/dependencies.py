@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 from fastapi import Depends, Header
 from langfuse import Langfuse
 
-from business_brain.api.errors import LLMServiceUnavailableError
+from business_brain.api.errors import LLMServiceUnavailableError, RetrievalServiceUnavailableError
 from business_brain.core.config import Settings, get_settings
 from business_brain.llm.gateway import LLMGateway
 from business_brain.llm.groq_client import HttpGroqChatClient
@@ -15,6 +15,7 @@ from business_brain.observability.tracing import (
     LangfuseGenerationTracer,
     NoOpGenerationTracer,
 )
+from business_brain.retrieval.hybrid import HybridRetriever
 from business_brain.security.context import AuthContext, UserRole
 
 
@@ -25,7 +26,7 @@ def get_auth_context(
             alias="X-Tenant-ID",
             min_length=2,
             max_length=63,
-            pattern=r"^[a-z0-9][a-z0-9-]*$",
+            pattern=r"^[a-z0-9][a-z0-9_-]*$",
         ),
     ],
     x_user_id: Annotated[
@@ -114,4 +115,16 @@ def _build_generation_tracer() -> GenerationTracer:
 
 def get_generation_tracer() -> GenerationTracer:
     return _build_generation_tracer()
+
+
+@lru_cache
+def _build_hybrid_retriever() -> HybridRetriever:
+    try:
+        return HybridRetriever(settings=get_settings())
+    except Exception as exc:
+        raise RetrievalServiceUnavailableError("Retrieval service is not configured") from exc
+
+
+def get_hybrid_retriever() -> HybridRetriever:
+    return _build_hybrid_retriever()
 

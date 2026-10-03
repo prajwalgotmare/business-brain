@@ -6,10 +6,16 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from business_brain.api.dependencies import get_generation_tracer
-from business_brain.api.errors import ErrorDetail, ErrorResponse, LLMServiceUnavailableError
+from business_brain.api.errors import (
+    ErrorDetail,
+    ErrorResponse,
+    LLMServiceUnavailableError,
+    RetrievalServiceUnavailableError,
+)
 from business_brain.api.request_context import request_id_from_header
 from business_brain.api.routes.ask import router as ask_router
 from business_brain.api.routes.health import router as health_router
+from business_brain.api.routes.search import router as search_router
 from business_brain.core.config import get_settings
 
 
@@ -74,8 +80,23 @@ def create_app() -> FastAPI:
         )
         return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
 
+    @app.exception_handler(RetrievalServiceUnavailableError)
+    async def retrieval_unavailable_handler(
+        request: Request,
+        _: RetrievalServiceUnavailableError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="retrieval_service_unavailable",
+                message="Document retrieval is temporarily unavailable. Please try again later.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
+
     app.include_router(health_router, prefix="/api/v1")
     app.include_router(ask_router, prefix="/api/v1")
+    app.include_router(search_router, prefix="/api/v1/retrieval")
     return app
 
 

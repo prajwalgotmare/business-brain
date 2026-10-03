@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-03T07:33:10.686673+00:00",
+  "collection_name": "business_brain_documents_v1",
+  "fusion": "rrf",
+  "reranker": "identifier_aware_deterministic_v1",
+  "case_count": 5,
+  "cases": [
+    {
+      "case_id": "carrier_sla_credit",
+      "role": "staff_accountant",
+      "expected_document_id": "doc_aur_fedex_msa",
+      "expected_clause_id": "clause_sla_credit_4_2",
+      "expected_rank": 1,
+      "latency_ms": 512.23
+    },
+    {
+      "case_id": "packaging_price",
+      "role": "founder_cfo",
+      "expected_document_id": "doc_aur_packaging_agreement",
+      "expected_clause_id": "clause_price_tier_3_1",
+      "expected_rank": 1,
+      "latency_ms": 178.3
+    },
+    {
+      "case_id": "packaging_payment_terms",
+      "role": "founder_cfo",
+      "expected_document_id": "doc_aur_packaging_agreement",
+      "expected_clause_id": "clause_payment_terms_5_2",
+      "expected_rank": 1,
+      "latency_ms": 180.89
+    },
+    {
+      "case_id": "late_payment_charge",
+      "role": "staff_accountant",
+      "expected_document_id": "doc_aur_skincare_agreement",
+      "expected_clause_id": "clause_late_payment_6_3",
+      "expected_rank": 1,
+      "latency_ms": 181.39
+    },
+    {
+      "case_id": "support_return_policy",
+      "role": "support_intern",
+      "expected_document_id": "doc_aur_return_shipping_policy",
+      "expected_clause_id": null,
+      "expected_rank": 1,
+      "latency_ms": 178.17
+    }
+  ],
+  "support_executive_leak_count": 0,
+  "cross_tenant_leak_count": 0
+}

@@ -47,6 +47,8 @@ class Settings(BaseSettings):
     qdrant_dense_model: str = "BAAI/bge-small-en-v1.5"
     qdrant_sparse_model: str = "Qdrant/bm25"
     qdrant_timeout_seconds: float = Field(default=30.0, gt=0, le=120)
+    retrieval_candidate_limit: int = Field(default=20, ge=5, le=100)
+    retrieval_result_limit: int = Field(default=5, ge=1, le=20)
 
     cloudflare_account_id: str | None = None
     cloudflare_api_token: str | None = None

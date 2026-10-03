@@ -75,6 +75,8 @@ Phase 3A data foundation (in progress):
 - Qdrant collection with 49 clause-aware chunks from ten authorized synthetic PDFs
 - Local `bge-small-en-v1.5` dense and Qdrant BM25 sparse embeddings for zero-cost hybrid retrieval
 - Indexed tenant, sensitivity, document, clause, and page payloads with live role-isolation checks
+- Dense/BM25 hybrid search with Qdrant reciprocal-rank fusion and identifier-aware reranking
+- Governed retrieval API with structured page, section, clause, and chunk citations
 
 ## Local development
 
@@ -134,6 +136,16 @@ uv run python -m business_brain.retrieval
 
 Embedding runs locally. Only manifest-authorized synthetic chunks and their vectors are
 sent to Qdrant; the two public reference PDFs are deliberately excluded.
+
+Run the reproducible live hybrid-retrieval and isolation smoke suite:
+
+```powershell
+uv run python scripts/verify_hybrid_retrieval.py
+```
+
+The authenticated retrieval endpoint is `POST /api/v1/retrieval/search`. Every dense
+and sparse query requires the canonical tenant and role-derived sensitivity filter;
+returned payloads are checked again before they leave the service.
 
 ## Delivery phases
 

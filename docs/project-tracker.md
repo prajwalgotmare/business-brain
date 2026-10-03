@@ -33,7 +33,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.8 | Source-grounded PDF corpus | DONE | Ten synthetic Aura PDFs plus two downloaded CC BY 4.0 CUAD references; scenario clauses, provenance, sensitivity, hashes, page counts, extractable text, and visual rendering verified | None |
 | 3.9 | Neon structured-data ingestion | DONE | Neon Singapore project connected; immutable checksum migration created 23 tenant-safe relational tables and six operational indexes; idempotent upsert loaded and verified 9,392 Aura/Apex rows with provenance and composite tenant foreign keys; second run applied zero migrations with identical counts; Ruff and 85 tests passed | None |
 | 3.10 | Qdrant document ingestion | DONE | Free Frankfurt cluster connected; ten authorized synthetic PDFs produced 49 deterministic clause-aware chunks; local BGE-small dense plus BM25 sparse embeddings synchronized to `business_brain_documents_v1`; six payload indexes, source hashes, required clauses, exact counts, idempotent rerun, Aura/Apex tenant boundary, and four role visibility profiles verified; Ruff and 93 tests passed | None |
-| 3.11 | Hybrid retrieval with citations | TODO | — | Implement dense plus keyword retrieval, reranking, clause/page citations, and retrieval tests |
+| 3.11 | Hybrid retrieval with citations | DONE | Governed API performs BGE dense plus BM25 sparse candidate search, Qdrant RRF fusion, deterministic business-identifier reranking, and typed document/page/section/clause/chunk citations; canonical tenant header fixed across API/Neon/Qdrant; five live expected citations ranked first with zero support-to-executive and Apex-to-Aura leaks; Ruff and 99 tests passed | None |
 | 3.12 | Governed SQL analytics | TODO | — | Implement read-only tenant-scoped queries for inventory, shipping, invoices, and margins |
 | 3.13 | Website/API file-upload ingestion | TODO | — | Authorized CSV/JSON/PDF upload, validation, preview, tenant tagging, quarantine, and ingestion status |
 | 4.1 | LangGraph governed supervisor | TODO | — | Add persistent state, routing, structured decisions, and bounded failure paths |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.10 Qdrant document ingestion**
-- Next step: **3.11 Hybrid retrieval with citations**
+- Current completed step: **3.11 Hybrid retrieval with citations**
+- Next step: **3.12 Governed SQL analytics**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: Qdrant ingestion and idempotent rerun passed, ten documents and 49 points verified, cross-tenant and four role visibility counts passed, Ruff passed, and 93 tests passed
+- Latest verification at this checkpoint: five live hybrid citation cases ranked expected evidence first, support/executive and Apex/Aura leakage checks returned zero, Ruff passed, and 99 tests passed
 
 ## Update rule
 

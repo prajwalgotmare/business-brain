@@ -18,3 +18,7 @@ class ErrorResponse(BaseModel):
 class LLMServiceUnavailableError(RuntimeError):
     """Safe application-level error for unavailable model generation."""
 
+
+class RetrievalServiceUnavailableError(RuntimeError):
+    """Safe application-level error for unavailable governed retrieval."""
+
