@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 
 from fastapi import Depends, Header
 from langfuse import Langfuse
+from langgraph.checkpoint.memory import InMemorySaver
 
 from business_brain.agent.supervisor import GovernedSupervisor
 from business_brain.analytics.repository import AnalyticsRepository
@@ -27,6 +28,9 @@ from business_brain.retrieval.hybrid import HybridRetriever
 from business_brain.security.context import AuthContext, UserRole
 from business_brain.uploads.repository import UploadRepository
 from business_brain.uploads.service import UploadService
+
+_agent_checkpointer = None
+_agent_checkpoint_pool = None
 
 
 def get_auth_context(
@@ -130,17 +134,71 @@ def get_generation_tracer() -> GenerationTracer:
 @lru_cache
 def _build_governed_supervisor() -> GovernedSupervisor:
     settings = get_settings()
+    checkpointer = _agent_checkpointer
+    if checkpointer is None:
+        if settings.agent_checkpoint_backend != "memory":
+            raise LLMServiceUnavailableError("Agent checkpoint runtime is not initialized")
+        checkpointer = InMemorySaver()
     return GovernedSupervisor(
         gateway=_build_llm_gateway(),
         tracer=_build_generation_tracer(),
         primary_model=settings.groq_primary_model,
         analytics_service=_build_analytics_service(),
         retriever=_build_hybrid_retriever(),
+        checkpointer=checkpointer,
     )
 
 
 def get_governed_supervisor() -> GovernedSupervisor:
     return _build_governed_supervisor()
+
+
+async def start_agent_checkpoint_runtime() -> None:
+    global _agent_checkpointer, _agent_checkpoint_pool
+    if _agent_checkpointer is not None:
+        return
+    settings = get_settings()
+    if settings.agent_checkpoint_backend == "memory":
+        _agent_checkpointer = InMemorySaver()
+    else:
+        from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
+        from psycopg.rows import dict_row
+        from psycopg_pool import AsyncConnectionPool
+
+        url = settings.database_url or settings.database_url_direct
+        if not url:
+            raise RuntimeError("DATABASE_URL or DATABASE_URL_DIRECT is required for checkpoints")
+        pool = AsyncConnectionPool(
+            conninfo=url,
+            min_size=1,
+            max_size=settings.agent_checkpoint_pool_size,
+            open=False,
+            kwargs={
+                "autocommit": True,
+                "prepare_threshold": 0,
+                "row_factory": dict_row,
+            },
+        )
+        await pool.open(wait=True)
+        saver = AsyncPostgresSaver(pool)
+        try:
+            await saver.setup()
+        except Exception:
+            await pool.close()
+            raise
+        _agent_checkpoint_pool = pool
+        _agent_checkpointer = saver
+    _build_governed_supervisor.cache_clear()
+
+
+async def stop_agent_checkpoint_runtime() -> None:
+    global _agent_checkpointer, _agent_checkpoint_pool
+    _build_governed_supervisor.cache_clear()
+    pool = _agent_checkpoint_pool
+    _agent_checkpointer = None
+    _agent_checkpoint_pool = None
+    if pool is not None:
+        await pool.close()
 
 
 @lru_cache

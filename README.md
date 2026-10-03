@@ -104,6 +104,8 @@ Phase 4A governed orchestration:
 - LangGraph human interrupts for every validated action draft
 - Authenticated approve/reject resume endpoint with tenant and approver-role enforcement
 - Audited decision identity, role, timestamp, and comment; approved drafts stay unexecuted
+- Neon-backed LangGraph checkpoints that survive application and connection restarts
+- Bounded async PostgreSQL pool with automatic idempotent checkpoint schema setup
 
 ## Local development
 
@@ -202,8 +204,23 @@ result, citations, token usage, and any action preview. No action is externally 
 
 Action responses pause with `pending_approval`. An authorized human resumes the same
 thread with `POST /api/v1/agent/threads/{thread_id}/approval` and an `approve` or
-`reject` decision. Step 4.4 uses process-local checkpoints; Step 4.5 moves them to Neon
-so pending approvals survive application restarts.
+`reject` decision. Production-style checkpoints are stored in Neon, so pending approvals
+survive application restarts.
+
+Configure the checkpoint backend and pool in `.env`:
+
+```text
+AGENT_CHECKPOINT_BACKEND=postgres
+AGENT_CHECKPOINT_POOL_SIZE=3
+```
+
+The application creates or upgrades the official LangGraph checkpoint tables during
+startup. On Windows, the documented `uvicorn --reload` command uses a psycopg-compatible
+selector event loop. Run the live crash-recovery proof with:
+
+```powershell
+uv run python scripts/verify_checkpoint_recovery.py
+```
 
 ## Delivery phases
 

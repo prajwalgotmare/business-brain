@@ -4,6 +4,7 @@ from datetime import UTC, datetime
 from decimal import Decimal
 
 import pytest
+from langgraph.checkpoint.memory import InMemorySaver
 
 from business_brain.agent.approvals import (
     ApprovalConflictError,
@@ -428,6 +429,55 @@ async def test_cross_tenant_approval_is_hidden_and_repeat_decision_conflicts() -
             auth=auth(UserRole.FOUNDER_CFO),
             decision=ApprovalDecision.APPROVE,
         )
+
+
+@pytest.mark.asyncio
+async def test_new_supervisor_instance_resumes_shared_checkpoint_without_llm_call() -> None:
+    saver = InMemorySaver()
+    first_gateway = StubGateway(
+        [
+            generation(routing_json("action_drafting", "draft_purchase_order")),
+            generation(json.dumps(purchase_order_payload())),
+        ]
+    )
+    first = GovernedSupervisor(
+        gateway=first_gateway,
+        tracer=NoOpGenerationTracer(),
+        primary_model="openai/gpt-oss-120b",
+        analytics_service=StubAnalytics(),
+        retriever=StubRetriever(),
+        checkpointer=saver,
+    )
+    thread_id = "41ea8e59-aaca-414d-9df1-ec25e117cf59"
+    pending = await first.run(
+        request_id="req-before-restart",
+        thread_id=thread_id,
+        auth=auth(UserRole.LOGISTICS_MANAGER),
+        question="Draft a replenishment purchase order",
+        max_tokens=512,
+    )
+
+    second_gateway = StubGateway([])
+    second = GovernedSupervisor(
+        gateway=second_gateway,
+        tracer=NoOpGenerationTracer(),
+        primary_model="openai/gpt-oss-120b",
+        analytics_service=StubAnalytics(),
+        retriever=StubRetriever(),
+        checkpointer=saver,
+    )
+    approved = await second.resume_approval(
+        request_id="req-after-restart",
+        thread_id=thread_id,
+        auth=auth(UserRole.FOUNDER_CFO),
+        decision=ApprovalDecision.APPROVE,
+    )
+
+    assert pending.status == WorkflowStatus.PENDING_APPROVAL
+    assert approved.status == WorkflowStatus.APPROVED
+    assert approved.request_id == "req-after-restart"
+    assert len(first_gateway.requests) == 2
+    assert second_gateway.requests == []
 
 
 @pytest.mark.asyncio

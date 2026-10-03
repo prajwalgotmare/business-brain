@@ -5,7 +5,11 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from business_brain.api.dependencies import get_generation_tracer
+from business_brain.api.dependencies import (
+    get_generation_tracer,
+    start_agent_checkpoint_runtime,
+    stop_agent_checkpoint_runtime,
+)
 from business_brain.api.errors import (
     AnalyticsBadRequestError,
     AnalyticsForbiddenError,
@@ -35,8 +39,12 @@ from business_brain.core.config import get_settings
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     get_settings()
-    yield
-    get_generation_tracer().flush()
+    await start_agent_checkpoint_runtime()
+    try:
+        yield
+    finally:
+        await stop_agent_checkpoint_runtime()
+        get_generation_tracer().flush()
 
 
 def create_app() -> FastAPI:

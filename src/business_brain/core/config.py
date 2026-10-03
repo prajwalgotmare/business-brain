@@ -42,6 +42,8 @@ class Settings(BaseSettings):
     database_url: str | None = None
     database_url_direct: str | None = None
     database_statement_timeout_seconds: float = Field(default=10.0, gt=0, le=60)
+    agent_checkpoint_backend: Literal["memory", "postgres"] = "postgres"
+    agent_checkpoint_pool_size: int = Field(default=3, ge=1, le=10)
     upload_max_bytes: int = Field(default=5_242_880, ge=1_024, le=10_485_760)
     upload_max_rows: int = Field(default=500, ge=1, le=5_000)
     upload_max_pdf_pages: int = Field(default=25, ge=1, le=100)

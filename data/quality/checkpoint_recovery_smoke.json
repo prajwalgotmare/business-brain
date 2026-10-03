@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-03T09:23:23.356379+00:00",
+  "checkpoint_backend": "neon_postgres",
+  "application_pool_startup": "passed",
+  "first_connection_closed_before_resume": true,
+  "pending_status_before_restart": "pending_approval",
+  "status_after_restart": "approved",
+  "approver_role": "founder_cfo",
+  "submission_allowed": false,
+  "llm_calls_before_restart": 2,
+  "llm_calls_after_restart": 0,
+  "verification_thread_cleaned_up": true
+}
