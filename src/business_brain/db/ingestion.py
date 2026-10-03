@@ -185,10 +185,15 @@ def verify_database(conn: psycopg.Connection[tuple[object, ...]]) -> dict[str, i
     expected.update({table: len(_csv_rows(table)) for table in CSV_TABLE_ORDER})
     actual: dict[str, int] = {}
     for table, expected_count in expected.items():
-        count_query = sql.SQL("SELECT count(*) FROM {}").format(sql.Identifier(table))
+        count_query = sql.SQL(
+            "SELECT count(*) FROM {} WHERE source_system = 'demo_generator'"
+        ).format(sql.Identifier(table))
         count = conn.execute(count_query).fetchone()[0]
         null_tenants = conn.execute(
-            sql.SQL("SELECT count(*) FROM {} WHERE tenant_id IS NULL").format(sql.Identifier(table))
+            sql.SQL(
+                "SELECT count(*) FROM {} "
+                "WHERE source_system = 'demo_generator' AND tenant_id IS NULL"
+            ).format(sql.Identifier(table))
         ).fetchone()[0]
         if null_tenants:
             raise RuntimeError(f"{table} contains {null_tenants} rows without tenant_id")
@@ -199,7 +204,8 @@ def verify_database(conn: psycopg.Connection[tuple[object, ...]]) -> dict[str, i
         )
         expected_tenants = Counter(str(row["tenant_id"]) for row in expected_rows)
         tenant_query = sql.SQL(
-            "SELECT tenant_id, count(*) FROM {} GROUP BY tenant_id ORDER BY tenant_id"
+            "SELECT tenant_id, count(*) FROM {} WHERE source_system = 'demo_generator' "
+            "GROUP BY tenant_id ORDER BY tenant_id"
         ).format(sql.Identifier(table))
         actual_tenants = Counter(dict(conn.execute(tenant_query).fetchall()))
         if actual_tenants != expected_tenants:

@@ -70,6 +70,7 @@ def ensure_collection(client: QdrantClient, settings: Settings) -> None:
         "document_kind": PayloadSchemaType.KEYWORD,
         "clause_id": PayloadSchemaType.KEYWORD,
         "page_number": PayloadSchemaType.INTEGER,
+        "source_type": PayloadSchemaType.KEYWORD,
     }
     info = client.get_collection(settings.qdrant_collection)
     for field_name, field_schema in indexes.items():
@@ -154,12 +155,22 @@ def ingest_documents(settings: Settings | None = None) -> QdrantIngestionReport:
         ensure_collection(client, current)
         _sync_points(client, current, chunks, points)
         expected = len(chunks)
-        actual = client.count(current.qdrant_collection, exact=True).count
+        synthetic_filter = Filter(
+            must=[
+                FieldCondition(key="source_type", match=MatchValue(value="synthetic")),
+            ]
+        )
+        actual = client.count(
+            current.qdrant_collection,
+            count_filter=synthetic_filter,
+            exact=True,
+        ).count
         if actual != expected:
             raise RuntimeError(f"Qdrant point-count drift: expected {expected}, found {actual}")
         indexed = client.get_collection(current.qdrant_collection).payload_schema
         required_indexes = {
-            "tenant_id", "sensitivity", "document_id", "document_kind", "clause_id", "page_number"
+            "tenant_id", "sensitivity", "document_id", "document_kind", "clause_id",
+            "page_number", "source_type"
         }
         if not required_indexes.issubset(indexed):
             raise RuntimeError("Required Qdrant payload indexes are missing")
@@ -171,9 +182,19 @@ def ingest_documents(settings: Settings | None = None) -> QdrantIngestionReport:
                 for sensitivity, count in sensitivity_counts.items()
                 if sensitivity in ROLE_SENSITIVITIES[role]
             )
+            governed_filter = governed_document_filter("tenant_aura", role)
+            role_filter = Filter(
+                must=[
+                    *(governed_filter.must or []),
+                    FieldCondition(
+                        key="source_type",
+                        match=MatchValue(value="synthetic"),
+                    ),
+                ]
+            )
             actual_role_count = client.count(
                 current.qdrant_collection,
-                count_filter=governed_document_filter("tenant_aura", role),
+                count_filter=role_filter,
                 exact=True,
             ).count
             if actual_role_count != expected_role_count:
@@ -198,3 +219,30 @@ def ingest_documents(settings: Settings | None = None) -> QdrantIngestionReport:
     )
     _write_manifest(current, report)
     return report
+
+
+def ingest_uploaded_chunks(
+    chunks: list[DocumentChunk], settings: Settings | None = None
+) -> int:
+    """Synchronize one validated user document and verify its scoped point count."""
+    if not chunks or len({chunk.document_id for chunk in chunks}) != 1:
+        raise ValueError("Exactly one uploaded document is required")
+    current = settings or Settings()
+    points = _embed_points(current, chunks)
+    client = create_client(current)
+    try:
+        ensure_collection(client, current)
+        _sync_points(client, current, chunks, points)
+        document_filter = _document_filter(chunks[0])
+        actual = client.count(
+            current.qdrant_collection,
+            count_filter=document_filter,
+            exact=True,
+        ).count
+        if actual != len(chunks):
+            raise RuntimeError(
+                f"Uploaded document point-count drift: expected {len(chunks)}, found {actual}"
+            )
+    finally:
+        client.close()
+    return len(chunks)

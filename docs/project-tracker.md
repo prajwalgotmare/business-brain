@@ -35,7 +35,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 3.10 | Qdrant document ingestion | DONE | Free Frankfurt cluster connected; ten authorized synthetic PDFs produced 49 deterministic clause-aware chunks; local BGE-small dense plus BM25 sparse embeddings synchronized to `business_brain_documents_v1`; six payload indexes, source hashes, required clauses, exact counts, idempotent rerun, Aura/Apex tenant boundary, and four role visibility profiles verified; Ruff and 93 tests passed | None |
 | 3.11 | Hybrid retrieval with citations | DONE | Governed API performs BGE dense plus BM25 sparse candidate search, Qdrant RRF fusion, deterministic business-identifier reranking, and typed document/page/section/clause/chunk citations; canonical tenant header fixed across API/Neon/Qdrant; five live expected citations ranked first with zero support-to-executive and Apex-to-Aura leaks; Ruff and 99 tests passed | None |
 | 3.12 | Governed SQL analytics | DONE | Four fixed parameterized Neon operations cover stockout risk, freight reconciliation, overdue invoices, and regional margin variance; explicit read-only transactions, statement timeout, canonical tenant predicates, pre-query role gates, typed API results, and sanitized 400/403/503 errors implemented; all locked scenario facts matched live and Apex queries returned zero Aura records; Ruff and 106 tests passed | None |
-| 3.13 | Website/API file-upload ingestion | TODO | — | Authorized CSV/JSON/PDF upload, validation, preview, tenant tagging, quarantine, and ingestion status |
+| 3.13 | Website/API file-upload ingestion | DONE | Two-phase multipart API supports tracking-event and vendor-invoice CSV/JSON plus business-document PDF; authenticated tenant is injected server-side, resource/sensitivity role policy enforced, previews and raw bytes/status staged in Neon with expiry metadata, explicit commit required, and invalid/cross-tenant/spoofed/active-content/formula-like inputs quarantined; live PDF preview-to-Qdrant commit, JSON tenant tagging, persistent status, repeatable corpus coexistence, and zero cross-tenant status leakage verified; Ruff and 113 tests passed | Website UI consumes these APIs in Phase 6 |
 | 4.1 | LangGraph governed supervisor | TODO | — | Add persistent state, routing, structured decisions, and bounded failure paths |
 | 4.2 | Specialized tool nodes | TODO | — | Add SQL/analytics, hybrid RAG, and validated action-drafting nodes |
 | 4.3 | Action schemas and risk policy | TODO | — | Add Pydantic PO, carrier-dispute, AP reminder, and delay-email outputs with policy-derived risk |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **3.12 Governed SQL analytics**
-- Next step: **3.13 Website/API file-upload ingestion**
+- Current completed step: **3.13 Website/API file-upload ingestion**
+- Next step: **4.1 LangGraph governed supervisor**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification at this checkpoint: four live read-only Neon analytics matched locked scenario facts, cross-tenant queries returned zero Aura records, role-denial tests passed before database access, Ruff passed, and 106 tests passed
+- Latest verification at this checkpoint: live PDF preview/commit created five governed Qdrant points, valid JSON was tenant-tagged, cross-tenant JSON was quarantined, upload status was invisible across tenants, original corpus rerun preserved uploaded points, Ruff passed, and 113 tests passed
 
 ## Update rule
 

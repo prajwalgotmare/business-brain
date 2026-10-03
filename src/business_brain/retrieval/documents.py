@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 from dataclasses import asdict, dataclass
+from io import BytesIO
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
@@ -135,6 +136,49 @@ def extract_document_chunks(document: dict[str, object]) -> list[DocumentChunk]:
     missing_clauses = allowed_clauses - {chunk.clause_id for chunk in chunks}
     if missing_clauses:
         raise ValueError(f"Missing clauses in {document['document_id']}: {sorted(missing_clauses)}")
+    return chunks
+
+
+def extract_uploaded_pdf_chunks(
+    *,
+    content: bytes,
+    tenant_id: str,
+    document_id: str,
+    title: str,
+    sensitivity: str,
+) -> list[DocumentChunk]:
+    """Extract already-validated user PDF bytes without writing them to disk."""
+    document_hash = hashlib.sha256(content).hexdigest()
+    chunks: list[DocumentChunk] = []
+    for page_number, page in enumerate(PdfReader(BytesIO(content), strict=True).pages, start=1):
+        for section_heading, text in _page_sections(page.extract_text() or ""):
+            chunk_index = len(chunks)
+            chunk_id = f"chk_{document_id}_{page_number:03d}_{chunk_index:03d}"
+            content_hash = hashlib.sha256(text.encode()).hexdigest()
+            clauses = sorted(set(_CLAUSE_PATTERN.findall(text)))
+            point_id = str(uuid5(NAMESPACE_URL, f"business-brain:{chunk_id}:{content_hash}"))
+            chunks.append(
+                DocumentChunk(
+                    point_id=point_id,
+                    chunk_id=chunk_id,
+                    tenant_id=tenant_id,
+                    document_id=document_id,
+                    title=title,
+                    document_kind="user_document",
+                    document_date=None,
+                    page_number=page_number,
+                    chunk_index=chunk_index,
+                    section_heading=section_heading,
+                    clause_id=clauses[0] if len(clauses) == 1 else None,
+                    content=text,
+                    content_sha256=content_hash,
+                    document_sha256=document_hash,
+                    sensitivity=sensitivity,
+                    source_type="user_upload",
+                )
+            )
+    if not chunks:
+        raise ValueError("Uploaded PDF has no extractable content")
     return chunks
 
 

@@ -21,7 +21,10 @@ def test_all_fixture_tables_have_rows_and_tenant_ids() -> None:
 
 def test_migrations_are_versioned_and_nonempty() -> None:
     files = ingestion._migration_files()
-    assert [path.name for path in files] == ["001_initial.sql"]
+    assert [path.name for path in files] == [
+        "001_initial.sql",
+        "002_upload_ingestion.sql",
+    ]
     assert "CREATE TABLE tenants" in files[0].read_text(encoding="utf-8")
 
 

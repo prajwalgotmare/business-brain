@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-03T07:26:08.850572+00:00",
+  "generated_at": "2026-10-03T08:29:10.234237+00:00",
   "collection_name": "business_brain_documents_v1",
   "dense_model": "BAAI/bge-small-en-v1.5",
   "dense_dimensions": 384,

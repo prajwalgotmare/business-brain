@@ -81,6 +81,10 @@ Phase 3A data foundation (in progress):
   overdue invoices, and regional margin variance
 - Explicit read-only transactions, statement timeouts, role gates, typed results, and
   post-query scenario/cross-tenant verification
+- Two-phase CSV/JSON/PDF upload workflow with validation preview, explicit commit,
+  tenant tagging, role/sensitivity policy, persistent status, and quarantine
+- PDF signature, encryption, active-content, page-count, and extractable-text checks;
+  structured Pydantic schemas, row limits, duplicate-key, and formula-like input checks
 
 ## Local development
 
@@ -159,6 +163,18 @@ uv run python scripts/verify_sql_analytics.py
 
 Analytics are available under `/api/v1/analytics`. The application exposes only fixed
 business operations; users and models cannot submit arbitrary SQL.
+
+Uploads use `POST /api/v1/uploads/preview`, followed by
+`POST /api/v1/uploads/{upload_id}/commit` only after the user reviews the preview.
+Current supported resources are tracking events (CSV/JSON), vendor invoices (CSV/JSON),
+and business documents (PDF). Upload bytes and status are staged tenant-safely in Neon;
+committed PDFs are chunked and embedded locally before synchronization to Qdrant.
+
+Run the live workflow verification:
+
+```powershell
+uv run python scripts/verify_upload_workflow.py
+```
 
 ## Delivery phases
 

@@ -14,12 +14,17 @@ from business_brain.api.errors import (
     ErrorResponse,
     LLMServiceUnavailableError,
     RetrievalServiceUnavailableError,
+    UploadConflictError,
+    UploadForbiddenError,
+    UploadNotFoundError,
+    UploadServiceUnavailableError,
 )
 from business_brain.api.request_context import request_id_from_header
 from business_brain.api.routes.analytics import router as analytics_router
 from business_brain.api.routes.ask import router as ask_router
 from business_brain.api.routes.health import router as health_router
 from business_brain.api.routes.search import router as search_router
+from business_brain.api.routes.uploads import router as uploads_router
 from business_brain.core.config import get_settings
 
 
@@ -140,10 +145,67 @@ def create_app() -> FastAPI:
         )
         return JSONResponse(status_code=400, content=payload.model_dump(mode="json"))
 
+    @app.exception_handler(UploadForbiddenError)
+    async def upload_forbidden_handler(
+        request: Request,
+        _: UploadForbiddenError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="upload_forbidden",
+                message="Your role cannot perform this upload operation.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=403, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(UploadNotFoundError)
+    async def upload_not_found_handler(
+        request: Request,
+        _: UploadNotFoundError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="upload_not_found",
+                message="The upload was not found.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=404, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(UploadConflictError)
+    async def upload_conflict_handler(
+        request: Request,
+        _: UploadConflictError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="upload_conflict",
+                message="The upload cannot be committed in its current state.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=409, content=payload.model_dump(mode="json"))
+
+    @app.exception_handler(UploadServiceUnavailableError)
+    async def upload_unavailable_handler(
+        request: Request,
+        _: UploadServiceUnavailableError,
+    ) -> JSONResponse:
+        payload = ErrorResponse(
+            error=ErrorDetail(
+                code="upload_service_unavailable",
+                message="File upload processing is temporarily unavailable.",
+                request_id=request.state.request_id,
+            )
+        )
+        return JSONResponse(status_code=503, content=payload.model_dump(mode="json"))
+
     app.include_router(health_router, prefix="/api/v1")
     app.include_router(ask_router, prefix="/api/v1")
     app.include_router(search_router, prefix="/api/v1/retrieval")
     app.include_router(analytics_router, prefix="/api/v1/analytics")
+    app.include_router(uploads_router, prefix="/api/v1/uploads")
     return app
 
 

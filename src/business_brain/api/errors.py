@@ -34,3 +34,19 @@ class AnalyticsForbiddenError(PermissionError):
 class AnalyticsBadRequestError(ValueError):
     """Safe application-level error for invalid analytic parameters."""
 
+
+class UploadForbiddenError(PermissionError):
+    """Safe application-level error for denied upload access."""
+
+
+class UploadNotFoundError(KeyError):
+    """Safe application-level error for a tenant-scoped missing upload."""
+
+
+class UploadConflictError(RuntimeError):
+    """Safe application-level error for an invalid upload state or commit."""
+
+
+class UploadServiceUnavailableError(RuntimeError):
+    """Safe application-level error for unavailable upload persistence."""
+

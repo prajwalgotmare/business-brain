@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-03T08:27:50.930983+00:00",
+  "committed_pdf_upload_id": "8898bca9-6474-45fd-80d0-239295e01187",
+  "committed_document_id": "doc_upload_8898bca9647445fd80d0239295e01187",
+  "validated_json_upload_id": "62ef2372-6803-476c-9404-fbdc0990f8a3",
+  "quarantined_upload_id": "e51cdcbc-2564-4149-8435-37e4c36f41d1",
+  "checks": {
+    "pdf_preview_commit_status": "passed",
+    "json_tenant_tagging": "passed",
+    "cross_tenant_quarantine": "passed",
+    "cross_tenant_status_isolation": "passed"
+  },
+  "cross_tenant_leak_count": 0
+}

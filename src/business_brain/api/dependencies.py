@@ -11,6 +11,7 @@ from business_brain.api.errors import (
     AnalyticsServiceUnavailableError,
     LLMServiceUnavailableError,
     RetrievalServiceUnavailableError,
+    UploadServiceUnavailableError,
 )
 from business_brain.core.config import Settings, get_settings
 from business_brain.llm.gateway import LLMGateway
@@ -23,6 +24,8 @@ from business_brain.observability.tracing import (
 )
 from business_brain.retrieval.hybrid import HybridRetriever
 from business_brain.security.context import AuthContext, UserRole
+from business_brain.uploads.repository import UploadRepository
+from business_brain.uploads.service import UploadService
 
 
 def get_auth_context(
@@ -145,4 +148,20 @@ def _build_analytics_service() -> GovernedAnalyticsService:
 
 def get_analytics_service() -> GovernedAnalyticsService:
     return _build_analytics_service()
+
+
+@lru_cache
+def _build_upload_service() -> UploadService:
+    settings = get_settings()
+    try:
+        return UploadService(
+            settings=settings,
+            repository=UploadRepository(settings),
+        )
+    except Exception as exc:
+        raise UploadServiceUnavailableError("Upload service is not configured") from exc
+
+
+def get_upload_service() -> UploadService:
+    return _build_upload_service()
 
