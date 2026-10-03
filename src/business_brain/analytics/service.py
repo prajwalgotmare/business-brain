@@ -13,16 +13,23 @@ from business_brain.analytics.schemas import (
     OverdueInvoice,
     StockoutRisk,
 )
-from business_brain.security.context import AuthContext, UserRole
+from business_brain.security.context import AuthContext
+from business_brain.security.policy import (
+    AuthorizationDeniedError,
+    Capability,
+    require_capability,
+)
 
 
 class AnalyticsAccessDeniedError(PermissionError):
     pass
 
 
-def _require_role(auth: AuthContext, allowed: set[UserRole]) -> None:
-    if auth.role not in allowed:
-        raise AnalyticsAccessDeniedError(f"Role {auth.role.value} cannot use this analytic")
+def _require(auth: AuthContext, capability: Capability) -> None:
+    try:
+        require_capability(auth, capability)
+    except AuthorizationDeniedError as exc:
+        raise AnalyticsAccessDeniedError("Role cannot use this analytic") from exc
 
 
 class GovernedAnalyticsService:
@@ -30,7 +37,7 @@ class GovernedAnalyticsService:
         self.repository = repository
 
     def stockout_risks(self, auth: AuthContext, *, limit: int = 20) -> list[StockoutRisk]:
-        _require_role(auth, {UserRole.FOUNDER_CFO, UserRole.LOGISTICS_MANAGER})
+        _require(auth, Capability.ANALYTICS_STOCKOUT)
         return [
             StockoutRisk.model_validate(row)
             for row in self.repository.stockout_risks(auth.tenant_id, limit)
@@ -39,14 +46,14 @@ class GovernedAnalyticsService:
     def freight_reconciliation(
         self, auth: AuthContext, shipment_id: str
     ) -> FreightReconciliation | None:
-        _require_role(auth, {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT})
+        _require(auth, Capability.ANALYTICS_FREIGHT)
         row = self.repository.freight_reconciliation(auth.tenant_id, shipment_id)
         return FreightReconciliation.model_validate(row) if row else None
 
     def overdue_invoices(
         self, auth: AuthContext, *, as_of: date, limit: int = 50
     ) -> list[OverdueInvoice]:
-        _require_role(auth, {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT})
+        _require(auth, Capability.ANALYTICS_OVERDUE_INVOICES)
         return [
             OverdueInvoice.model_validate(row)
             for row in self.repository.overdue_invoices(auth.tenant_id, as_of, limit)
@@ -55,7 +62,7 @@ class GovernedAnalyticsService:
     def margin_variance(
         self, auth: AuthContext, *, region_id: str, earlier: date, later: date
     ) -> MarginVariance | None:
-        _require_role(auth, {UserRole.FOUNDER_CFO})
+        _require(auth, Capability.ANALYTICS_MARGIN)
         if later <= earlier:
             raise ValueError("later week must be after earlier week")
         rows = list(self.repository.margin_weeks(auth.tenant_id, region_id, earlier, later))

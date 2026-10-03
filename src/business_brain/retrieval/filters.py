@@ -3,13 +3,9 @@
 from qdrant_client.models import FieldCondition, Filter, MatchAny, MatchValue
 
 from business_brain.security.context import UserRole
+from business_brain.security.policy import ROLE_SENSITIVITIES, sensitivities_for
 
-ROLE_SENSITIVITIES: dict[UserRole, tuple[str, ...]] = {
-    UserRole.FOUNDER_CFO: ("public", "support", "operations", "accounting", "executive"),
-    UserRole.LOGISTICS_MANAGER: ("public", "support", "operations"),
-    UserRole.STAFF_ACCOUNTANT: ("public", "accounting"),
-    UserRole.SUPPORT_INTERN: ("public", "support"),
-}
+__all__ = ["ROLE_SENSITIVITIES", "governed_document_filter"]
 
 
 def governed_document_filter(tenant_id: str, role: UserRole) -> Filter:
@@ -20,7 +16,7 @@ def governed_document_filter(tenant_id: str, role: UserRole) -> Filter:
         must=[
             FieldCondition(key="tenant_id", match=MatchValue(value=tenant_id)),
             FieldCondition(
-                key="sensitivity", match=MatchAny(any=list(ROLE_SENSITIVITIES[role]))
+                key="sensitivity", match=MatchAny(any=sorted(sensitivities_for(role)))
             ),
         ]
     )

@@ -8,11 +8,13 @@ from business_brain.analytics.repository import (
     MARGIN_WEEKS_SQL,
     OVERDUE_INVOICE_SQL,
     STOCKOUT_RISK_SQL,
+    AnalyticsRepository,
 )
 from business_brain.analytics.service import (
     AnalyticsAccessDeniedError,
     GovernedAnalyticsService,
 )
+from business_brain.core.config import Settings
 from business_brain.security.context import AuthContext, UserRole
 
 
@@ -97,6 +99,20 @@ def test_fixed_sql_is_read_only_and_tenant_scoped() -> None:
         assert statement.lstrip().upper().startswith(("SELECT", "WITH"))
         assert "%(tenant_id)s" in statement
         assert not any(keyword in normalized for keyword in forbidden)
+
+
+def test_repository_fails_closed_without_tenant_parameter_and_predicate() -> None:
+    def connection_must_not_run():
+        raise AssertionError("database connection must not open")
+
+    repository = AnalyticsRepository(
+        settings=Settings(_env_file=None),
+        connection_factory=connection_must_not_run,
+    )
+    with pytest.raises(ValueError, match="authenticated tenant"):
+        repository._query("SELECT 1", {})
+    with pytest.raises(ValueError, match="tenant predicate"):
+        repository._query("SELECT 1", {"tenant_id": "tenant_aura"})
 
 
 def test_roles_are_checked_before_repository_access() -> None:

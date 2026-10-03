@@ -42,7 +42,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 4.4 | Human approval workflow | DONE | Validated action drafts pause at a LangGraph `interrupt` using a process-local checkpointer; `POST /api/v1/agent/threads/{thread_id}/approval` resumes the exact thread with authenticated approve/reject input; tenant and role are checked before resume and again inside the node, high-risk drafts remain CFO-only, unauthorized attempts do not consume the interrupt, repeat decisions return conflict, decision identity/time/comment are audited, and approved drafts remain explicitly unexecuted; Ruff and 156 tests passed | Replace the process-local checkpointer with Neon persistence and prove restart recovery in Step 4.5 |
 | 4.5 | Durable checkpoints | DONE | Official `langgraph-checkpoint-postgres` async saver integrated with a bounded Neon connection pool; application startup runs idempotent checkpoint schema setup and shutdown closes the pool; tests use isolated memory state; `scripts/verify_checkpoint_recovery.py` created a pending PO approval, closed the first Neon connection, restored it through a new saver and supervisor, approved it with zero additional LLM calls, confirmed submission remained disabled, and deleted the verification thread; Ruff and 157 tests passed | None |
 | 4.6 | Auth0 identity integration | DONE | Auth0 EU tenant, custom API, RBAC, four exact roles, Post Login immutable tenant/role claims, Founder/CFO demo user, and least-privilege SPA user grant configured; Authorization Code with PKCE produced a live RS256 access token that the backend verified as `tenant_aura`/`founder_cfo` using cached JWKS, issuer, audience, time, subject, tenant, and role checks without printing or storing the token; spoofed headers are ignored, failures return sanitized 401s, Ruff and 168 tests passed, and `data/quality/auth0_live_smoke.json` records non-sensitive evidence | None |
-| 4.7 | RBAC and tenant enforcement | TODO | — | Enforce policy at API, tool, SQL, Qdrant, document, and action boundaries |
+| 4.7 | RBAC and tenant enforcement | DONE | One centralized 14-capability policy governs all four roles across API, agent/tool, SQL, Qdrant, upload/document, and draft/approval boundaries; all 12 protected business endpoints require authenticated context while health alone remains public; tenant IDs are strictly validated, SQL rejects missing tenant predicates, Qdrant applies tenant plus sensitivity filters and verifies returned payloads, upload commits recheck every normalized row, and the documented authorization matrix is exhaustively tested; Ruff and 192 tests passed | None |
 | 4.8 | Adversarial security suite | TODO | — | Test cross-tenant retrieval, privilege escalation, prompt injection, and unauthorized tool execution |
 | 4.9 | MCP integration | TODO | — | Expose or consume narrowly scoped governed tools with authentication and schema validation |
 | 5.1 | Golden evaluation dataset | TODO | — | Create and version at least 50 questions with expected facts, citations, permissions, and refusal behavior |
@@ -81,10 +81,10 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **4.6 Auth0 identity integration**
-- Next step: **4.7 RBAC and tenant enforcement**
+- Current completed step: **4.7 RBAC and tenant enforcement**
+- Next step: **4.8 adversarial security suite**
 - Active Git branch: `feat/data-blueprint`
-- Latest verification: a real Founder/CFO login completed through Authorization Code with PKCE; Auth0 issued an RS256 access token for the locked API audience, and the backend validated it as tenant `tenant_aura` and role `founder_cfo` using live JWKS without printing or storing the token. Non-sensitive evidence is in `data/quality/auth0_live_smoke.json`; Ruff passed and 168 tests passed.
+- Latest verification: the complete 14-capability-by-4-role matrix and sensitivity policy passed exhaustive tests; an API-boundary audit confirmed 12 protected routes and only `/api/v1/health` public; repository guards fail closed on absent tenant predicates or mismatched normalized rows; Ruff passed and 192 tests passed.
 
 ## Update rule
 

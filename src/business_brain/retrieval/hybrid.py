@@ -10,7 +10,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Fusion, FusionQuery, Prefetch, SparseVector
 
 from business_brain.core.config import Settings
-from business_brain.retrieval.filters import ROLE_SENSITIVITIES, governed_document_filter
+from business_brain.retrieval.filters import governed_document_filter
 from business_brain.retrieval.qdrant_ingestion import (
     DENSE_VECTOR,
     SPARSE_VECTOR,
@@ -22,6 +22,7 @@ from business_brain.retrieval.schemas import (
     RetrievalHit,
 )
 from business_brain.security.context import AuthContext
+from business_brain.security.policy import Capability, require_capability, sensitivities_for
 
 _TOKEN_PATTERN = re.compile(r"[a-z0-9]+(?:[._/-][a-z0-9]+)*", re.IGNORECASE)
 
@@ -104,6 +105,7 @@ class HybridRetriever:
         self, query: str, auth: AuthContext, *, limit: int | None = None
     ) -> HybridSearchResult:
         normalized_query = query.strip()
+        require_capability(auth, Capability.DOCUMENT_SEARCH)
         if len(normalized_query) < 3:
             raise ValueError("query must contain at least three characters")
         result_limit = limit or self.settings.retrieval_result_limit
@@ -138,7 +140,7 @@ class HybridRetriever:
             with_payload=True,
             with_vectors=False,
         )
-        allowed = set(ROLE_SENSITIVITIES[auth.role])
+        allowed = sensitivities_for(auth.role)
         points = list(response.points)
         for point in points:
             payload = point.payload or {}

@@ -1,6 +1,7 @@
 from enum import StrEnum
+from typing import Annotated
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class UserRole(StrEnum):
@@ -13,7 +14,14 @@ class UserRole(StrEnum):
 class AuthContext(BaseModel):
     model_config = ConfigDict(frozen=True)
 
-    tenant_id: str
-    user_id: str
+    tenant_id: Annotated[
+        str,
+        Field(
+            min_length=2,
+            max_length=63,
+            pattern=r"^[a-z0-9][a-z0-9_-]*$",
+        ),
+    ]
+    user_id: Annotated[str, Field(min_length=1, max_length=200)]
     role: UserRole
 

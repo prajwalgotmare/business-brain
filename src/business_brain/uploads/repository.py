@@ -131,6 +131,8 @@ class UploadRepository:
             records = list(job["normalized_records"] or [])
             for record in records:
                 values = dict(record)
+                if values.get("tenant_id") != tenant_id:
+                    raise ValueError("Normalized upload record crossed the tenant boundary")
                 values["source_system"] = "user_upload"
                 values["source_file"] = f"upload:{upload_id}/{job['original_filename']}"
                 columns = list(values)

@@ -134,6 +134,11 @@ class AnalyticsRepository:
         normalized = statement.lstrip().upper()
         if not normalized.startswith(("SELECT", "WITH")):
             raise ValueError("Analytics repository permits read-only statements only")
+        tenant_id = parameters.get("tenant_id")
+        if not isinstance(tenant_id, str) or not tenant_id:
+            raise ValueError("Analytics queries require an authenticated tenant")
+        if "%(tenant_id)s" not in statement:
+            raise ValueError("Analytics query is missing its tenant predicate")
         with closing(self._connection_factory()) as connection, connection.transaction():
             connection.execute("SET TRANSACTION READ ONLY")
             connection.execute(
@@ -142,7 +147,7 @@ class AnalyticsRepository:
             )
             connection.execute(
                 "SELECT set_config('app.current_tenant_id', %s, true)",
-                (str(parameters["tenant_id"]),),
+                (tenant_id,),
             )
             return list(connection.execute(statement, parameters).fetchall())
 

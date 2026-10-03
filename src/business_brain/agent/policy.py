@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
-from business_brain.agent.actions import ACTION_POLICIES
 from business_brain.agent.schemas import AgentRoute, SupervisorDecision, SupervisorIntent
 from business_brain.security.context import UserRole
+from business_brain.security.policy import Capability, role_has_capability
 
 
 @dataclass(frozen=True)
@@ -11,33 +11,19 @@ class PolicyDecision:
     error_code: str | None = None
 
 
-_ALLOWED_ROLES: dict[SupervisorIntent, frozenset[UserRole]] = {
-    SupervisorIntent.STOCKOUT_RISK: frozenset(
-        {UserRole.FOUNDER_CFO, UserRole.LOGISTICS_MANAGER}
-    ),
-    SupervisorIntent.FREIGHT_RECONCILIATION: frozenset(
-        {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}
-    ),
-    SupervisorIntent.SUPPLIER_TERMS: frozenset({UserRole.FOUNDER_CFO}),
-    SupervisorIntent.OVERDUE_INVOICES: frozenset(
-        {UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}
-    ),
-    SupervisorIntent.MARGIN_ANALYSIS: frozenset({UserRole.FOUNDER_CFO}),
-    SupervisorIntent.DRAFT_PURCHASE_ORDER: ACTION_POLICIES[
-        SupervisorIntent.DRAFT_PURCHASE_ORDER
-    ].drafter_roles,
-    SupervisorIntent.DRAFT_CARRIER_DISPUTE: ACTION_POLICIES[
-        SupervisorIntent.DRAFT_CARRIER_DISPUTE
-    ].drafter_roles,
-    SupervisorIntent.DRAFT_PAYMENT_REMINDER: ACTION_POLICIES[
-        SupervisorIntent.DRAFT_PAYMENT_REMINDER
-    ].drafter_roles,
-    SupervisorIntent.DRAFT_DELAY_ADVISORY: ACTION_POLICIES[
-        SupervisorIntent.DRAFT_DELAY_ADVISORY
-    ].drafter_roles,
-    SupervisorIntent.GENERAL_DOCUMENT_QUESTION: frozenset(UserRole),
-    SupervisorIntent.GENERAL_CONVERSATION: frozenset(UserRole),
-    SupervisorIntent.UNSUPPORTED: frozenset(),
+_INTENT_CAPABILITIES: dict[SupervisorIntent, Capability | None] = {
+    SupervisorIntent.STOCKOUT_RISK: Capability.ANALYTICS_STOCKOUT,
+    SupervisorIntent.FREIGHT_RECONCILIATION: Capability.ANALYTICS_FREIGHT,
+    SupervisorIntent.SUPPLIER_TERMS: Capability.DOCUMENT_SUPPLIER_TERMS,
+    SupervisorIntent.OVERDUE_INVOICES: Capability.ANALYTICS_OVERDUE_INVOICES,
+    SupervisorIntent.MARGIN_ANALYSIS: Capability.ANALYTICS_MARGIN,
+    SupervisorIntent.DRAFT_PURCHASE_ORDER: Capability.DRAFT_PURCHASE_ORDER,
+    SupervisorIntent.DRAFT_CARRIER_DISPUTE: Capability.DRAFT_CARRIER_DISPUTE,
+    SupervisorIntent.DRAFT_PAYMENT_REMINDER: Capability.DRAFT_PAYMENT_REMINDER,
+    SupervisorIntent.DRAFT_DELAY_ADVISORY: Capability.DRAFT_DELAY_ADVISORY,
+    SupervisorIntent.GENERAL_DOCUMENT_QUESTION: Capability.DOCUMENT_SEARCH,
+    SupervisorIntent.GENERAL_CONVERSATION: Capability.BASIC_ASSISTANT,
+    SupervisorIntent.UNSUPPORTED: None,
 }
 
 _EXPECTED_ROUTES: dict[SupervisorIntent, AgentRoute] = {
@@ -60,6 +46,7 @@ def authorize_decision(decision: SupervisorDecision, role: UserRole) -> PolicyDe
     """Validate the model's proposed route against immutable application policy."""
     if decision.route != _EXPECTED_ROUTES[decision.intent]:
         return PolicyDecision(allowed=False, error_code="route_intent_mismatch")
-    if role not in _ALLOWED_ROLES[decision.intent]:
+    capability = _INTENT_CAPABILITIES[decision.intent]
+    if capability is None or not role_has_capability(role, capability):
         return PolicyDecision(allowed=False, error_code="policy_denied")
     return PolicyDecision(allowed=True)

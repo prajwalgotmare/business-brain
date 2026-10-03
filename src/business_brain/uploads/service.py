@@ -20,6 +20,12 @@ from business_brain.data.logistics_models import TrackingEvent
 from business_brain.retrieval.documents import extract_uploaded_pdf_chunks
 from business_brain.retrieval.qdrant_ingestion import ingest_uploaded_chunks
 from business_brain.security.context import AuthContext, UserRole
+from business_brain.security.policy import (
+    AuthorizationDeniedError,
+    Capability,
+    require_capability,
+    sensitivities_for,
+)
 from business_brain.uploads.repository import UploadRepository
 from business_brain.uploads.schemas import (
     UploadCommitResult,
@@ -38,27 +44,17 @@ RESOURCE_MODELS: dict[UploadResourceType, type[BaseModel]] = {
     UploadResourceType.VENDOR_INVOICES: VendorInvoice,
 }
 
-RESOURCE_ROLES: dict[UploadResourceType, set[UserRole]] = {
-    UploadResourceType.TRACKING_EVENTS: {
-        UserRole.FOUNDER_CFO,
-        UserRole.LOGISTICS_MANAGER,
-    },
-    UploadResourceType.VENDOR_INVOICES: {
-        UserRole.FOUNDER_CFO,
-        UserRole.STAFF_ACCOUNTANT,
-    },
-    UploadResourceType.DOCUMENT: {
-        UserRole.FOUNDER_CFO,
-        UserRole.LOGISTICS_MANAGER,
-        UserRole.STAFF_ACCOUNTANT,
-    },
+RESOURCE_CAPABILITIES: dict[UploadResourceType, Capability] = {
+    UploadResourceType.TRACKING_EVENTS: Capability.UPLOAD_TRACKING_EVENTS,
+    UploadResourceType.VENDOR_INVOICES: Capability.UPLOAD_VENDOR_INVOICES,
+    UploadResourceType.DOCUMENT: Capability.UPLOAD_DOCUMENT,
 }
 
-DOCUMENT_SENSITIVITIES: dict[UserRole, set[str]] = {
-    UserRole.FOUNDER_CFO: SENSITIVITIES,
-    UserRole.LOGISTICS_MANAGER: {"public", "operations"},
-    UserRole.STAFF_ACCOUNTANT: {"public", "accounting"},
-    UserRole.SUPPORT_INTERN: set(),
+DOCUMENT_UPLOAD_SENSITIVITIES: dict[UserRole, frozenset[str]] = {
+    UserRole.FOUNDER_CFO: sensitivities_for(UserRole.FOUNDER_CFO),
+    UserRole.LOGISTICS_MANAGER: frozenset({"public", "operations"}),
+    UserRole.STAFF_ACCOUNTANT: frozenset({"public", "accounting"}),
+    UserRole.SUPPORT_INTERN: frozenset(),
 }
 
 
@@ -223,12 +219,14 @@ class UploadService:
         resource_type: UploadResourceType,
         sensitivity: str | None,
     ) -> None:
-        if auth.role not in RESOURCE_ROLES[resource_type]:
-            raise UploadAccessDeniedError("Role cannot upload this resource type")
+        try:
+            require_capability(auth, RESOURCE_CAPABILITIES[resource_type])
+        except AuthorizationDeniedError as exc:
+            raise UploadAccessDeniedError("Role cannot upload this resource type") from exc
         if resource_type == UploadResourceType.DOCUMENT:
             if sensitivity not in SENSITIVITIES:
                 raise UploadAccessDeniedError("A valid document sensitivity is required")
-            if sensitivity not in DOCUMENT_SENSITIVITIES[auth.role]:
+            if sensitivity not in DOCUMENT_UPLOAD_SENSITIVITIES[auth.role]:
                 raise UploadAccessDeniedError("Role cannot upload this document sensitivity")
 
     @staticmethod

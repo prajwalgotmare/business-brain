@@ -11,6 +11,7 @@ from business_brain.agent.schemas import RiskLevel, SupervisorIntent
 from business_brain.data.finance_models import InvoiceNumber, PositiveMoney
 from business_brain.data.models import CurrencyCode, Identifier, Money, Sku, StrictModel
 from business_brain.security.context import UserRole
+from business_brain.security.policy import Capability, roles_for
 
 ShortText = Annotated[str, StringConstraints(min_length=3, max_length=160)]
 MessageText = Annotated[str, StringConstraints(min_length=20, max_length=4_000)]
@@ -159,24 +160,22 @@ class ActionPolicy:
 ACTION_POLICIES: dict[SupervisorIntent, ActionPolicy] = {
     SupervisorIntent.DRAFT_PURCHASE_ORDER: ActionPolicy(
         risk_level=RiskLevel.HIGH,
-        drafter_roles=frozenset({UserRole.FOUNDER_CFO, UserRole.LOGISTICS_MANAGER}),
+        drafter_roles=roles_for(Capability.DRAFT_PURCHASE_ORDER),
         approver_roles=(UserRole.FOUNDER_CFO,),
     ),
     SupervisorIntent.DRAFT_CARRIER_DISPUTE: ActionPolicy(
         risk_level=RiskLevel.HIGH,
-        drafter_roles=frozenset({UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}),
+        drafter_roles=roles_for(Capability.DRAFT_CARRIER_DISPUTE),
         approver_roles=(UserRole.FOUNDER_CFO,),
     ),
     SupervisorIntent.DRAFT_PAYMENT_REMINDER: ActionPolicy(
         risk_level=RiskLevel.MEDIUM,
-        drafter_roles=frozenset({UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT}),
+        drafter_roles=roles_for(Capability.DRAFT_PAYMENT_REMINDER),
         approver_roles=(UserRole.FOUNDER_CFO, UserRole.STAFF_ACCOUNTANT),
     ),
     SupervisorIntent.DRAFT_DELAY_ADVISORY: ActionPolicy(
         risk_level=RiskLevel.MEDIUM,
-        drafter_roles=frozenset(
-            {UserRole.FOUNDER_CFO, UserRole.LOGISTICS_MANAGER, UserRole.SUPPORT_INTERN}
-        ),
+        drafter_roles=roles_for(Capability.DRAFT_DELAY_ADVISORY),
         approver_roles=(UserRole.FOUNDER_CFO, UserRole.LOGISTICS_MANAGER),
     ),
 }
