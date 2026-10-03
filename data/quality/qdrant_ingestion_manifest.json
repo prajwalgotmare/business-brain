@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-03T07:26:08.850572+00:00",
+  "collection_name": "business_brain_documents_v1",
+  "dense_model": "BAAI/bge-small-en-v1.5",
+  "dense_dimensions": 384,
+  "sparse_model": "Qdrant/bm25",
+  "document_count": 10,
+  "point_count": 49,
+  "tenant_counts": {
+    "tenant_aura": 49
+  },
+  "sensitivity_counts": {
+    "accounting": 22,
+    "executive": 7,
+    "operations": 15,
+    "public": 5
+  },
+  "role_visible_counts": {
+    "founder_cfo": 49,
+    "logistics_manager": 20,
+    "staff_accountant": 27,
+    "support_intern": 5
+  }
+}

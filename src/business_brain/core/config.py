@@ -43,6 +43,10 @@ class Settings(BaseSettings):
     database_url_direct: str | None = None
     qdrant_url: str | None = None
     qdrant_api_key: str | None = None
+    qdrant_collection: str = "business_brain_documents_v1"
+    qdrant_dense_model: str = "BAAI/bge-small-en-v1.5"
+    qdrant_sparse_model: str = "Qdrant/bm25"
+    qdrant_timeout_seconds: float = Field(default=30.0, gt=0, le=120)
 
     cloudflare_account_id: str | None = None
     cloudflare_api_token: str | None = None

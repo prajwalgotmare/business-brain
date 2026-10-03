@@ -72,6 +72,9 @@ Phase 3A data foundation (in progress):
 - Source-grounded PDF corpus with ten Aura documents and two CC BY 4.0 contract references
 - Versioned Neon PostgreSQL schema with 23 tenant-safe relational tables and operational indexes
 - Idempotent Aura/Apex ingestion with 9,392 live rows, provenance, integrity checks, and count verification
+- Qdrant collection with 49 clause-aware chunks from ten authorized synthetic PDFs
+- Local `bge-small-en-v1.5` dense and Qdrant BM25 sparse embeddings for zero-cost hybrid retrieval
+- Indexed tenant, sensitivity, document, clause, and page payloads with live role-isolation checks
 
 ## Local development
 
@@ -116,6 +119,21 @@ uv run python -m business_brain.db
 ```
 
 The command never prints either connection string. Do not commit `.env`.
+
+Configure Qdrant in `.env`, then extract, embed, synchronize, and verify the authorized
+document corpus:
+
+```text
+QDRANT_URL=https://your-cluster-url
+QDRANT_API_KEY=your-database-api-key
+```
+
+```powershell
+uv run python -m business_brain.retrieval
+```
+
+Embedding runs locally. Only manifest-authorized synthetic chunks and their vectors are
+sent to Qdrant; the two public reference PDFs are deliberately excluded.
 
 ## Delivery phases
 
