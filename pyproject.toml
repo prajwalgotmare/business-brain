@@ -43,6 +43,9 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/business_brain"]
 
+[tool.vercel]
+entrypoint = "src.business_brain.main:app"
+
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
