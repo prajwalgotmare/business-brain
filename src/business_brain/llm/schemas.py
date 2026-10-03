@@ -12,6 +12,7 @@ class GenerationRequest(BaseModel):
     messages: list[ChatMessage] = Field(min_length=1)
     temperature: float = Field(default=0.1, ge=0, le=2)
     max_tokens: int = Field(default=1_024, ge=1, le=8_192)
+    response_format: Literal["text", "json_object"] = "text"
 
 
 class TokenUsage(BaseModel):

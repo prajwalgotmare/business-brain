@@ -37,6 +37,8 @@ class HttpGroqChatClient:
             "temperature": request.temperature,
             "max_completion_tokens": request.max_tokens,
         }
+        if request.response_format == "json_object":
+            payload["response_format"] = {"type": "json_object"}
 
         try:
             async with httpx.AsyncClient(timeout=self._timeout) as client:
@@ -96,4 +98,3 @@ class HttpGroqChatClient:
                 total_tokens=usage.get("total_tokens", 0),
             ),
         )
-
