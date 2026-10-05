@@ -249,3 +249,5 @@ uv run python scripts/verify_checkpoint_recovery.py
 See [`docs/product-contract.md`](docs/product-contract.md) for the locked MVP scope and
 [`docs/data-blueprint.md`](docs/data-blueprint.md) for the canonical Phase 3 data contract.
 Progress is maintained in [`docs/project-tracker.md`](docs/project-tracker.md).
+Portfolio architecture, threat model, demo steps, measurements, and limitations are in
+[`docs/portfolio.md`](docs/portfolio.md).
