@@ -251,3 +251,4 @@ See [`docs/product-contract.md`](docs/product-contract.md) for the locked MVP sc
 Progress is maintained in [`docs/project-tracker.md`](docs/project-tracker.md).
 Portfolio architecture, threat model, demo steps, measurements, and limitations are in
 [`docs/portfolio.md`](docs/portfolio.md).
+Resume bullets and the interview walkthrough are in [`docs/resume-evidence.md`](docs/resume-evidence.md).
