@@ -57,6 +57,7 @@ _DEMO_PERSONAS = (
 
 @router.get("/demo-personas", response_model=list[DemoPersonaResponse])
 async def demo_personas(
+    _auth: Annotated[AuthContext, Depends(get_auth_context)],
     settings: Annotated[Settings, Depends(get_settings)],
 ) -> list[DemoPersonaResponse]:
     if settings.auth_mode != "mock" or settings.app_env == "production":
