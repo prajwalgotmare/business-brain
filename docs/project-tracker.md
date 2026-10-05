@@ -55,7 +55,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 6.2 | Instant demo identity flow | DONE | Development-only `/api/v1/auth/demo-personas` catalog exposes four Aura roles with non-secret demo IDs; it is unavailable in production or Auth0 mode, with coverage tests | Wire the catalog to Auth0 SPA login during deployment hardening |
 | 6.3 | Public deployment | DONE | Vercel production deployment verified on commit `9d9d0a`; health and live stockout chat request completed successfully; polished answer UI verified on preview commit `28f9c5b` | Promote the polished UI branch to production |
 | 6.4 | End-to-end acceptance suite | DONE | Full Pytest suite passed from a clean LF-normalized checkout; targeted API-boundary and demo-persona security tests passed; production stockout chat, approval/recovery, tenant isolation, upload, retrieval, and failure-state evidence verified | None |
-| 6.5 | Portfolio documentation | TODO | — | Complete README, architecture diagrams, threat model, demo script, measurements, and limitations |
+| 6.5 | Portfolio documentation | ACTIVE | README now records live deployment URLs and acceptance evidence in commit `5dccbb2` | Add architecture diagram, threat model, demo script, measurements, and limitations |
 | 6.6 | Resume and interview evidence | TODO | — | Produce honest metric-backed bullets, system-design narrative, and reproducible live-demo evidence |
 | 6.7 | Final completion audit | TODO | — | Confirm live URL, quality threshold, latency evidence, zero security-suite failures, crash-resume, and documentation |
 
