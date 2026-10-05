@@ -94,11 +94,86 @@ function appendError(error, context = "Request") {
   wrapper.scrollIntoView();
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function inlineMarkdown(value) {
+  return escapeHtml(value)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+function renderMarkdown(markdown) {
+  const lines = String(markdown || "No answer returned.").replaceAll("\r", "").split("\n");
+  const output = [];
+  let paragraph = [];
+  let list = [];
+  const flushParagraph = () => {
+    if (paragraph.length) {
+      output.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
+      paragraph = [];
+    }
+  };
+  const flushList = () => {
+    if (list.length) {
+      output.push(`<ul>${list.map((item) => `<li>${inlineMarkdown(item)}</li>`).join("")}</ul>`);
+      list = [];
+    }
+  };
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index].trim();
+    if (!line) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+    const next = lines[index + 1]?.trim() || "";
+    if (line.includes("|") && /^\|?\s*:?-{3,}/.test(next)) {
+      flushParagraph();
+      flushList();
+      const headers = line.split("|").map((cell) => cell.trim()).filter(Boolean);
+      index += 2;
+      const rows = [];
+      while (index < lines.length && lines[index].includes("|")) {
+        rows.push(lines[index].split("|").map((cell) => cell.trim()).filter(Boolean));
+        index += 1;
+      }
+      index -= 1;
+      output.push(`<div class="answer-table-wrap"><table><thead><tr>${headers.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join("")}</tr></thead><tbody>${rows.map((row) => `<tr>${headers.map((_, cellIndex) => `<td>${inlineMarkdown(row[cellIndex] || "—")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+      continue;
+    }
+    const heading = line.match(/^#{1,3}\s+(.+)/);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      output.push(`<h4>${inlineMarkdown(heading[1])}</h4>`);
+      continue;
+    }
+    const bullet = line.match(/^[-•]\s+(.+)/);
+    if (bullet) {
+      flushParagraph();
+      list.push(bullet[1]);
+      continue;
+    }
+    paragraph.push(line);
+  }
+  flushParagraph();
+  flushList();
+  return output.join("");
+}
+
 function renderResult(data) {
   const block = document.querySelector("#result-template").content.cloneNode(true);
   block.querySelector(".result-meta").textContent =
     `${data.route} · ${data.status} · ${data.model || "governed"}`;
-  block.querySelector(".result-answer").textContent = data.answer || "No answer returned.";
+  block.querySelector(".result-answer").innerHTML = renderMarkdown(data.answer);
   const citations = data.citations || [];
   block.querySelector(".citations").textContent = citations.length
     ? `Citations: ${citations
