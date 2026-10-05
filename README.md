@@ -107,6 +107,21 @@ Phase 4A governed orchestration:
 - Neon-backed LangGraph checkpoints that survive application and connection restarts
 - Bounded async PostgreSQL pool with automatic idempotent checkpoint schema setup
 
+## Deployment and acceptance
+
+The public Vercel deployment is live at:
+
+`https://business-brain-3acjtc5b7-p-smith.vercel.app/`
+
+The verified UI-formatting preview is available at:
+
+`https://business-brain-4rxfk4vix-p-smith.vercel.app/`
+
+Acceptance evidence includes a clean-checkout full test pass, authenticated API
+boundaries, tenant/RBAC isolation, upload validation, durable approval recovery,
+failure-state details, and a live stockout-risk chat request. See
+[`docs/project-tracker.md`](docs/project-tracker.md) for the current checkpoint.
+
 ## Local development
 
 Prerequisites: Python 3.11+, `uv`, Docker Desktop, and Docker Compose.
