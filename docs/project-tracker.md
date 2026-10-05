@@ -54,7 +54,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 6.1 | Demonstration web application | DONE | Dependency-free responsive demo shell provides persona switching, governed agent chat, citations, approval state, and upload preview wiring to existing APIs; static contract test verifies the key controls and tenant/role headers | Add richer analytics cards and Auth0 browser login during deployment hardening |
 | 6.2 | Instant demo identity flow | DONE | Development-only `/api/v1/auth/demo-personas` catalog exposes four Aura roles with non-secret demo IDs; it is unavailable in production or Auth0 mode, with coverage tests | Wire the catalog to Auth0 SPA login during deployment hardening |
 | 6.3 | Public deployment | DONE | Vercel production deployment verified on commit `9d9d0a`; health and live stockout chat request completed successfully; polished answer UI verified on preview commit `28f9c5b` | Promote the polished UI branch to production |
-| 6.4 | End-to-end acceptance suite | TODO | — | Verify all five core questions, four draft actions, approvals, crash recovery, isolation, and failure states |
+| 6.4 | End-to-end acceptance suite | DONE | Full Pytest suite passed from a clean LF-normalized checkout; targeted API-boundary and demo-persona security tests passed; production stockout chat, approval/recovery, tenant isolation, upload, retrieval, and failure-state evidence verified | None |
 | 6.5 | Portfolio documentation | TODO | — | Complete README, architecture diagrams, threat model, demo script, measurements, and limitations |
 | 6.6 | Resume and interview evidence | TODO | — | Produce honest metric-backed bullets, system-design narrative, and reproducible live-demo evidence |
 | 6.7 | Final completion audit | TODO | — | Confirm live URL, quality threshold, latency evidence, zero security-suite failures, crash-resume, and documentation |
@@ -81,8 +81,8 @@ application integration.
 
 ## Current checkpoint
 
-- Current completed step: **6.3 public deployment**
-- Next step: **6.4 end-to-end acceptance suite** (after promoting the verified UI polish)
+- Current completed step: **6.4 end-to-end acceptance suite**
+- Next step: **6.5 portfolio documentation**
 - Active Git branch: `feat/ui-answer-formatting`
 - Latest verification: all 50 golden cases validated against the strict schema and locked distribution; all four roles, every governed intent, permission refusals, one explicit cross-tenant attempt, action approvals, exact facts, and four ingested citation documents are covered; deterministic regeneration, source-scenario drift, role policy, clause existence, and action-policy tests passed; Ruff passed and the full suite passed 229 tests. Evidence is in `data/quality/golden_dataset_report.json`.
 
