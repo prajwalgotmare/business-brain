@@ -1,3 +1,4 @@
+import logging
 from functools import lru_cache
 from typing import Annotated
 from urllib.parse import urlparse
@@ -35,6 +36,7 @@ from business_brain.uploads.service import UploadService
 _agent_checkpointer = None
 _agent_checkpoint_pool = None
 _bearer_scheme = HTTPBearer(auto_error=False)
+_logger = logging.getLogger(__name__)
 
 
 @lru_cache
@@ -185,12 +187,22 @@ def _build_governed_supervisor() -> GovernedSupervisor:
         if settings.agent_checkpoint_backend != "memory":
             raise LLMServiceUnavailableError("Agent checkpoint runtime is not initialized")
         checkpointer = InMemorySaver()
+    try:
+        retriever = _build_hybrid_retriever()
+    except RetrievalServiceUnavailableError:
+        # Serverless deployments may not be able to download the fastembed
+        # models on the first request. Keep SQL/analytics routes available;
+        # document questions will return a governed tool failure instead of a
+        # generic HTTP 503 that the web client cannot explain.
+        _logger.exception("Hybrid retrieval unavailable; continuing without document retrieval")
+        retriever = None
+
     return GovernedSupervisor(
         gateway=_build_llm_gateway(),
         tracer=_build_generation_tracer(),
         primary_model=settings.groq_primary_model,
         analytics_service=_build_analytics_service(),
-        retriever=_build_hybrid_retriever(),
+        retriever=retriever,
         checkpointer=checkpointer,
     )
 
