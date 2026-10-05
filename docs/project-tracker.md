@@ -1,6 +1,6 @@
 # Business Brain Project Tracker
 
-Last updated: 2026-10-03
+Last updated: 2026-10-05
 
 This is the single progress tracker for Project A. Update it only after work is
 implemented and verified. An account being created is not the same as its integration
@@ -53,7 +53,7 @@ Status legend: `DONE` = implemented and verified, `ACTIVE` = current phase has s
 | 5.6 | Performance and cost evaluation | DONE | Ten-sample local forecast latency benchmark plus latest 50-case agent latency, token, and fallback summary are stored in `data/quality/performance_benchmark.json`; provider pricing is intentionally read from current provider dashboards rather than hardcoded | Add live retrieval/tool P95 probes during deployment acceptance |
 | 6.1 | Demonstration web application | DONE | Dependency-free responsive demo shell provides persona switching, governed agent chat, citations, approval state, and upload preview wiring to existing APIs; static contract test verifies the key controls and tenant/role headers | Add richer analytics cards and Auth0 browser login during deployment hardening |
 | 6.2 | Instant demo identity flow | DONE | Development-only `/api/v1/auth/demo-personas` catalog exposes four Aura roles with non-secret demo IDs; it is unavailable in production or Auth0 mode, with coverage tests | Wire the catalog to Auth0 SPA login during deployment hardening |
-| 6.3 | Public deployment | TODO | — | Configure Cloudflare/Vercel and backend/data services within verified zero-card free tiers |
+| 6.3 | Public deployment | DONE | Vercel production deployment verified on commit `9d9d0a`; health and live stockout chat request completed successfully; polished answer UI verified on preview commit `28f9c5b` | Promote the polished UI branch to production |
 | 6.4 | End-to-end acceptance suite | TODO | — | Verify all five core questions, four draft actions, approvals, crash recovery, isolation, and failure states |
 | 6.5 | Portfolio documentation | TODO | — | Complete README, architecture diagrams, threat model, demo script, measurements, and limitations |
 | 6.6 | Resume and interview evidence | TODO | — | Produce honest metric-backed bullets, system-design narrative, and reproducible live-demo evidence |
@@ -77,13 +77,13 @@ application integration.
 | Cloudflare | Pending | TODO | Hosting/edge capability selected during deployment design |
 | Auth0 | Ready | DONE | OIDC access-token issuance, immutable claims, and backend verification passed live; extend personas in Phase 6 |
 | DagsHub | Pending | TODO | Forecasting experiment tracking |
-| Vercel | Pending | TODO | Public demonstration frontend/deployment |
+| Vercel | Ready | DONE for initial public deployment | Production and preview deployments are live; UI polish promotion remains |
 
 ## Current checkpoint
 
-- Current completed step: **6.2 instant demo identity flow**
-- Next step: **6.3 public deployment**
-- Active Git branch: `feat/data-blueprint`
+- Current completed step: **6.3 public deployment**
+- Next step: **6.4 end-to-end acceptance suite** (after promoting the verified UI polish)
+- Active Git branch: `feat/ui-answer-formatting`
 - Latest verification: all 50 golden cases validated against the strict schema and locked distribution; all four roles, every governed intent, permission refusals, one explicit cross-tenant attempt, action approvals, exact facts, and four ingested citation documents are covered; deterministic regeneration, source-scenario drift, role policy, clause existence, and action-policy tests passed; Ruff passed and the full suite passed 229 tests. Evidence is in `data/quality/golden_dataset_report.json`.
 
 ## Update rule
